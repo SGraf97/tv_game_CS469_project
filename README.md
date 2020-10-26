@@ -1,2 +1,2 @@
-# Tv game witch iteract with the public
+# Tv game which interact with the public
 CS469 project @ CSD UOC
