@@ -1,2 +1,2 @@
-# tv_game_CS469_project
+# Tv game witch iteract with the public
 CS469 project @ CSD UOC
