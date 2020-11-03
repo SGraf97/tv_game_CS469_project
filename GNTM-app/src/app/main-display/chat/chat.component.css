@@ -1,0 +1,25 @@
+.username{
+  /*padding-left: 2%;*/
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 2%;
+}
+
+.chat-cmp > p{
+  /*border: 1px solid red;*/
+  border-radius: 2px 12px 12px 12px;
+  background-color:#FFFFFF;
+  /*padding: 1%;*/
+  margin: 2%;
+  color: #000000;
+  /*padding-left: 2%;*/
+  /*padding-right: 2%;*/
+  padding: 2% 5% 2% 5%;
+}
+/*p{*/
+/*  color: #000000;*/
+/*  margin-top: 0;*/
+/*}*/
+h1{
+  text-align: center;
+}
