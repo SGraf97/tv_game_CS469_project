@@ -1,0 +1,34 @@
+
+*{
+  /*overflow: hidden;*/
+}
+
+.chatContainer{
+  height:auto;
+  /*display: flex;*/
+  flex-direction: column;
+  align-items:center;
+  overflow: auto;
+}
+
+
+
+.username{
+  /*padding-left: 2%;*/
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 2%;
+}
+
+.chat-cmp > p{
+  border-radius: 2px 12px 12px 12px;
+  background-color:#FFFFFF;
+  margin: 2%;
+  color: #000000;
+  padding: 2% 5% 2% 5%;
+}
+
+
+h1{
+  text-align: center;
+}
