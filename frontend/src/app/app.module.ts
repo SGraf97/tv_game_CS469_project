@@ -8,6 +8,8 @@ import { WallComponent } from './wall/wall.component';
 import { TableComponent } from './table/table.component';
 import { PhoneComponent } from './phone/phone.component';
 import { ChatComponent } from './main-display/chat/chat.component';
+import { BuzzerComponent } from './table/buzzer/buzzer.component';
+import { OptionComponent } from './table/option/option.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ChatComponent } from './main-display/chat/chat.component';
     WallComponent,
     TableComponent,
     PhoneComponent,
-    ChatComponent
+    ChatComponent,
+    BuzzerComponent,
+    OptionComponent
   ],
   imports: [
     BrowserModule,

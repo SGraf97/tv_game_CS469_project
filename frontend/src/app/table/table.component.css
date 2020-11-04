@@ -1,0 +1,26 @@
+body{
+    height:1585px;
+    width:1080px;
+}
+
+#cnt-down{
+    font-size: xx-large;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    padding: 3%;
+}
+
+#buzzers, #options{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+app-buzzer, app-option{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
