@@ -3,12 +3,12 @@
   /*overflow: hidden;*/
 }
 
-.chatContainer{
-  height:auto;
-  /*display: flex;*/
+#chatContainer{
+  transform: rotate(180deg);
+  max-height:90vh;
   flex-direction: column;
   align-items:center;
-  overflow: auto;
+  overflow-y: hidden;
 }
 
 
@@ -19,6 +19,8 @@
   margin-bottom: 0;
   margin-left: 2%;
 }
+
+.chat-cmp { transform: rotate(180deg);}
 
 .chat-cmp > p{
   border-radius: 2px 12px 12px 12px;

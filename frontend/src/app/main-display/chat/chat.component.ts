@@ -14,13 +14,17 @@ export class ChatComponent implements OnInit  , DoCheck{
   index: number;
   // πρεπει να μπαινουν σε type αλλα μπορει να ειναι και any
   container: HTMLElement;
+
+
+  containerMessages: HTMLCollectionOf<Element>;
   constructor() {
-    console.log(this.messages);
+
   }
 
   // just for testing
   // καλειτε μολις φτιαχτει το αντικειμενο
   ngOnInit(): void {
+    // fill container data
     this.messages = [
       new Message('user1' , 'this is a text' , 'red' ),
       new Message('user1' , 'this is a text' , 'red' ),
@@ -30,15 +34,18 @@ export class ChatComponent implements OnInit  , DoCheck{
       new Message('user1' , 'this is a text' , 'red' )
 
     ];
-    console.log(this.messages);
-    // document.getElementById('chatContainer').style.overflow = 'scroll';
 
 
 
-    // gia na testarw ta messages
+    this.container = document.getElementById('chatContainer');
+    this.containerMessages = document.getElementsByClassName('chat-cmp');
+
+
+
+    // // gia na testarw ta messages
     // this.index = 0;
     // setInterval(() => {
-    //     this.messages.push({color : 'red' , username : 'user1' , text : 'ela' + this.index });
+    //     this.messages.unshift(new Message('user2' , 'this is a text' , 'orange'));
     //     this.index ++;
     //   }, 1000
     // );
@@ -48,12 +55,18 @@ export class ChatComponent implements OnInit  , DoCheck{
 
 // καλειτε οποτε αλλαζει το αντικειμενο
   ngDoCheck(): void{
-    this.container = document.getElementById('chatContainer');
-    this.container.scrollTop = this.container.scrollHeight;
-    console.log(this.container.scrollTop);
-    console.log(this.container.scrollHeight);
-    console.log(this);
 
+    // tslint:disable-next-line:triple-equals
+    if (this.containerMessages[this.containerMessages.length - 1] != undefined){
+      // console.log(this.container);
+      // console.log(this.containerMessages[this.containerMessages.length - 1].offsetTop);
+       // = this.containerMessages[this.containerMessages.length - 1].offsetTop;
+      console.log(this.container.scrollHeight);
+    }
+
+
+    // window.scrollTo(this.container.scrollHeight , 0);
+    // console.log(window);
   }
 
 
