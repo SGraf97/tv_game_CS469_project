@@ -3,6 +3,17 @@
   /*overflow: hidden;*/
 }
 
+.ChatTop{
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ChatTop > *{
+  /*justify-self: center;*/
+  /*flex-grow: 0.5;*/
+}
 #chatContainer{
   transform: rotate(180deg);
   max-height:90vh;

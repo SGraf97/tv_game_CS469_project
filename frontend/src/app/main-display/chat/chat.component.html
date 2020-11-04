@@ -1,7 +1,11 @@
 
+<div class = "ChatTop">
+  <img width="48" height="44" src="./assets/close-button.svg">
 
-<h1>Live chat</h1>
+  <h1>Live chat</h1>
+  <div style="width: 10%"></div>
 
+</div>
 <div id="chatContainer">
   <div class="chat-cmp" *ngFor="let message of messages">
     <h3 class="username" style=" color:{{message.user.color}}">

@@ -1,0 +1,30 @@
+<div class = "headerTop">
+  <img width="48" height="44" src="./assets/close-button.svg">
+
+  <h1>Twitter Feed</h1>
+  <div style="width: 10%"></div>
+
+</div>
+
+<!--feed-->
+<div class = "feed">
+  <div *ngFor="let t of twits" class="twit">
+    <h3>
+      {{t.userTag}}
+    </h3>
+    <h4 class = "opacity-05">
+      {{t.username}}
+    </h4>
+
+    <p>{{t.twit}}</p>
+
+    <div>
+      {{t.likes}}
+      {{t.retweets}}
+    </div>
+    <p>{{t.whenCreated}}</p>
+    <p class="opacity-05">{{t.twittedFrom}}</p>
+  </div>
+
+</div>
+00

@@ -8,6 +8,7 @@ import { WallComponent } from './wall/wall.component';
 import { TableComponent } from './table/table.component';
 import { PhoneComponent } from './phone/phone.component';
 import { ChatComponent } from './main-display/chat/chat.component';
+import { TwitterComponent } from './main-display/twitter/twitter.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ChatComponent } from './main-display/chat/chat.component';
     WallComponent,
     TableComponent,
     PhoneComponent,
-    ChatComponent
+    ChatComponent,
+    TwitterComponent
   ],
   imports: [
     BrowserModule,

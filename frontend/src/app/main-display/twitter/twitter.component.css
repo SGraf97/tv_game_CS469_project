@@ -1,0 +1,18 @@
+
+.headerTop{
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.opacity-05{
+  opacity: 50%;
+}
+
+.twit{
+  border-radius: 10px;
+  box-shadow: 6px 6px 15px #161d20 , -6px -6px 15px #305766;
+  padding : 2%;
+
+}
