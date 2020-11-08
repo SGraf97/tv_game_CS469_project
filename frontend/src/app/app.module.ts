@@ -9,6 +9,7 @@ import { TableComponent } from './table/table.component';
 import { PhoneComponent } from './phone/phone.component';
 import { ChatComponent } from './main-display/chat/chat.component';
 import { TwitterComponent } from './main-display/twitter/twitter.component';
+import { UsersCaruselComponent } from './main-display/users-carusel/users-carusel.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TwitterComponent } from './main-display/twitter/twitter.component';
     TableComponent,
     PhoneComponent,
     ChatComponent,
-    TwitterComponent
+    TwitterComponent,
+    UsersCaruselComponent
   ],
   imports: [
     BrowserModule,

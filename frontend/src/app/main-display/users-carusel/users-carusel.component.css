@@ -1,0 +1,14 @@
+.userInfo{
+  display: flex;
+  margin:2%
+}
+
+
+.usersContainer{
+  padding: 2%;
+  overflow-y: auto;
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
