@@ -10,6 +10,7 @@ import { PhoneComponent } from './phone/phone.component';
 import { ChatComponent } from './main-display/chat/chat.component';
 import { TwitterComponent } from './main-display/twitter/twitter.component';
 import { UsersCaruselComponent } from './main-display/users-carusel/users-carusel.component';
+import { FrameComponent } from './main-display/frame/frame.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UsersCaruselComponent } from './main-display/users-carusel/users-caruse
     PhoneComponent,
     ChatComponent,
     TwitterComponent,
-    UsersCaruselComponent
+    UsersCaruselComponent,
+    FrameComponent
   ],
   imports: [
     BrowserModule,

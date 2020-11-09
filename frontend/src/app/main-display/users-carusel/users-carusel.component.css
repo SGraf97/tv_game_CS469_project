@@ -5,9 +5,10 @@
 
 
 .usersContainer{
-  padding: 2%;
+  background-color:#2A4F5E;
+  padding: 1%;
   overflow-y: auto;
-  width: 80vw;
+  max-width: 1900px;
   display: flex;
   justify-content: space-between;
   align-items: center;

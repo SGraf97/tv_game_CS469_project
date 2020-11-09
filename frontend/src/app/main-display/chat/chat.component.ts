@@ -10,7 +10,7 @@ import {Message} from '../../model/message';
 export class ChatComponent implements OnInit  , DoCheck{
   // let array = [];
   messages: any;
-
+  onlineCounter: number;
   index: number;
   // πρεπει να μπαινουν σε type αλλα μπορει να ειναι και any
   container: HTMLElement;
@@ -24,6 +24,7 @@ export class ChatComponent implements OnInit  , DoCheck{
   // just for testing
   // καλειτε μολις φτιαχτει το αντικειμενο
   ngOnInit(): void {
+    this.onlineCounter = 4;
     // fill container data
     this.messages = [
       new Message('user1' , 'this is a text' , 'red' ),
@@ -43,17 +44,18 @@ export class ChatComponent implements OnInit  , DoCheck{
 
 
     // // gia na testarw ta messages
-    // this.index = 0;
-    // setInterval(() => {
-    //     this.messages.unshift(new Message('user2' , 'this is a text' , 'orange'));
-    //     this.index ++;
-    //   }, 1000
-    // );
+    this.index = 0;
+    setInterval(() => {
+        this.messages.unshift(new Message('user2' , 'this is a text' , 'orange'));
+        this.index ++;
+      }, 1000
+    );
 
   }
 
 
 // καλειτε οποτε αλλαζει το αντικειμενο
+
   ngDoCheck(): void{
 
     // tslint:disable-next-line:triple-equals

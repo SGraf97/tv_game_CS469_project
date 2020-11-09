@@ -1,21 +1,27 @@
+<div class = "big-container">
 
-<div class = "ChatTop">
-  <img width="48" height="44" src="./assets/close-button.svg">
+  <div class = "ChatTop">
+    <img width="48" height="44" src="./assets/close-button.svg">
 
-  <h1>Live chat</h1>
-  <div style="width: 10%"></div>
+    <h1>Live chat</h1>
+    <div style="width: 10%"></div>
 
-</div>
-<div id="chatContainer">
-  <div class="chat-cmp" *ngFor="let message of messages">
-    <h3 class="username" style=" color:{{message.user.color}}">
-      {{message.user.username}}
-    </h3>
+  </div>
+  <div id="chatContainer">
+    <div class="chat-cmp" *ngFor="let message of messages">
+      <h3 class="username" style=" color:{{message.user.color}}">
+        {{message.user.username}}
+      </h3>
 
-    <p>{{message.messageText}}</p>
+      <p>{{message.messageText}}</p>
+    </div>
+  </div>
+  <div class ="footer">
+    <p>{{onlineCounter}}<p>
+    <img src="assets/Ellipse%2056.svg">
+    <img src="assets/users.svg">
   </div>
 </div>
-
 
 
 

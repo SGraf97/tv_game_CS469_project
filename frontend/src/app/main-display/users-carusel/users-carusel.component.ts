@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../model/user";
+import {User} from '../../model/user';
 
 @Component({
   selector: 'app-users-carusel',
@@ -7,7 +7,7 @@ import {User} from "../../model/user";
   styleUrls: ['./users-carusel.component.css']
 })
 export class UsersCaruselComponent implements OnInit {
-  users : any;
+  users: any;
 
   constructor() { }
 
