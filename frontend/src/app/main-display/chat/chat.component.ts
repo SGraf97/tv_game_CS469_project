@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, DoCheck, OnInit} from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 // ειναι μεσα στον φακελο model για να ειναι ιδιο full stack
 import {Message} from '../../model/message';
 
@@ -24,6 +24,22 @@ export class ChatComponent implements OnInit  , DoCheck{
   // just for testing
   // καλειτε μολις φτιαχτει το αντικειμενο
   ngOnInit(): void {
+
+
+    document.querySelector('.closeMain').addEventListener('click' , () => {
+      console.log('eimai edw!');
+      const a = document.querySelector('app-main-display') as any;
+      console.log(a.querySelector('app-frame'));
+      // hide chat-twiter
+      a.querySelector('app-chat').style.display = 'none';
+      a.querySelector('app-users-carusel').style.display = 'none';
+      // resize iframe
+      const frame = a.querySelector('app-frame > iframe');
+      frame.setAttribute('width' , '1920');
+      frame.setAttribute('height' , '1080');
+    });
+
+
     this.onlineCounter = 4;
     // fill container data
     this.messages = [
@@ -43,13 +59,13 @@ export class ChatComponent implements OnInit  , DoCheck{
 
 
 
-    // // gia na testarw ta messages
-    this.index = 0;
-    setInterval(() => {
-        this.messages.unshift(new Message('user2' , 'this is a text' , 'orange'));
-        this.index ++;
-      }, 1000
-    );
+    // // // gia na testarw ta messages
+    // this.index = 0;
+    // setInterval(() => {
+    //     this.messages.unshift(new Message('user2' , 'this is a text' , 'orange'));
+    //     this.index ++;
+    //   }, 1000
+    // );
 
   }
 

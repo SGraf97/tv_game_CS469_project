@@ -29,12 +29,21 @@ app-chat{
   left:75%;
 }
 
+
+app-twitter{
+  background-color: #264653;
+  /*border:1px solid red;*/
+  width: 25%;
+  position: absolute;
+  /*left : ;*/
+  /*left : 0%;*/
+  top:0;
+  left:75%;
+}
 app-frame{
   max-height: 75%;
   max-width: 75%;
   position: absolute;
   left:0%;
   top: 0%;
-
-
 }
