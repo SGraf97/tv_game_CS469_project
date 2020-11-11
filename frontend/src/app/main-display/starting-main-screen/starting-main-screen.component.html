@@ -1,16 +1,40 @@
-<div class = "bg-black flex full-screen">
+
+
+
+<div class = "bg-black  full-screen">
   <div class = "onlineUsers">
-      <div *ngFor="let u of onlineUsers" class="onlineUser">
-        <svg height="10" width="10">
-          <circle cx="5" cy="5" r="5" fill="{{u.color}}"   />
-        </svg>
-          <p>{{u.username}}</p>
-      </div>
+    <div *ngFor="let u of onlineUsers" class="onlineUser">
+      <svg height="10" width="10">
+      <circle cx="5" cy="5" r="5" fill="{{u.color}} "></circle>
+      </svg>
+      <p>{{u.username}}</p>
+    </div>
   </div>
 
-  <div>
+
+
+
+  <div class = "center">
     <img src="assets/GNTM-Logo.png">
+    <h2 style="text-align: center">Next Episode : {{nextEpisode}}</h2>
+    <button id = "startEpisode">Start Episode</button>
   </div>
+
+
+  <div class ="gamepad">
+    <img class="" src="./assets/cil_gamepad.svg">
+  </div>
+
+  <div class=" touchPad ">
+    <p class="info-pop-up-left">leap away</p>
+    <img src="assets/vaadin_touch.svg">
+  </div>
+
+  <div class = "micPad">
+    <p class="info-pop-up-right">leap away</p>
+    <img src="assets/fa-solid_microphone-alt.svg">
+  </div>
+
 
 
 </div>

@@ -1,9 +1,8 @@
+
+
+
 .bg-black{
   background-color: black;
-}
-.full-screen{
-  width: 100%;
-  height: 100%;
 }
 
 .flex
@@ -12,9 +11,74 @@
 }
 
 
+.onlineUsers{
+  position: absolute;
+  left:2%;
+  top :2%;
+}
+
+.center{
+  text-align: center;
+  position: absolute;
+  top:40%;
+  left:30% ;
+}
+
 .onlineUser{
   width: 110%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+}
+
+.gamepad{
+  position: absolute;
+  top:2%;
+  left:95%;
+}
+
+.touchPad{
+  position: absolute;
+  top:85vh;
+  left:1vw;
+}
+
+.info-pop-up-left
+{
+  font-size: large;
+  background-color: #50A6B2;
+  width:100%;
+  text-align: right;
+  margin-left:100%;
+  padding: 10%;
+  border-radius: 10px 10px 10px 0px;
+}
+.micPad{
+  position: absolute;
+  top:85vh;
+  left:95vw;
+}
+.info-pop-up-right
+{
+  font-size: large;
+  background-color: #50A6B2;
+  width:100%;
+  text-align: right;
+  margin-left:-100%;
+  padding: 10%;
+  border-radius: 10px 10px 0px 10px;
+}
+
+p{
+  color: white;
+}
+
+button{
+  padding: 5%;
+  border:none;
+  border-radius: 50px;
+  color: white;
+  background-color: #264653;
+  box-shadow: 6px 6px 15px black , -6px -6px 15px darkslategrey;
 }
