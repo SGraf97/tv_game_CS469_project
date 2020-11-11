@@ -7,7 +7,7 @@ import {SelectDeviceComponent} from './select-device/select-device.component';
 const routes: Routes = [
   {path: 'main/home' , component: MainDisplayComponent},
   {path: 'main' , component : StartingMainScreenComponent},
-  // {path : '' , component: SelectDeviceComponent },
+  {path : '' , component: SelectDeviceComponent },
 
 ];
 
