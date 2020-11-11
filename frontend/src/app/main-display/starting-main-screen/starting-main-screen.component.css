@@ -73,12 +73,14 @@
 p{
   color: white;
 }
+#startEpisode{
+  /*margin-top: 20%;*/
 
-button{
-  padding: 5%;
+  padding: 3%;
   border:none;
   border-radius: 50px;
   color: white;
   background-color: #264653;
   box-shadow: 6px 6px 15px black , -6px -6px 15px darkslategrey;
 }
+

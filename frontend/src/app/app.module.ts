@@ -11,6 +11,7 @@ import { TwitterComponent } from './main-display/twitter/twitter.component';
 import { UsersCaruselComponent } from './main-display/users-carusel/users-carusel.component';
 import { FrameComponent } from './main-display/frame/frame.component';
 import { StartingMainScreenComponent } from './main-display/starting-main-screen/starting-main-screen.component';
+import { SelectDeviceComponent } from './select-device/select-device.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StartingMainScreenComponent } from './main-display/starting-main-screen
     TwitterComponent,
     UsersCaruselComponent,
     FrameComponent,
-    StartingMainScreenComponent
+    StartingMainScreenComponent,
+    SelectDeviceComponent
   ],
   imports: [
     BrowserModule,
