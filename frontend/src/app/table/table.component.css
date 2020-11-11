@@ -1,26 +1,19 @@
-body{
-    height:1585px;
-    width:1080px;
+img{
+    position: sticky;
 }
 
-#cnt-down{
-    font-size: xx-large;
-    margin: auto;
-    width: 100%;
-    text-align: center;
-    padding: 3%;
+i{
+    color: white;
 }
 
-#buzzers, #options{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-between;
+h1{
+    font-size: 96px;
 }
 
-app-buzzer, app-option{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-between;
+p{
+    font-size: 48px;
+}
+
+app-countdown{
+    font-size: 96px;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation} from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',

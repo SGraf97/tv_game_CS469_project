@@ -10,6 +10,11 @@ import { PhoneComponent } from './phone/phone.component';
 import { ChatComponent } from './main-display/chat/chat.component';
 import { BuzzerComponent } from './table/buzzer/buzzer.component';
 import { OptionComponent } from './table/option/option.component';
+import { CountdownComponent } from './table/countdown/countdown.component';
+import { CommonModule } from '@angular/common';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
@@ -20,11 +25,17 @@ import { OptionComponent } from './table/option/option.component';
     PhoneComponent,
     ChatComponent,
     BuzzerComponent,
-    OptionComponent
+    OptionComponent,
+    CountdownComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    NgbModule,
+    BsDropdownModule,
+    AlertModule,
+    NgbModule,      
   ],
   providers: [],
   bootstrap: [AppComponent]
