@@ -27,7 +27,7 @@ export class WallComponent implements OnInit {
   }*/
 
   /*Tha einai mia synartisi pou tha epistrefei enan pinaka 3 thesewn (top 3 models) kai tha ta emfanizei ston toixo
-  topModels(): string[] {
+  topModels(): {
 
   }*/
 
