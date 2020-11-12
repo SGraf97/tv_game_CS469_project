@@ -1,0 +1,20 @@
+app-enter-forms{
+    color: white;
+}
+
+.btn{
+    color: white;
+    background-color: #EE7B90;
+    border: none;
+    font-size: 20px;
+    padding: 1%;
+
+    box-shadow: -6px -6px 15px #315767, 6px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.btn:focus{
+    border: none;
+    text-decoration: none;
+    outline-style: none;
+}
+

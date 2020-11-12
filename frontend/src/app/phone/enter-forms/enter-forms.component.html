@@ -1,0 +1,5 @@
+<app-input id="username" type="text" label="Username"></app-input>
+<app-input id="password" type="password" label="Password"></app-input>
+<app-input id="confirm-password" type="password" label="Confirm Password" *ngIf="enter === 'Sign Up'"></app-input>
+<button type="submit" class="btn w-50 mx-auto mt-5 rounded-pill">{{enter}}</button>
+

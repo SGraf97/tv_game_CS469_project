@@ -1,1 +1,7 @@
-<p>phone works!</p>
+<app-topnav class="container-fluid d-flex flex-column text-center py-3" [enter]="enter"></app-topnav>
+
+<app-enter-forms class="container-fluid d-flex flex-column mt-5" [enter]="enter"></app-enter-forms>
+
+<app-social class="d-flex flex-column mx-auto mt-4 w-50"></app-social>
+
+<p class="d-flex flex-column fixed-bottom mb-2 text-center mx-auto" (click)="changeState()">{{enterAlt}}</p>

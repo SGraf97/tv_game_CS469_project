@@ -8,6 +8,11 @@ import { WallComponent } from './wall/wall.component';
 import { TableComponent } from './table/table.component';
 import { PhoneComponent } from './phone/phone.component';
 import { ChatComponent } from './main-display/chat/chat.component';
+import { TopnavComponent } from './phone/topnav/topnav.component';
+import { EnterFormsComponent } from './phone/enter-forms/enter-forms.component';
+import { InputComponent } from './phone/enter-forms/input/input.component';
+import { SocialComponent } from './phone/enter-forms/social/social.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +21,11 @@ import { ChatComponent } from './main-display/chat/chat.component';
     WallComponent,
     TableComponent,
     PhoneComponent,
-    ChatComponent
+    ChatComponent,
+    TopnavComponent,
+    EnterFormsComponent,
+    InputComponent,
+    SocialComponent
   ],
   imports: [
     BrowserModule,
