@@ -4,30 +4,28 @@
     <img src="./assets/GNTM-Logo.png" alt="GNTM LOGO">
      <!--<img src="Hraklis.jpg" class="model1" alt="Model1">-->
 
-  
-  <div *ngFor='let model of models'>
    <div class="model1">
-       <div class="model_icon">
+        <div class="model_icon">
           <div class="circle">1</div>
-       </div>
-       <p>{{models[0]?.name}}<br>{{models[0]?.points}}</p>
+        </div>
+        <p class="model_info"><a href="/models-info">{{models[0]?.name}}</a><br>{{models[0]?.points}}</p>  
    </div>
   
 
     <div class="model2">
        <div class="model_icon">
            <div class="circle">2</div>
-       </div>
-       <p>{{models[1]?.name}}<br>{{models[1]?.points}}</p>
+        </div>
+        
+        <p class="model_info"><a href="/models-info">{{models[1]?.name}}</a><br>{{models[1]?.points}}</p>  
     </div>
 
     <div class="model3">
        <div class="model_icon">
            <div class="circle">3</div>
-       </div>
-      <p>{{models[2]?.name}}<br>{{models[2]?.points}}</p>
+        </div>
+        <p class="model_info"><a href="/models-info">{{models[2]?.name}}</a><br>{{models[2]?.points}}</p>  
     </div>
-  </div>
     
     <!--Auta ta 2 einai analoga me to epeisodio (poio epeisodio einai, se poio lepto vrisketai)-->
     <p class="episode">s03e44</p>
@@ -37,6 +35,6 @@
            <p class="time">16:30</p>
        </div>
     </div>
-
 </div>
+
 
