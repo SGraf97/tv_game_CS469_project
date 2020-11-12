@@ -16,7 +16,6 @@ p {
 }
 
 
-
 .wall h1 {
     top: 0px;
     font-style: normal;
@@ -30,7 +29,7 @@ p {
     color: #E0E0E0;
 }
 
-.wall img {
+.logo img {
     position: absolute;
     width: 211px;
     height: 68px;
@@ -101,16 +100,34 @@ p {
     border:1px solid rgb(0, 0, 0);    
     height:25px;
     width:25px;
-    top: 50%;
-    left: 50%;
+    top: 48%;
+    left: 13%;
     border-radius:50%;
     text-align: center;
     color: #F9F9F9;
 }
 
+.model1_icon {
+    position: relative;
+    top: -10%; 
+    left: -5%;
+    height:55px;
+    width:55px;
+    overflow: hidden;
+    border-radius:50%;
+}
+
+.model1_icon img {
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 4em; height: 4em;
+    margin: -2em;
+}
+
 .model_icon {
     position: relative;
-    background-color:#000000; 
+    background-color:#000000;
     top: -10%; 
     left: -5%;
     height:55px;
