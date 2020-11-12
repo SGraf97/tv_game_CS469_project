@@ -1,0 +1,49 @@
+.wall-info { 
+    background-color: #264653;
+}
+
+.profile {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 77px;
+    top: 52px;
+    background: #C4C4C4;
+    border: 2px solid #000000;
+    border-radius:100px;
+}
+
+h1 {
+    position: absolute;
+    left: 200px;
+    top: 30px;
+    font-family: Ubuntu;
+    display: flex;
+    color: #EFEFEF;
+    letter-spacing: 0.02em;
+}
+
+h3 {
+    position: absolute;
+    left: 200px;
+    top: 80px;
+    font-family: Ubuntu;
+    display: flex;
+    color: #EFEFEF;
+    letter-spacing: 0.02em; 
+}
+
+h2 {
+   position: absolute;
+   left: 100px;
+   top: 160px;
+   font-family: Ubuntu;
+   display: flex;
+   letter-spacing: 0.02em;
+   color: #FFFEFE;
+}
+
+
+
+
+
