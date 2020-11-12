@@ -11,6 +11,12 @@
     background-color: #264653;
 }
 
+p {
+   left:50px;
+}
+
+
+
 .wall h1 {
     top: 0px;
     font-style: normal;
@@ -112,24 +118,33 @@
     border-radius:50%;
 }
 
+a {
+    text-decoration: none;
+}
+
+p.model_info {
+    position: absolute;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    left: 55px;
+    top: 5px;  
+    letter-spacing: 0.02em;
+}
+
 p.episode {
     position: absolute;
-    width: 50px;
-    height: 30px;
     left: 40px;
-    top: 238px;
-
+    top: 239px;
     font-family: Ubuntu;
     font-style: normal;
     font-weight: normal;
     font-size: 25px;
     line-height: 100%;
-
-    display: flex;
     align-items: center;
     text-align: center;
     letter-spacing: 0.02em;
-
+    display: flex;
     color: #FFFFFF;
 }
 
@@ -156,17 +171,11 @@ p.episode {
 /* 16:30 */
 p.time {
     position: absolute;
-    width: 50px;
-    height: 30px;
     left: 130px;
-    top: -10px;
-
+    top: -5px;
     font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
     font-size: 15px;
     line-height: 113%;
-
     display: flex;
     align-items: center;
     text-align: center;
