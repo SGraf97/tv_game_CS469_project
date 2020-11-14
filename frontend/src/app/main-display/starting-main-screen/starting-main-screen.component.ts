@@ -15,6 +15,10 @@ export class StartingMainScreenComponent implements OnInit {
   ngOnInit(): void {
       this.onlineUsers = User.getUsers();
       this.nextEpisode = '20/12/20';
+
+
+      const overlay = document.getElementsByClassName('overlay')[0] as any;
+
       document.querySelector('#startEpisode').addEventListener('click' , () => {
 
         const a = document.querySelector('app-main-display') as any ;
@@ -25,19 +29,19 @@ export class StartingMainScreenComponent implements OnInit {
       // show overlay
       document.querySelector('.gamepad').addEventListener('click',
         () => {
-          document.getElementsByClassName('overlay')[0].style.display = 'flex';
+          overlay.style.display = 'flex';
           document.getElementsByClassName('bg-black')[0].classList.add('blur');
       });
 
       // hide overlay
-      document.getElementsByClassName('overlay')[0].addEventListener('click' , ()=>{
-          document.getElementsByClassName('overlay')[0].style.display = 'none';
+      document.getElementsByClassName('overlay')[0].addEventListener('click' , () => {
+          overlay.style.display = 'none';
           document.getElementsByClassName('bg-black')[0].classList.remove('blur');
       });
 
       // buttons
       document.getElementsByClassName('box')[0].addEventListener('click' , () => {
-        location.href = '/main/home';
+        location.href = 'quiz';
       });
 
   }

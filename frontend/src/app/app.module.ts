@@ -12,6 +12,7 @@ import { UsersCaruselComponent } from './main-display/users-carusel/users-caruse
 import { FrameComponent } from './main-display/frame/frame.component';
 import { StartingMainScreenComponent } from './main-display/starting-main-screen/starting-main-screen.component';
 import { SelectDeviceComponent } from './select-device/select-device.component';
+import { QuizGameComponent } from './main-display/quiz-game/quiz-game.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SelectDeviceComponent } from './select-device/select-device.component';
     UsersCaruselComponent,
     FrameComponent,
     StartingMainScreenComponent,
-    SelectDeviceComponent
+    SelectDeviceComponent,
+    QuizGameComponent
   ],
   imports: [
     BrowserModule,
