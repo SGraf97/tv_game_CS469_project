@@ -22,6 +22,23 @@ export class StartingMainScreenComponent implements OnInit {
         a.querySelector('app-starting-main-screen').style.display = 'none';
         console.log(FrameComponent);
       });
+      // show overlay
+      document.querySelector('.gamepad').addEventListener('click',
+        () => {
+          document.getElementsByClassName('overlay')[0].style.display = 'flex';
+          document.getElementsByClassName('bg-black')[0].classList.add('blur');
+      });
+
+      // hide overlay
+      document.getElementsByClassName('overlay')[0].addEventListener('click' , ()=>{
+          document.getElementsByClassName('overlay')[0].style.display = 'none';
+          document.getElementsByClassName('bg-black')[0].classList.remove('blur');
+      });
+
+      // buttons
+      document.getElementsByClassName('box')[0].addEventListener('click' , () => {
+        location.href = '/main/home';
+      });
 
   }
 

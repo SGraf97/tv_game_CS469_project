@@ -1,11 +1,26 @@
 
+<div class = "overlay">
+    <div class = "box quiz-bg">
+      <img src="./assets/fxemoji_exclaimationquestionmark.svg">
+      <h2>quiz</h2>
+    </div>
 
+    <div class ="box photo-bg">
+      <img src="assets/bi_camera-fill.svg ">
+      <h2>Photoshooting</h2></div>
+    <div class ="box catwalk">
+      <img src="assets/noto_woman-walking-medium-light-skin-tone.svg">
+      <h2>quiz</h2>
+    </div>
 
-<div class = "bg-black  full-screen">
+</div>
+
+<div class = "bg-black flex    spacing">
+
   <div class = "onlineUsers">
-    <div *ngFor="let u of onlineUsers" class="onlineUser">
+    <div   *ngFor=" let u of onlineUsers"    class="onlineUser">
       <svg height="10" width="10">
-      <circle cx="5" cy="5" r="5" fill="{{u.color}} "></circle>
+      <circle cx="5" cy="5" r="5" fill="lightgreen"></circle>
       </svg>
       <p>{{u.username}}</p>
     </div>
@@ -20,22 +35,28 @@
     <a href="main/home" id = "startEpisode">Start Episode</a>
   </div>
 
-
   <div class ="gamepad">
     <img class="" src="./assets/cil_gamepad.svg">
   </div>
 
-  <div class=" touchPad ">
-    <p class="info-pop-up-left">leap away</p>
-    <img src="assets/vaadin_touch.svg">
-  </div>
 
-  <div class = "micPad">
-    <p class="info-pop-up-right">leap away</p>
-    <img src="assets/fa-solid_microphone-alt.svg">
-  </div>
+  <div class="break"></div>
+
+
+
+    <div class=" touchPad flex-end ">
+      <p class="info-pop-up-left">leap away</p>
+      <img src="assets/vaadin_touch.svg">
+    </div>
+
+    <div class = "micPad flex-end">
+      <p class="info-pop-up-right">leap away</p>
+      <img src="assets/fa-solid_microphone-alt.svg">
+    </div>
+
 
 
 
 </div>
+
 
