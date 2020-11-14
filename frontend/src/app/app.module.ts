@@ -12,6 +12,8 @@ import { TopnavComponent } from './phone/topnav/topnav.component';
 import { EnterFormsComponent } from './phone/enter-forms/enter-forms.component';
 import { InputComponent } from './phone/enter-forms/input/input.component';
 import { SocialComponent } from './phone/enter-forms/social/social.component';
+import { MainMenuComponent } from './phone/main-menu/main-menu.component';
+import { MenuButtonComponent } from './phone/main-menu/menu-button/menu-button.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { SocialComponent } from './phone/enter-forms/social/social.component';
     TopnavComponent,
     EnterFormsComponent,
     InputComponent,
-    SocialComponent
+    SocialComponent,
+    MainMenuComponent,
+    MenuButtonComponent
   ],
   imports: [
     BrowserModule,

@@ -16,9 +16,10 @@ export class PhoneComponent implements OnInit {
   public enter: string;
   public enterAlt: string;
 
+  public errMssg: boolean;
+
   constructor() { 
     this.state = this.states.LOGIN;
-    console.log("state: " + this.state);
   }
 
   ngOnInit(): void {
@@ -32,4 +33,6 @@ export class PhoneComponent implements OnInit {
     this.enter = this.state;
     console.log("state: " + this.state);
   }
+
+  
 }
