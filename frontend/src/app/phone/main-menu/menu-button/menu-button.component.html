@@ -1,4 +1,8 @@
-<button class="btn d-flex flex-column px-3"> 
-    <i [class]="btnClass mx-auto"></i>
-    <label class="mx-auto">Screenshot</label>
+<button class="btn d-flex flex-column px-3 mx-3 align-middle h-100" 
+        [style.backgroundColor]="btnClass.background" 
+        [style.color]="btnClass.color"
+        [attr.data-toggle]="btnClass.toggle" 
+        [attr.data-target]="btnClass.target"> 
+    <i [class]="btnClass.class" ></i>
+    <label class="mx-auto pt-2">{{btnClass.label}}</label>
 </button>

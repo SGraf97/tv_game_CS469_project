@@ -6,10 +6,76 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
+  public btnClass: string;
 
+  public menuButtons: any;
   constructor() { }
 
   ngOnInit(): void {
+    this.menuButtons = {
+      screenshot: {
+        class: "fas fa-camera fa-4x pt-2",
+        background: "#E76F51",
+        color: "black",
+        label: "Screenshot",
+        target: "#",
+        toggle: ""
+      },
+      capture: {
+        class: "fas fa-video fa-4x pt-2",
+        background: "#264653",
+        color: "#F15253",
+        label: "Record"
+      },
+      info: {
+        class: "fas fa-info fa-4x pt-2",
+        background: "white",
+        color: "black",
+        label: "Info",
+        target: "#",
+        toggle: ""
+      },
+      twitter: {
+        class: "fab fa-twitter fa-4x pt-2",
+        background: "#1DA1F2",
+        color: "black",
+        label: "Twitter",
+        target: "#twitterModal",
+        toggle: "modal"
+      },
+      toilet: {
+        class: "fas fa-toilet-paper fa-4x pt-2",
+        background: "#264653",
+        color: "#F15253",
+        label: "Toilet Break",
+        target: "",
+        toggle: ""
+      },
+      chat: {
+        class: "far fa-comment fa-4x pt-2",
+        background: "#E76F51",
+        color: "black",
+        label: "Live Chat",
+        target: "",
+        toggle: ""
+      },
+      games: {
+        class: "fas fa-gamepad fa-4x pt-2",
+        background: "white",
+        color: "black",
+        label: "Games",
+        target: "",
+        toggle: ""
+      },
+      user: {
+        class: "fas fa-user-alt fa-4x pt-2",
+        background: "#264653",
+        color: "#F15253",
+        label: "Profile",
+        target: "",
+        toggle: ""
+      }
+    }
   }
 
 }

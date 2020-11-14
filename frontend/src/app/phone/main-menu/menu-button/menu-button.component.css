@@ -1,5 +1,6 @@
 button{
     box-shadow: -6px -6px 15px #334C56, 6px 6px 15px rgba(0, 0, 0, 0.5);
-    background: #E76F51;
     border-radius: 20px;
+    width: 120px;
+    height: 120px;
 }

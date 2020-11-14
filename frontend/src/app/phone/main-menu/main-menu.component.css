@@ -1,0 +1,11 @@
+app-menu-button{
+    height: 100%;
+}
+
+#twitterModal > .btn {
+    background-color: #1DA1F2 !important;
+}
+
+#twitterModal > a {
+    color: #1DA1F2 !important;
+}

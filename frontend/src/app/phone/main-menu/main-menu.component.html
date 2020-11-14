@@ -1,1 +1,33 @@
-<app-menu-button btnClass="fas fa-camera fa-5x"></app-menu-button>
+<div class="d-inline-flex mx-auto mt-4">
+    <app-menu-button [btnClass]="menuButtons.screenshot"></app-menu-button>
+    <app-menu-button [btnClass]="menuButtons.capture"></app-menu-button>
+</div>
+
+<div class="d-inline-flex mx-auto mt-4">
+    <app-menu-button [btnClass]="menuButtons.info"></app-menu-button>
+    <app-menu-button [btnClass]="menuButtons.twitter"></app-menu-button>
+</div>
+
+<div class="d-inline-flex mx-auto mt-4"> 
+    <app-menu-button [btnClass]="menuButtons.toilet"></app-menu-button>
+    <app-menu-button [btnClass]="menuButtons.chat"></app-menu-button>
+</div>
+
+<div class="d-inline-flex mx-auto mt-4">
+    <app-menu-button [btnClass]="menuButtons.games"></app-menu-button>
+    <app-menu-button [btnClass]="menuButtons.user"></app-menu-button>
+</div>
+
+<!--Twitter Modal -->
+<div class="modal fade" id="twitterModal" tabindex="-1" aria-labelledby="twitterModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <input type="text" class="form-control" id="tweetInput" value="Write your tweet...">
+             
+            <a href="#">#gntm</a>
+        </div>
+          <button type="button" class="btn btn-primary w-25 rounded-pill ml-auto m-2 p-1" data-dismiss="modal">tweet</button>
+      </div>
+    </div>
+  </div>

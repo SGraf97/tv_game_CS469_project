@@ -2,3 +2,13 @@ label{
     color: white;
     font-size: 14px;
 }
+
+input{
+    color:white;
+}
+
+input:focus{
+    color:white;
+    box-decoration-break: none;
+    border: initial;
+}
