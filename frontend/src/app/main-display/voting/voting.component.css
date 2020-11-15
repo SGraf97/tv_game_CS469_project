@@ -1,0 +1,62 @@
+
+.flex{
+  display: flex;
+}
+.pd-2{
+  padding: 2%;
+}
+.ju-center{
+  justify-content: center;
+}
+.dot-container{
+  display: flex;
+  justify-content: center;
+  max-width: 50vw;
+}
+
+
+
+.dot-container> *{
+  width: 5%;
+}
+
+.image-container{
+  position: absolute;
+  left:50%;
+  transition-duration: 1s;
+}
+
+.image-container>img{
+  max-width: 90vw;
+  position: absolute;
+}
+
+.left{
+  position: absolute;
+  left:10%;
+  display: flex;
+  flex-direction: column;
+  transition-duration: 1s;
+}
+
+.right{
+  transition-duration: 1s;
+  position: absolute;
+  left:80%;
+}
+
+.liked{
+  transition-duration: 2s;
+  left:100vw;
+  /*filter: blur(1000px);*/
+  /*display: none;*/
+
+}
+
+.disliked{
+  transition-duration: 0.5s;
+  left:-100%;
+}
+.image{
+  transition-duration: 2s;
+}

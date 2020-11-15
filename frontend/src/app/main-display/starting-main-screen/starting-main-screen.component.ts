@@ -41,7 +41,7 @@ export class StartingMainScreenComponent implements OnInit {
 
       // buttons
       document.getElementsByClassName('box')[0].addEventListener('click' , () => {
-        location.href = 'quiz';
+        location.href = 'main/quiz';
       });
 
   }

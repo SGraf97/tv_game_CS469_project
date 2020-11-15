@@ -13,6 +13,7 @@ import { FrameComponent } from './main-display/frame/frame.component';
 import { StartingMainScreenComponent } from './main-display/starting-main-screen/starting-main-screen.component';
 import { SelectDeviceComponent } from './select-device/select-device.component';
 import { QuizGameComponent } from './main-display/quiz-game/quiz-game.component';
+import { VotingComponent } from './main-display/voting/voting.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { QuizGameComponent } from './main-display/quiz-game/quiz-game.component'
     FrameComponent,
     StartingMainScreenComponent,
     SelectDeviceComponent,
-    QuizGameComponent
+    QuizGameComponent,
+    VotingComponent
   ],
   imports: [
     BrowserModule,
