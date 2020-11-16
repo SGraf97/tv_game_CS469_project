@@ -14,6 +14,7 @@ import { StartingMainScreenComponent } from './main-display/starting-main-screen
 import { SelectDeviceComponent } from './select-device/select-device.component';
 import { QuizGameComponent } from './main-display/quiz-game/quiz-game.component';
 import { VotingComponent } from './main-display/voting/voting.component';
+import { CatwalkComponent } from './main-display/catwalk/catwalk.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { VotingComponent } from './main-display/voting/voting.component';
     StartingMainScreenComponent,
     SelectDeviceComponent,
     QuizGameComponent,
-    VotingComponent
+    VotingComponent,
+    CatwalkComponent
   ],
   imports: [
     BrowserModule,
