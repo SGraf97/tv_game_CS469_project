@@ -1,0 +1,38 @@
+<app-topnav [enter]="game" class="container-fluid d-flex flex-column text-center py-3"></app-topnav>
+
+<!-- waiting for user to complete the task -->
+<div *ngIf="state === states.WAIT" id="upNext" class="d-flex flex-column py-5 my-5">
+    <div class="d-flex d-inline-flex mx-auto">
+        <span class="text-white mx-2">Up next: </span>
+        <p>User#</p>
+    </div>
+
+    <div class="d-flex flex-column mx-auto mt-5">
+        <div class="spinner-border text-warning" role="status" (click)="changeState()">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+</div>
+
+<!-- vote user's photo/catwalk -->
+<div *ngIf="state !== states.WAIT" id="rate" class="d-flex flex-column py-5 my-5">
+    <span class="mx-auto p-5 rounded-lg">
+        <i class="fas fa-user-ninja fa-10x"></i>
+        <!-- <img src="..." class="rounded mx-auto d-block" alt="..."> -->
+    </span>
+
+    <!-- voting options -->
+    <div *ngIf="state === states.RATE" class="d-flex justify-content-between mt-5 pt-5">
+        <span class="mx-auto px-3" id="like" (click)="changeState()">
+            <i class="fas fa-heart fa-5x text-center"></i>
+        </span>
+        <span class="mx-auto px-3" id="dislike" (click)="changeState()">
+            <i class="far fa-times-circle fa-5x text-center"></i>
+        </span>
+    </div>
+
+    <!-- thank you message -->
+    <div *ngIf="state === states.DONE" class="d-flex justify-content-center mt-5 pt-5" (click)="changeState()">
+        <h4 class="font-weight-light">Thanks for your vote </h4>
+    </div>
+</div>
