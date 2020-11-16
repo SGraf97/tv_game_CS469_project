@@ -7,22 +7,36 @@ import {types} from 'util';
   styleUrls: ['./voting.component.css']
 })
 export class VotingComponent implements OnInit {
-  dotArray: Array<{index: number , active: boolean , base64Image: string , color: string}> = [];
+  dotArray: Array<{index: number , active: boolean , imagePath: string }> = [];
+
+  dotHtml: any;
 
   images: any;
 
+ 
 
   constructor() { }
 
   ngOnInit(): void {
+
+   
+
+
+    
     // tslint:disable-next-line:prefer-const
     let photoLength = 12;
 
+    
     for (let i = 0; i < photoLength; i++){
-      const obj = {index : i , active : false , base64Image: undefined , color: '#336971'};
+      const obj = {index : photoLength-i , active : false , imagePath: "assets/Rectangle%2069.png" };
+      if(i == 0)obj.active = true; 
       this.dotArray[i] = obj;
     }
 
+    
+
+    
+    
     const likebtn = document.getElementById('like') as any;
     const dislikebtn  = document.getElementById('dislike') as any;
 
@@ -43,6 +57,11 @@ export class VotingComponent implements OnInit {
       current.style.display = 'none';
       // console.log(current.style.transitionDuration);
     });
+    
   }
+
+
+
+
 
 }

@@ -10,14 +10,22 @@
 }
 .dot-container{
   display: flex;
+  height: 10vh;
   justify-content: center;
-  max-width: 50vw;
+  max-width: 70vw;
+}
+
+.dot-container > div{
+  margin-left: 20px;
 }
 
 
-
-.dot-container> *{
-  width: 5%;
+.bottom{
+  width: 100%;
+  position: absolute;
+  /* left:50%; */
+  text-align: center;
+  top:90%
 }
 
 .image-container{
@@ -59,4 +67,21 @@
 }
 .image{
   transition-duration: 2s;
+}
+/* dots */
+
+.non-active{
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  display: block;
+  color: brown;
+  border-radius: 100px;
+  background-color: #336971;
+  /* content: ""; */
+
+}
+
+.active{
+  background-color: #FFB500;
 }
