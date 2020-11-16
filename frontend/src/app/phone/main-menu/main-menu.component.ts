@@ -14,7 +14,7 @@ export class MainMenuComponent implements OnInit {
   ngOnInit(): void {
     this.menuButtons = {
       screenshot: {
-        class: "fas fa-camera fa-4x pt-2",
+        class: "fas fa-camera fa-4x pt-2 mx-auto",
         background: "#E76F51",
         color: "black",
         label: "Screenshot",
@@ -22,21 +22,21 @@ export class MainMenuComponent implements OnInit {
         toggle: ""
       },
       capture: {
-        class: "fas fa-video fa-4x pt-2",
+        class: "fas fa-video fa-4x pt-2 mx-auto",
         background: "#264653",
         color: "#F15253",
         label: "Record"
       },
       info: {
-        class: "fas fa-info fa-4x pt-2",
+        class: "fas fa-info fa-4x pt-2 mx-auto",
         background: "white",
         color: "black",
         label: "Info",
-        target: "#",
-        toggle: ""
+        target: "#notificationModal",
+        toggle: "modal"
       },
       twitter: {
-        class: "fab fa-twitter fa-4x pt-2",
+        class: "fab fa-twitter fa-4x pt-2 mx-auto",
         background: "#1DA1F2",
         color: "black",
         label: "Twitter",
@@ -44,7 +44,7 @@ export class MainMenuComponent implements OnInit {
         toggle: "modal"
       },
       toilet: {
-        class: "fas fa-toilet-paper fa-4x pt-2",
+        class: "fas fa-toilet-paper fa-4x pt-2 mx-auto",
         background: "#264653",
         color: "#F15253",
         label: "Toilet Break",
@@ -52,7 +52,7 @@ export class MainMenuComponent implements OnInit {
         toggle: ""
       },
       chat: {
-        class: "far fa-comment fa-4x pt-2",
+        class: "far fa-comment fa-4x pt-2 mx-auto",
         background: "#E76F51",
         color: "black",
         label: "Live Chat",
@@ -60,15 +60,15 @@ export class MainMenuComponent implements OnInit {
         toggle: ""
       },
       games: {
-        class: "fas fa-gamepad fa-4x pt-2",
+        class: "fas fa-gamepad fa-4x pt-2 mx-auto",
         background: "white",
         color: "black",
         label: "Games",
-        target: "",
-        toggle: ""
+        target: "#gamesModal",
+        toggle: "modal"
       },
       user: {
-        class: "fas fa-user-alt fa-4x pt-2",
+        class: "fas fa-user-alt fa-4x pt-2 mx-auto",
         background: "#264653",
         color: "#F15253",
         label: "Profile",

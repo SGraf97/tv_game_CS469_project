@@ -2,10 +2,36 @@ app-menu-button{
     height: 100%;
 }
 
-#twitterModal > .btn {
+#tweet {
     background-color: #1DA1F2 !important;
+    border: none;
 }
 
-#twitterModal > a {
-    color: #1DA1F2 !important;
+textarea:focus{
+    border: none;
+    border-style: hidden;
+}
+
+#twitterModal > .modal-dialog{
+    background-color: #315767;
+    box-shadow: -8px -8px 17px rgba(221, 221, 221, 0.1), 8px 8px 16px rgba(120, 120, 120, 0.3);
+}
+
+#gamesModal > .modal-dialog > .modal-content, #notificationModal > .modal-dialog > .modal-content{
+    background-color: #264653 !important;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+}
+
+.game-btn{
+    box-shadow: -6px -6px 15px #315767, 6px 6px 15px rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+#accept{
+    background-color: #264653 !important;
+}
+#decline{
+    background-color: #E76F51 !important;
 }
