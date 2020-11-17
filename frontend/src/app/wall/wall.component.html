@@ -1,23 +1,40 @@
 
 <div class="wall">
-  <div class="overlay"></div>
-    <h1>TODAY’S CONCEPT:<br>MERMAIDS</h1>
+  <div class="overlay">
+    <div class="trophy"><img src="./assets/trophy.svg" width="30" alt="trophy"></div>
+    <div class="group"><img src="./assets/group.svg" width="30" alt="group"></div>
+    <div class="video-player"><img src="./assets/video-player.svg" width="30" alt="video-player"></div>
+    <div class="close"><img src="./assets/close.svg" width="30" alt="close"></div>
+
+    <p style="color: #FFB500; position:absolute; left:135px; top:10px; font-family:ubuntu; font-size:20px;">Notifications</p>
+
+    <img src="./assets/game.svg" width="30" style="position:absolute; left:130px; top:70px" alt="game">
+    <p style="color: #FFFFFF; position:absolute; left:170px; top:55px; font-family:ubuntu;">
+      game session started<br>
+      click accept on your phone to join</p>
+
+    <img src="./assets/user.svg" width="30" style="position:absolute; left:130px; top:140px" alt="user">
+    <p style="color: #FFFFFF; position:absolute; left:170px; top:130px; font-family:ubuntu;">
+      Welcome {{user}}</p>
+  </div>
+
+    <h1 class="header">TODAY’S CONCEPT:<br>MERMAIDS</h1>
     <div class="logo">
       <img src="./assets/GNTM-Logo.png" alt="GNTM LOGO">
     </div>
+  
 
    <div class="model1">
-        <div class="model1_icon">
-          <img src="./assets/hraklis.jpg" alt="model1">
+        <div class="model_icon">
+          <img src="./assets/models/hraklis.jpg" width="30" alt="model1">
         </div>
         <div class="circle">1</div>
         <p class="model_info"><a href="/models-info">{{models[0]?.name}}</a><br>{{models[0]?.points}}</p>  
    </div>
-  
 
     <div class="model2">
        <div class="model_icon">
-           
+        <img src="./assets/models/irida.jpg" width="30" alt="model1"> 
         </div> 
         <div class="circle">2</div>  
         <p class="model_info"><a href="/models-info">{{models[1]?.name}}</a><br>{{models[1]?.points}}</p>  
@@ -25,7 +42,7 @@
 
     <div class="model3">
        <div class="model_icon">
-           
+        <img src="./assets/models/emmanouel.jpg" width="30" alt="model1">  
         </div>
         <div class="circle">3</div>
         <p class="model_info"><a href="/models-info">{{models[2]?.name}}</a><br>{{models[2]?.points}}</p>  
@@ -37,6 +54,10 @@
        <div id="bar">
            <p class="time">{{time}}</p>
        </div>
+    </div>
+
+    <div class=hand>
+      <img src="./assets/hand.svg" alt="hand for leap">
     </div>
 </div>
 
