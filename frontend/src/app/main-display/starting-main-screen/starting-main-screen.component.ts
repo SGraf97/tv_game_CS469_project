@@ -43,6 +43,12 @@ export class StartingMainScreenComponent implements OnInit {
       document.getElementsByClassName('box')[0].addEventListener('click' , () => {
         location.href = 'main/quiz';
       });
+      document.getElementsByClassName('box')[1].addEventListener('click' , ()=>{
+        location.href= 'main/photo';
+      });
+      document.getElementsByClassName('box')[2].addEventListener('click' , ()=>{
+        location.href= 'main/catwalk';
+      });
 
   }
 
