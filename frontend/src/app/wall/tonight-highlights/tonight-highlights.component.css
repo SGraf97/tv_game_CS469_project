@@ -1,0 +1,76 @@
+.wall-info { 
+    background-color: #264653;
+}
+
+h2 {
+   position: absolute;
+   font-style: normal;
+   font-weight: normal;
+   left: 40px;
+   top: 40px;
+   letter-spacing: 0.02em;
+   font-size:30px;
+   color: #EFEFEF;
+}
+
+h1 {
+position: absolute;
+left: 40px;
+top: 75px;
+font-family: Ubuntu;
+font-style: normal;
+font-weight: normal;
+letter-spacing: 0.02em;
+font-size:40px;
+color: #EFEFEF;
+}
+
+.first_video {
+    position: absolute;
+    top: 30px;
+    left: 300px;
+    width: 360px;
+    height: 200px;
+}
+
+.second_video {
+    position: absolute;
+    top: 30px;
+    left: 750px;
+    width: 360px;
+    height: 200px;
+}
+
+p.video1 {
+position: absolute;
+left: 300px;
+top: 220px;
+font-family: Ubuntu;
+font-size: 20px;
+letter-spacing: 0.02em;
+line-height: 110%;
+color: #EFEFEF;
+}
+
+p.video2 {
+    position: absolute;
+    left: 750px;
+    top: 220px;
+    font-family: Ubuntu;
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: 0.02em;
+    color: #EFEFEF;
+}
+
+img {
+    position: absolute;
+    height: 36px;
+    width: 35px;
+    left: 1300px;
+    top: 23px;  
+}
+
+
+
+
