@@ -1,22 +1,32 @@
 .wall-info { 
-    background-color: #264653;
+    margin:0;
+    padding:0;
+    align-items: center;
 }
 
 .profile {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     left: 77px;
-    top: 52px;
+    top: 45px;
     background: #C4C4C4;
     border: 2px solid #000000;
     border-radius:50%;
 }
 
+.arrow img {
+    position: absolute;
+    height: 36px;
+    width: 35px;
+    left: 11px;
+    top: 5px;  
+}
+
 h1 {
   position: absolute;
   left: 400px;
-  top: 42px;
+  top: 30px;
   font-family: Ubuntu;
   font-size: 25px;
   line-height: 100%;
@@ -26,7 +36,7 @@ h1 {
 
 h2 {
   position: absolute;
-  left: 100px;
+  left: 60px;
   top: 148px;
   font-family: Ubuntu;
   font-size: 25px;
@@ -39,7 +49,7 @@ h2 {
 p.fullname {
     position: absolute;
     left: 40px;
-    top: 180px;
+    top: 190px;
     font-family: Ubuntu;
     font-size: 22px;
     line-height: 100%;
@@ -51,7 +61,7 @@ p.fullname {
 p.twitter {
    position: absolute;
    left: 40px;
-   top: 210px;
+   top: 220px;
 
    font-family: Ubuntu;
    font-size: 22px;
@@ -63,77 +73,112 @@ p.twitter {
 
 .photo1 {
     position: absolute;
-    height: 100px;
-    width: 70px;
+    height: 110px;
+    width: 80px;
     left: 400px;
-    top: 120px;
-    border: 1px solid #000000;
+    top: 100px;
+    display: inline-block;
     box-sizing: border-box;
-    border-radius: 10px;
-    background-color: #C4C4C4;
+    border: 1px solid #000000;
+    border-radius: 10px; 
+}
+
+.photo1 img {
+    border-radius: 10px; 
+    width:100%;
+    height: 100%;
+    vertical-align: middle;
 }
 
 .photo2 {
     position: absolute;
-    height: 100px;
-    width: 70px;
-    left: 500px;
-    top: 120px;
+    height: 110px;
+    width: 80px;
+    left: 510px;
+    top: 100px;
+    display: inline-block;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 10px;
-    background-color: #C4C4C4;
+}
+
+.photo2 img { 
+    border-radius: 10px;
+    width:100%;
+    height: 100%;
+    vertical-align: middle;
 }
 
 .photo3 {
     position: absolute;
-    height: 100px;
-    width: 70px;
-    left: 600px;
-    top: 120px;
+    height: 110px;
+    width: 80px;
+    left: 620px;
+    top: 100px;
+    display: inline-block;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 10px;
-    background-color: #C4C4C4;
+}
+
+.photo3 img { 
+    border-radius: 10px;
+    width:100%;
+    height: 100%;
+    vertical-align: middle;
 }
 
 .photo4 {
     position: absolute;
-    height: 100px;
-    width: 70px;
-    left: 700px;
-    top: 120px;
+    height: 110px;
+    width: 80px;
+    left: 730px;
+    top: 100px;
+    display: inline-block;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 10px;
-    background-color: #C4C4C4;
+}
+
+.photo4 img { 
+    border-radius: 10px;
+    width:100%;
+    height: 100%;
+    vertical-align: middle;
 }
 
 .photo5 {
     position: absolute;
-    height: 100px;
-    width: 70px;
-    left: 800px;
-    top: 120px;
+    height: 110px;
+    width: 80px;
+    left: 840px;
+    top: 100px;
+    display: inline-block;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 10px;
-    background-color: #C4C4C4;
 }
 
-img {
+.photo5 img { 
+    border-radius: 10px;
+    width:100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.hand img {
     position: absolute;
     height: 36px;
     width: 35px;
-    left: 1060px;
+    left: 1160px;
     top: 27px;  
 }
 
 #progress {
     position: absolute;
     width: 100px;
-    height: 13px;
-    left: 1000px;
+    height: 2vh;
+    left: 1100px;
     top: 250px;
     border-radius: 20px;
     background-color:#2D657C;
@@ -142,7 +187,7 @@ img {
 #bar {
     position: absolute;
     width: 30px;
-    height: 13px;
+    height: 2vh;
     left: 0px;
     top: 0px;
     border-radius: 20px;
@@ -151,7 +196,7 @@ img {
 
 p.xp {
    position: absolute;
-   left: 1000px;
+   left: 1100px;
    top: 200px;
    font-family: Ubuntu;
    font-size: 23px;
