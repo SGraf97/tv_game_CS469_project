@@ -141,10 +141,14 @@
   padding: 5%;
 }
 
-.db{
-  border-radius: 1px solid red;
-}
 
+
+
+
+
+#personalResaults{
+  display: none;
+}
 
 #personalResaults > h1{
   width: 100%;
@@ -162,6 +166,7 @@
   justify-content: space-evenly;
   align-items: flex-start;
   /* padding: 5%; */
+  
 }
 
 #usersResaults{
@@ -215,3 +220,20 @@
   text-align: end;
 }
 
+
+
+
+#congratsUser{
+  text-align: center;
+}
+
+.big-btn{
+  margin-top: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top:2%;
+  padding-bottom: 2%;
+  border:none;
+  border-radius: 10px;
+
+}
