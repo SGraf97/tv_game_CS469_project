@@ -1,12 +1,12 @@
 
 <div class="wall">
+  <div class="overlay"></div>
     <h1>TODAY’S CONCEPT:<br>MERMAIDS</h1>
     <div class="logo">
       <img src="./assets/GNTM-Logo.png" alt="GNTM LOGO">
     </div>
 
    <div class="model1">
-        
         <div class="model1_icon">
           <img src="./assets/hraklis.jpg" alt="model1">
         </div>
@@ -31,12 +31,11 @@
         <p class="model_info"><a href="/models-info">{{models[2]?.name}}</a><br>{{models[2]?.points}}</p>  
     </div>
     
-    <!--Auta ta 2 einai analoga me to epeisodio (poio epeisodio einai, se poio lepto vrisketai)-->
-    <p class="episode">s03e44</p>
+    <p class="episode">{{episode}}</p>
 
     <div id="progress">
        <div id="bar">
-           <p class="time">16:30</p>
+           <p class="time">{{time}}</p>
        </div>
     </div>
 </div>
