@@ -17,6 +17,7 @@ import { MenuButtonComponent } from './phone/main-menu/menu-button/menu-button.c
 import { GamesComponent } from './phone/games/games.component';
 import { PhotoEditorComponent } from './phone/photo-editor/photo-editor.component';
 import { EditorButtonComponent } from './phone/photo-editor/editor-button/editor-button.component';
+import { ProfileComponent } from './phone/profile/profile.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { EditorButtonComponent } from './phone/photo-editor/editor-button/editor
     MenuButtonComponent,
     GamesComponent,
     PhotoEditorComponent,
-    EditorButtonComponent
+    EditorButtonComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

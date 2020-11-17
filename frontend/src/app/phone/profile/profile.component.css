@@ -1,0 +1,44 @@
+app-topnav{
+    background-color: #345D6D;
+    border-bottom-left-radius: 0%;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 73px;
+    font-size: 24px;
+    color: white;
+}
+
+label, button, a{
+    font-weight: 300;
+font-size: 20px;
+line-height: 100%;
+color: white;
+}
+
+.btn{
+    background: #EE7B90;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.btn-primary:focus, .btn-primary:active{
+    outline-style: none !important;
+    background: #EE7B90 !important;
+    border: none !important;
+}
+
+#top-photos > div{
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+#top-photos > div::-webkit-scrollbar, .progress{
+    background-color: #50a7b26c;
+    border-radius: 20px;
+}
+  ::-webkit-scrollbar-thumb{
+    background: #EE7B90;
+    border-radius: 20px;
+  }
+
+  .progress-bar {
+    background: #E76F51;
+    border-radius: 20px;
+  }

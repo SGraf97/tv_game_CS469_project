@@ -3,16 +3,6 @@ span{
     height: max-content;
 }
 
-app-topnav{
-    background-color: #345D6D;
-    border-bottom-left-radius: 0%;
-    border-top-left-radius: 0%;
-    border-top-right-radius: 0%;
-    border-bottom-right-radius: 73px;
-    font-size: 24px;
-    color: white;
-}
-
 #galleryMenu > div{
     background-color: #E76F51;
     border-top-right-radius: 73px;
