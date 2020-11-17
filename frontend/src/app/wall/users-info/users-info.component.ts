@@ -12,9 +12,6 @@ export class UsersInfoComponent implements OnInit {
 
   ngOnInit(): void {
     //needs users that already exist somewhere
-    this.users = [ 
-      new User('user1', 'red'),
-      new User('User2', 'blue')
-    ]; 
+    this.users = User.getUsers();
   }
 }
