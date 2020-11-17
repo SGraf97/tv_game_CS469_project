@@ -24,7 +24,6 @@ export class GamesComponent implements OnInit {
   }
 
   changeState(){
-    console.log(this.state);
     switch(this.state){
       case this.states.WAIT:
           this.state = this.states.RATE;

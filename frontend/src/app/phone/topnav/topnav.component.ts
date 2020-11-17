@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TopnavComponent implements OnInit {
   @Input() enter:string;
+  @Input() back:boolean;
   constructor() { }
 
   ngOnInit(): void {

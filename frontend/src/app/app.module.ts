@@ -15,6 +15,8 @@ import { SocialComponent } from './phone/enter-forms/social/social.component';
 import { MainMenuComponent } from './phone/main-menu/main-menu.component';
 import { MenuButtonComponent } from './phone/main-menu/menu-button/menu-button.component';
 import { GamesComponent } from './phone/games/games.component';
+import { PhotoEditorComponent } from './phone/photo-editor/photo-editor.component';
+import { EditorButtonComponent } from './phone/photo-editor/editor-button/editor-button.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { GamesComponent } from './phone/games/games.component';
     SocialComponent,
     MainMenuComponent,
     MenuButtonComponent,
-    GamesComponent
+    GamesComponent,
+    PhotoEditorComponent,
+    EditorButtonComponent
   ],
   imports: [
     BrowserModule,

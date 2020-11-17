@@ -21,6 +21,7 @@ app-topnav{
 .spinner-border{
     width: 10rem; 
     height: 10rem;
+    animation-duration: 5s;
 }
 
 #rate > img, #rate > span{
