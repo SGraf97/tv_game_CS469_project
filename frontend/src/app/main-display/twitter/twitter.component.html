@@ -1,0 +1,46 @@
+<div class="headerTop">
+  <img class = "closeMain" width="48" height="44" src="./assets/close-button.svg">
+
+  <h1>Twitter Feed</h1>
+  <div style="width: 10%"></div>
+
+</div>
+
+<!--feed-->
+<div class="feed">
+  <div *ngFor="let t of twits" class="twit">
+
+
+    <div style="display: flex;">
+      <svg height="45" width="45">
+        <circle cx="23.5" cy="23.5" r="20" stroke="none"  fill="#A4C2CE" />
+      </svg>
+      <div>
+        <h3>
+          {{t.userTag}}
+        </h3>
+        <h4 class="opacity-05">
+          {{t.username}}
+        </h4>
+      </div>
+    </div>
+
+
+
+    <br>
+    <p>{{t.twit}}</p>
+    <br>
+    <div style="display: flex; align-items: center;justify-content:space-between;width: 40%">
+      <span><img src="./assets/bi_heart.svg"></span><span><p>{{t.likes}}</p></span>
+      <span>
+        <img src="./assets/retweet.svg">
+        </span><span><p>{{t.retweets}}</p>
+      </span>
+    </div>
+    <br>
+    <p>{{t.whenCreated}}</p>
+    <p class="opacity-05">{{t.twittedFrom}}</p>
+  </div>
+
+
+</div>

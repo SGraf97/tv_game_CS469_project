@@ -1,6 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+/*!* You can add global styles to this file, and also import other style files *!*/
 html{
-  overflow: hidden;
+ overflow: hidden;
 }
 
 
@@ -8,6 +8,14 @@ body{
   background-color: #264653 !important;
 }
 
-h1 , h2 , h3 , h4 , h5 , h6 , a , p ,li ,lo{
+
+
+h1 , h2 , h3 , h4 , h5 , h6 , a , p ,li {
   color: white;
+}
+
+
+.box-shadow{
+  border-radius: 10px;
+  box-shadow: 6px 6px 15px #161d20 , -6px -6px 15px #305766;
 }

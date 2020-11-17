@@ -1,0 +1,206 @@
+
+
+
+#gettingReady{
+    padding:2%;
+    height: 1080px;
+    max-height: 1080px;
+    background-color:rgb(128, 128, 128);
+    display: none;
+}
+
+
+#gettingReady > h1{
+    padding:2%;
+    background-color: whitesmoke;
+    color :black;
+    width: fit-content;
+    border-radius: 18px;
+}
+
+#counter{
+    position: absolute;
+    left:50%;
+    top:50%;
+    text-align: center;
+}
+
+
+#countdown-number {
+    color: white;
+    text-align: center;
+    /* display: inline-block; */
+    line-height: 40px;
+  }
+  
+  svg {
+      border:1px solid red;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    text-align: center;
+    width:20vw;
+    height: 20vh;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+  }
+  
+  svg circle {
+    stroke-dasharray: 350px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 6px;
+    stroke: white;
+    fill: none;
+    animation: countdown 5s linear infinite forwards;
+  }
+
+  circle{
+    position: absolute;
+    top:0;
+    left:0;
+  }
+  
+  @keyframes countdown {
+    from {
+      stroke-dashoffset: 0px;
+    }
+    to {
+      stroke-dashoffset: 340px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+#chooseBestPhoto{
+  display: none;
+}
+
+
+#chooseBestPhoto>h1{
+  width: 100%;
+  text-align: center;
+}
+
+#choosing{
+  margin-top: 10%;
+  width: 100%;
+  text-align: center;
+
+}
+
+.flex-bottom{
+  position:absolute;
+  bottom: 0;
+  display: flex;
+  width:100%;
+  justify-content: start;
+  padding: 5%;
+}
+
+
+
+
+
+
+#personalResaults{
+  display: none;
+}
+
+#personalResaults > h1{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+  /* border:1px solid red; */
+  color:#FFB500 ;
+  letter-spacing: 5px;
+  font-size: 3em;
+}
+
+#containerPR{
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  /* padding: 5%; */
+  
+}
+
+#usersResaults{
+  padding: 5%;
+  width:50%;
+}
+
+#userPhoto{
+  padding:5% ;
+  width:50%;
+ 
+}
+
+.user{
+  
+  display: flex;
+  width: 100%;
+}
+
+.bar{
+  height: 15px;
+  background-color: salmon;
+  border-radius: 8px;
+}
+
+.bar-maxed{
+  width:38vw; 
+}
+
+.bar-50{
+  width:20vw;
+}
+
+.bar-25{
+  width:10vw;
+}
+
+.bar-15{
+  width: 7vw;
+}
+.bar-10{
+  width:4vw
+}
+
+.userInfo{
+  margin-left:20px;
+}
+
+.userInfo>h3{
+  margin:0;
+  text-align: end;
+}
+
+
+
+
+#congratsUser{
+  display: none;
+  text-align: center;
+}
+
+.big-btn{
+  margin-top: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top:2%;
+  padding-bottom: 2%;
+  border:none;
+  border-radius: 10px;
+
+}

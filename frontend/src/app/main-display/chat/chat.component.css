@@ -3,15 +3,29 @@
   /*overflow: hidden;*/
 }
 
-.chatContainer{
-  height:auto;
-  /*display: flex;*/
-  flex-direction: column;
-  align-items:center;
-  overflow: auto;
+.ChatTop{
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.ChatTop > *{
+  /*justify-self: center;*/
+  /*flex-grow: 0.5;*/
+}
+#chatContainer{
+  transform: rotate(180deg);
+  max-height:80%;
+  flex-direction: column;
+  align-items:center;
+  overflow-y: hidden;
+}
 
+.big-container{
+  /*border: 10px solid red;*/
+  height: 100vh;
+}
 
 .username{
   /*padding-left: 2%;*/
@@ -20,8 +34,11 @@
   margin-left: 2%;
 }
 
+.chat-cmp { transform: rotate(180deg);}
+
 .chat-cmp > p{
   border-radius: 2px 12px 12px 12px;
+  width: fit-content;
   background-color:#FFFFFF;
   margin: 2%;
   color: #000000;
@@ -31,4 +48,13 @@
 
 h1{
   text-align: center;
+}
+.footer{
+  width: 90%;
+  position: absolute;
+  top:90%;
+  display: flex;
+  justify-content: flex-end;
+
+  border:1px solid red;
 }

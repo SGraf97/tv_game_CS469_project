@@ -1,0 +1,154 @@
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.bg-black{
+  height: 100vh;
+  background-color: black;
+}
+
+.flex
+{
+  flex-wrap: wrap;
+  display: flex;
+}
+
+
+
+.center{
+  text-align: center;
+  align-self: flex-end;
+
+}
+
+.onlineUser{
+  width: 110%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.gamepad{
+  justify-items: right;
+}
+
+.blur{
+  filter:blur(8px);
+}
+
+
+
+.info-pop-up-left
+{
+  font-size: large;
+  background-color: #50A6B2;
+  width:100%;
+  text-align: right;
+  margin-left:100%;
+  padding: 10%;
+  border-radius: 10px 10px 10px 0px;
+}
+
+
+
+.info-pop-up-right
+{
+  font-size: large;
+  background-color: #50A6B2;
+  width:100%;
+  text-align: right;
+  margin-left:-100%;
+  padding: 10%;
+  border-radius: 10px 10px 0px 10px;
+}
+
+p{
+  color: white;
+}
+#startEpisode{
+  /*margin-top: 20%;*/
+
+  padding: 3%;
+  border:none;
+  border-radius: 50px;
+  color: white;
+  background-color: #264653;
+  box-shadow: 6px 6px 15px black , -6px -6px 15px darkslategrey;
+}
+
+
+.spacing{
+  justify-content: space-between;
+
+}
+
+.bottom-spacing{
+  justify-content: space-between;
+}
+
+
+.flex-end{
+  align-self: flex-end;
+}
+
+.gamepad{
+  cursor: pointer;
+}
+
+
+/*OVERLAY CSS*/
+
+
+.overlay{
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  /*filter: blur(8px);*/
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  /*cursor: pointer; !* Add a pointer on hover *!*/
+  /*display: flex;*/
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  align-items: center;
+  transition-duration: 1s;
+}
+
+
+
+.box{
+  cursor: pointer;
+  padding:5%;
+  transition-duration: 0.5s;
+  border-radius: 20px;
+  text-align: center;
+
+}
+.box > h2{
+  color: #161d20;
+}
+
+.quiz-bg{
+  background-color: #334C56;
+}
+
+.photo-bg{
+  background-color: #E76F51;
+}
+
+.catwalk{
+  background-color: #FFFFFF;
+}
+
+.box:hover{
+  transition-duration: 0.5s;
+  padding: 10%;
+}

@@ -1,0 +1,43 @@
+#recording-catwalk{
+  display: none;
+}
+
+#videoPreview{
+  text-align: center;
+  display: none;
+}
+
+
+#voteResaults{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  display: none;
+}
+
+.photo{
+  display: flex;
+  align-items: center;
+  width: 40vw;
+  /* border:1px solid red; */
+}
+
+.like{
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.flex {
+  display: flex;
+
+}
+
+.mg-2{
+  margin-left: 2vw;
+}
+
+.mg-top-2{
+  margin-top: 2vh;
+}
