@@ -15,6 +15,7 @@ import { BuzzerComponent } from './table/buzzer/buzzer.component';
 import { OptionComponent } from './table/option/option.component';
 import { UsersInfoComponent } from './wall/users-info/users-info.component';
 import { ModelsInfoComponent } from './wall/models-info/models-info.component';
+import { TonightHighlightsComponent } from './wall/tonight-highlights/tonight-highlights.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ModelsInfoComponent } from './wall/models-info/models-info.component';
     BuzzerComponent,
     OptionComponent,
     UsersInfoComponent,
-    ModelsInfoComponent
+    ModelsInfoComponent,
+    TonightHighlightsComponent
   ],
   imports: [
     BrowserModule,
