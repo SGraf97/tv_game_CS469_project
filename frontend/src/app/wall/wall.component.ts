@@ -10,17 +10,19 @@ import {Model} from '../model/models';
 export class WallComponent implements OnInit {
  
   models = [];
+  episode: string;
+  time:string;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.episode="s03e44";
+    this.time="16:30";
     
-    this.models = [
-      new Model("ΗΡΑΚΛΗΣ", 19, 177, 116),
-      new Model("ΙΡΙΔΑ", 21, 177, 96),
-      new Model("ΜΕΓΚΥ", 23, 177, 85)
-    ];
+    this.models = Model.getModels();
   }
+
+  
 
   /*onSelect() {
     this.router.navigateByUrl(['/models-info', model]);  // define your component where you want to go
