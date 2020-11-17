@@ -16,7 +16,14 @@ export class User {
     this.level=0;
   }
 
-
+  static getUsers(): any {
+    return [
+      new User('testUsername', 'red'),
+      new User('testUsername', 'red'),
+      new User('testUsername', 'red'),
+      new User('testUsername', 'red')
+    ];
+  }
 
 
   static getUser(username: any): User{
