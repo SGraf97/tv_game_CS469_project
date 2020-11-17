@@ -1,3 +1,6 @@
+
+
+
 #gettingReady{
     padding:2%;
     height: 1080px;
@@ -73,10 +76,11 @@
 
 
 
-#choosePhoto{
+#voteResaults{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    display: none;
 }
 
 .photo{
@@ -104,4 +108,35 @@
 
 .mg-top-2{
     margin-top: 2vh;
+}
+
+
+
+
+
+
+#chooseBestPhoto{
+
+}
+
+
+#chooseBestPhoto>h1{
+  width: 100%;
+  text-align: center;
+}
+
+#choosing{
+  margin-top: 10%;
+  width: 100%;
+  text-align: center;
+
+}
+
+.flex-bottom{
+  position:absolute;
+  bottom: 0;
+  display: flex;
+  width:100%;
+  justify-content: start;
+  padding: 5%;
 }
