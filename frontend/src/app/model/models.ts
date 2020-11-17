@@ -17,7 +17,7 @@ export class Model {
     return [
       new Model("ΗΡΑΚΛΗΣ", 19, 177, 116),
       new Model("ΙΡΙΔΑ", 21, 177, 96),
-      new Model("ΜΕΓΚΥ", 23, 177, 85)
+      new Model("ΕΜΜΑΝΟΥΕΛ", 23, 177, 85)
     ];
   }
 
