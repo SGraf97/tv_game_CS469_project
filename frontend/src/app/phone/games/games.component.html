@@ -1,4 +1,4 @@
-<app-topnav [enter]="game" [back]="true" class="container-fluid d-flex flex-column text-center py-3"></app-topnav>
+<app-topnav [label]="game" [back]="true" class="container-fluid d-flex flex-column text-center py-3"></app-topnav>
 
 <!-- waiting for user to complete the task -->
 <div *ngIf="state === states.WAIT" id="upNext" class="d-flex flex-column py-5 my-5">

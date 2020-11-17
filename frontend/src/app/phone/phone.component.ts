@@ -7,32 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PhoneComponent implements OnInit {
-  public states = {
-    LOGIN: "Login",
-    REGISTER: "Sign Up"
-  };
+  
+
   public state: string;
 
-  public enter: string;
-  public enterAlt: string;
-
-  public errMssg: boolean;
-
   constructor() { 
-    this.state = this.states.LOGIN;
   }
 
   ngOnInit(): void {
-    this.enter = this.state;
-    this.enterAlt = this.state === this.states.LOGIN? this.states.REGISTER : this.states.LOGIN;
+    this.state = "Login";
   }
 
-  changeState(){
-    this.enterAlt = this.state;
-    this.state = this.state === this.states.LOGIN? this.states.REGISTER : this.states.LOGIN;
-    this.enter = this.state;
-    console.log("state: " + this.state);
-  }
+  
 
   
 }

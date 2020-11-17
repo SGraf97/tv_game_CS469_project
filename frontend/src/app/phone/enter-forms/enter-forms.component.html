@@ -1,9 +1,25 @@
-<app-input id="username" type="text" label="Username"></app-input>
-<app-input id="password" type="password" label="Password"></app-input>
+<app-topnav class="container-fluid d-flex flex-column text-center py-3" [label]="state"></app-topnav>
 
-<h6 *ngIf="errMssg" id="errorMessage" class="text-weight-lighter text-danger mt-2 ml-3">Invalid username or password.</h6>
+<div *ngIf="!colors">
+    <div class="d-flex flex-column mt-5">
+        <app-input id="username" type="text" label="Username"></app-input>
+        <app-input id="password" type="password" label="Password"></app-input>
 
-<app-input id="confirm-password" type="password" label="Confirm Password" *ngIf="enter === 'Sign Up'"></app-input>
+        <app-input id="confirm-password" type="password" label="Confirm Password" *ngIf="state === 'Sign Up'">
+        </app-input>
 
-<button type="submit" class="btn w-50 mx-auto mt-5 rounded-pill" (click)="enterFunc()">{{enter}}</button>
+        <h6 *ngIf="errMssg" id="errorMessage" class="text-weight-lighter text-danger mt-2 ml-3">Invalid username or
+            password.</h6>
+
+        <button type="submit" class="btn w-50 mx-auto mt-5 rounded-pill" (click)="enterFunc()">{{state}}</button>
+    </div>
+
+    <app-social class="d-flex flex-column mx-auto mt-4 w-50"></app-social>
+
+    <p class="d-flex flex-column fixed-bottom mb-2 text-center mx-auto" (click)="changeState()">{{stateAlt}}</p>
+</div>
+
+<div *ngIf="colors" class="d-flex flex-wrap p-4 mx-auto justify-content-center">
+    <button *ngFor="let color of colorList" class="btn btn-primary rounded-circle p-5 m-3" [style.background]="color"></button>
+</div>
 

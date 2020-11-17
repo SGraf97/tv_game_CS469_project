@@ -1,3 +1,13 @@
+app-topnav{
+    background-color: #345D6D;
+    border-bottom-left-radius: 0%;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 73px;
+    font-size: 24px;
+    color: white;
+}
+
 span{
     box-shadow: -8px -8px 30px rgba(0, 0, 0, 0.3), 8px 8px 30px rgba(0, 0, 0, 0.5);
     height: max-content;
