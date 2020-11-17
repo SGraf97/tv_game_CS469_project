@@ -8,10 +8,14 @@ import { User } from '../../model/user';
 })
 export class UsersInfoComponent implements OnInit {
   users: any;
+  xp: string;
+  level: string;
   constructor() { }
 
   ngOnInit(): void {
     //needs users that already exist somewhere
     this.users = User.getUsers();
+    this.xp = "42069xp";
+    this.level = "level3";
   }
 }
