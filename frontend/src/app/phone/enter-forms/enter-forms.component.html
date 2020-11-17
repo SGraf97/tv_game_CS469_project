@@ -20,6 +20,6 @@
 </div>
 
 <div *ngIf="colors" class="d-flex flex-wrap p-4 mx-auto justify-content-center">
-    <button *ngFor="let color of colorList" class="btn btn-primary rounded-circle p-5 m-3" [style.background]="color"></button>
+    <button *ngFor="let color of colorList" class="btn btn-primary rounded-circle p-5 m-3" [style.background]="color" (click)="enterFunc()"></button>
 </div>
 

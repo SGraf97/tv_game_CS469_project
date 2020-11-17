@@ -13,4 +13,9 @@ export class MenuButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  changeRoute(newRoute: string){
+    if(newRoute)
+      window.location.href = newRoute;
+  }
+
 }

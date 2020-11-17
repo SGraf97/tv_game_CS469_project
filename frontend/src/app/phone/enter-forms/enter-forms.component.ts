@@ -43,11 +43,12 @@ export class EnterFormsComponent implements OnInit {
   enterFunc() {
     if (this.state === this.states.LOGIN)
       this.errMssg = true;
-    else {
+    else if(this.state === this.states.REGISTER) {
       this.errMssg = false;
       this.state = this.states.COLORS;
       this.colors = true;
-    }
+    }else
+      window.location.href = "/phone/menu";
   }
 
   changeState() {

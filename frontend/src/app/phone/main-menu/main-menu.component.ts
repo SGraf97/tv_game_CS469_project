@@ -19,13 +19,15 @@ export class MainMenuComponent implements OnInit {
         color: "black",
         label: "Screenshot",
         target: "#",
-        toggle: ""
+        toggle: "",
+        route: "/phone/edit"
       },
       capture: {
         class: "fas fa-video fa-4x pt-2 mx-auto",
         background: "#264653",
         color: "#F15253",
-        label: "Record"
+        label: "Record",
+        route: ""
       },
       info: {
         class: "fas fa-info fa-4x pt-2 mx-auto",
@@ -33,7 +35,8 @@ export class MainMenuComponent implements OnInit {
         color: "black",
         label: "Info",
         target: "#notificationModal",
-        toggle: "modal"
+        toggle: "modal",
+        route: ""
       },
       twitter: {
         class: "fab fa-twitter fa-4x pt-2 mx-auto",
@@ -41,7 +44,8 @@ export class MainMenuComponent implements OnInit {
         color: "black",
         label: "Twitter",
         target: "#twitterModal",
-        toggle: "modal"
+        toggle: "modal",
+        route: ""
       },
       toilet: {
         class: "fas fa-toilet-paper fa-4x pt-2 mx-auto",
@@ -49,7 +53,8 @@ export class MainMenuComponent implements OnInit {
         color: "#F15253",
         label: "Toilet Break",
         target: "",
-        toggle: ""
+        toggle: "",
+        route: ""
       },
       chat: {
         class: "far fa-comment fa-4x pt-2 mx-auto",
@@ -57,7 +62,8 @@ export class MainMenuComponent implements OnInit {
         color: "black",
         label: "Live Chat",
         target: "",
-        toggle: ""
+        toggle: "",
+        route: ""
       },
       games: {
         class: "fas fa-gamepad fa-4x pt-2 mx-auto",
@@ -65,7 +71,8 @@ export class MainMenuComponent implements OnInit {
         color: "black",
         label: "Games",
         target: "#gamesModal",
-        toggle: "modal"
+        toggle: "modal",
+        route: "/phone/vote"
       },
       user: {
         class: "fas fa-user-alt fa-4x pt-2 mx-auto",
@@ -73,7 +80,8 @@ export class MainMenuComponent implements OnInit {
         color: "#F15253",
         label: "Profile",
         target: "",
-        toggle: ""
+        toggle: "",
+        route: "/phone/profile"
       }
     }
   }
