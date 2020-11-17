@@ -11,19 +11,33 @@ export class WallComponent implements OnInit {
  
   models = [];
   episode: string;
+  user: string;
   time:string;
 
   constructor(private router: Router) { }
-
+  
+ 
   ngOnInit(): void {
+    
+    const overlay = document.getElementsByClassName('overlay')[0] as any;
+    this.user="user1";
     this.episode="s03e44";
     this.time="16:30";
+    
+
+    document.querySelector('.wall').addEventListener('click', () => {  
+        overlay.style.display = 'flex';
+    });
+
+    document.querySelector('.close').addEventListener('click', () => {  
+      /*console.log("ekei");*/
+      overlay.style.display = 'none';
+    });
     
     this.models = Model.getModels();
   }
 
   
-
   /*onSelect() {
     this.router.navigateByUrl(['/models-info', model]);  // define your component where you want to go
   }*/
