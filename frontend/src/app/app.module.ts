@@ -10,9 +10,9 @@ import { WallComponent } from './wall/wall.component';
 import { TableComponent } from './table/table.component';
 import { PhoneComponent } from './phone/phone.component';
 import { ChatComponent } from './main-display/chat/chat.component';
-import { TwitterComponent } from './main-display/twitter/twitter.component';
-import { BuzzerComponent } from './table/buzzer/buzzer.component';
-import { OptionComponent } from './table/option/option.component';
+// import { TwitterComponent } from './main-display/twitter/twitter.component';
+// import { BuzzerComponent } from './table/buzzer/buzzer.component';
+// import { OptionComponent } from './table/option/option.component';
 import { UsersInfoComponent } from './wall/users-info/users-info.component';
 import { ModelsInfoComponent } from './wall/models-info/models-info.component';
 import { TonightHighlightsComponent } from './wall/tonight-highlights/tonight-highlights.component';
@@ -25,9 +25,9 @@ import { TonightHighlightsComponent } from './wall/tonight-highlights/tonight-hi
     TableComponent,
     PhoneComponent,
     ChatComponent,
-    TwitterComponent,
-    BuzzerComponent,
-    OptionComponent,
+    // TwitterComponent,
+    // BuzzerComponent,
+    // OptionComponent,
     UsersInfoComponent,
     ModelsInfoComponent,
     TonightHighlightsComponent
