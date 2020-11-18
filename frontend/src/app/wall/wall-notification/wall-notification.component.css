@@ -127,6 +127,7 @@ p {
 }
 
 a {
+    color:white;
     text-decoration: none;
 }
 
@@ -137,14 +138,14 @@ p.model_info {
     font-style: normal;
     font-weight: normal;
     left: 55px;
-    top: 5px;  
+    top: 15px;  
     letter-spacing: 0.02em;
 }
 
 p.episode {
     position: absolute;
     left: 40px;
-    top: 245px;
+    top: 265px;
     font-style: normal;
     font-weight: normal;
     font-size: 25px;
@@ -180,7 +181,7 @@ p.episode {
 p.time {
     position: absolute;
     left: 130px;
-    top: -10px;
+    top: 1px;
     font-size: 15px;
     line-height: 113%;
     display: flex;
@@ -191,6 +192,7 @@ p.time {
 }
 
 .hand img {
+    cursor:pointer;
     position: absolute;
     height: 36px;
     width: 35px;
