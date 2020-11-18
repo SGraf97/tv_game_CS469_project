@@ -1,17 +1,6 @@
-app-enter-forms{
+:host{
     color: white;
 }
-
-app-topnav{
-    background-color: #345D6D;
-    border-bottom-left-radius: 0%;
-    border-top-left-radius: 0%;
-    border-top-right-radius: 0%;
-    border-bottom-right-radius: 73px;
-    font-size: 24px;
-    color: white;
-}
-
 
 .btn{
     color: white;

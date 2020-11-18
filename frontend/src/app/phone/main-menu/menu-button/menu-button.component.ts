@@ -14,7 +14,7 @@ export class MenuButtonComponent implements OnInit {
   }
 
   changeRoute(newRoute: string){
-    if(newRoute)
+    if(newRoute !== "")
       window.location.href = newRoute;
   }
 

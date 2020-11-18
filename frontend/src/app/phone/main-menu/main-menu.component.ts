@@ -54,7 +54,7 @@ export class MainMenuComponent implements OnInit {
         label: "Toilet Break",
         target: "",
         toggle: "",
-        route: ""
+        route: "/phone/wc"
       },
       chat: {
         class: "far fa-comment fa-4x pt-2 mx-auto",
@@ -63,7 +63,7 @@ export class MainMenuComponent implements OnInit {
         label: "Live Chat",
         target: "",
         toggle: "",
-        route: ""
+        route: "/phone/chat"
       },
       games: {
         class: "fas fa-gamepad fa-4x pt-2 mx-auto",

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,9 @@ import { GamesComponent } from './phone/games/games.component';
 import { PhotoEditorComponent } from './phone/photo-editor/photo-editor.component';
 import { EditorButtonComponent } from './phone/photo-editor/editor-button/editor-button.component';
 import { ProfileComponent } from './phone/profile/profile.component';
+import { ChatComponent as PhoneChat } from './phone/chat/chat.component';
+import { ToiletBreakComponent } from './phone/toilet-break/toilet-break.component';
+import { ChatContainerComponent } from './phone/chat-container/chat-container.component';
 
 
 @NgModule({
@@ -37,11 +41,15 @@ import { ProfileComponent } from './phone/profile/profile.component';
     GamesComponent,
     PhotoEditorComponent,
     EditorButtonComponent,
-    ProfileComponent
+    ProfileComponent,
+    PhoneChat,
+    ToiletBreakComponent,
+    ChatContainerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
