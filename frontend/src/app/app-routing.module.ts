@@ -19,6 +19,7 @@ import { MainMenuComponent } from './phone/main-menu/main-menu.component';
 import { PhotoEditorComponent } from './phone/photo-editor/photo-editor.component';
 import { ProfileComponent } from './phone/profile/profile.component';
 import { ToiletBreakComponent } from './phone/toilet-break/toilet-break.component';
+import {TableComponent} from './table/table.component';
 import { CommonModule } from '@angular/common';
 
 import { from } from 'rxjs';
@@ -35,13 +36,15 @@ const routes: Routes = [
   { path: 'wall/models-info', component: ModelsInfoComponent },
   { path: 'wall/users-info', component: UsersInfoComponent },
   { path: 'wall/wall-notification', component: WallNotificationComponent},
-  {path: 'phone/menu' , component: MainMenuComponent},
+  {path: 'phone' , component: MainMenuComponent},
   {path: 'phone/login' , component: EnterFormsComponent},
   {path: 'phone/vote' , component: GamesComponent},
   {path: 'phone/profile' , component: ProfileComponent},
   {path: 'phone/edit' , component: PhotoEditorComponent},
   {path: 'phone/chat' , component: PhoneChat},
-  {path: 'phone/wc', component: ToiletBreakComponent}
+  {path: 'phone/wc', component: ToiletBreakComponent},
+  {path: 'table', component: TableComponent}
+
 
 ];
 
