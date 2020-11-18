@@ -12,6 +12,13 @@ import { ModelsInfoComponent } from './wall/models-info/models-info.component';
 import { TonightHighlightsComponent } from './wall/tonight-highlights/tonight-highlights.component';
 import { WallComponent } from './wall/wall.component';
 import { WallNotificationComponent } from './wall/wall-notification/wall-notification.component';
+import { ChatComponent as PhoneChat } from './phone/chat/chat.component';
+import { EnterFormsComponent } from './phone/enter-forms/enter-forms.component';
+import { GamesComponent } from './phone/games/games.component';
+import { MainMenuComponent } from './phone/main-menu/main-menu.component';
+import { PhotoEditorComponent } from './phone/photo-editor/photo-editor.component';
+import { ProfileComponent } from './phone/profile/profile.component';
+import { ToiletBreakComponent } from './phone/toilet-break/toilet-break.component';
 
 import { from } from 'rxjs';
 const routes: Routes = [
@@ -27,6 +34,14 @@ const routes: Routes = [
   { path: 'wall/models-info', component: ModelsInfoComponent },
   { path: 'wall/users-info', component: UsersInfoComponent },
   { path: 'wall/wall-notification', component: WallNotificationComponent}
+  {path: 'phone/menu' , component: MainMenuComponent},
+  {path: 'phone/login' , component: EnterFormsComponent},
+  {path: 'phone/vote' , component: GamesComponent},
+  {path: 'phone/profile' , component: ProfileComponent},
+  {path: 'phone/edit' , component: PhotoEditorComponent},
+  {path: 'phone/chat' , component: PhoneChat},
+  {path: 'phone/wc', component: ToiletBreakComponent}
+
 ];
 
 @NgModule({

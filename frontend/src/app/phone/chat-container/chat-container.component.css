@@ -1,0 +1,55 @@
+:host{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}
+#messagesContainer{
+    overflow: scroll;
+}
+/* incoming messages */
+label[class|=in]{
+    color: white;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 113%;
+}
+
+div[class|=in]{
+    background-color: white;
+    color: black;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 113%;
+    width: 80%;
+    padding: 2%;
+    margin-top: 0;
+    border-radius: 5px 20px 20px 20px;
+}
+
+/* sent messages */
+label[class|=out]{
+    display: none;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 113%;
+}
+div[class|=out]{
+    background-color: #E76F51;
+    color: white;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 113%;
+    width: 80%;
+    padding: 2%;
+    margin-top: 2%;
+    border-radius: 20px 5px 20px 20px;
+    float: right;
+}
+
+#newMssg{
+    background-color: #254451;
+}
+
+input, input:focus, input:active{
+    color:white
+}

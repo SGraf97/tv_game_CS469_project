@@ -5,11 +5,20 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './phone.component.html',
   styleUrls: ['./phone.component.css']
 })
+
 export class PhoneComponent implements OnInit {
+  
 
-  constructor() { }
+  public state: string;
 
-  ngOnInit(): void {
+  constructor() { 
   }
 
+  ngOnInit(): void {
+    this.state = "Login";
+  }
+
+  
+
+  
 }

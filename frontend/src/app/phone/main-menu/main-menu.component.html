@@ -1,0 +1,74 @@
+<div class="d-flex flex-column justify-items-center mt-4">
+    <div class="d-inline-flex mx-auto mt-4">
+        <app-menu-button [btnClass]="menuButtons.screenshot"></app-menu-button>
+        <app-menu-button [btnClass]="menuButtons.capture"></app-menu-button>
+    </div>
+
+    <div class="d-inline-flex mx-auto mt-4">
+        <app-menu-button [btnClass]="menuButtons.info"></app-menu-button>
+        <app-menu-button [btnClass]="menuButtons.twitter"></app-menu-button>
+    </div>
+
+    <div class="d-inline-flex mx-auto mt-4">
+        <app-menu-button [btnClass]="menuButtons.toilet"></app-menu-button>
+        <app-menu-button [btnClass]="menuButtons.chat"></app-menu-button>
+    </div>
+
+    <div class="d-inline-flex mx-auto mt-4">
+        <app-menu-button [btnClass]="menuButtons.games"></app-menu-button>
+        <app-menu-button [btnClass]="menuButtons.user"></app-menu-button>
+    </div>
+</div>
+
+<!--Twitter Modal -->
+<div class="modal fade mt-4" id="twitterModal" tabindex="-1">
+    <div class="modal-dialog rounded-lg">
+        <div class="modal-content">
+            <div class="modal-body p-2">
+                <div class="media p-0">
+                    <i class="fas fa-user-alt rounded-circle border border-secondary p-2 align-self-start mr-3"></i>
+                    <!-- <img src="..." class="align-self-start mr-3" alt="..."> -->
+                    <div class="media-body p-2">
+                        <textarea class="form-control border-0 p-0" id="tweetInput" length="140"
+                            rows="4">Write your tweet...#gntm</textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="tweet" class="btn btn-primary w-25 rounded-pill ml-auto m-2 p-1"
+                data-dismiss="modal">tweet
+            </button>
+        </div>
+    </div>
+</div>
+
+<!--Notification Modal -->
+<div class="modal fade" id="notificationModal" tabindex="-1">
+    <div class="modal-dialog rounded-lg">
+        <div class="modal-content">
+            <div class="modal-body pb-0">
+                <h6 class="modal-title font-weight-bolder">Notification</h6>
+                <p>You just got +150 xp. You are now a Brati’s girl!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Games Modal -->
+<div class="modal fade mt-5 pt-5" id="gamesModal" tabindex="-1">
+    <div class="modal-dialog rounded-lg w-75 mx-auto">
+        <div class="modal-content d-flex mx-auto pb-3">
+            <div class="modal-body mx-auto">
+                <i class="fas fa-gamepad fa-4x pt-2 px-3 mx-auto"></i>
+                <p class="mx-auto">Game Invitation</p>
+            </div>
+            <div class="d-flex d-inline-flex justify-content-around">
+                <button type="button" id="accept" class="btn btn-primary game-btn w-25 rounded-pill mx-auto m-2 px-2"
+                    data-dismiss="modal">Accept
+                </button>
+                <button type="button" id="decline" class="btn btn-primary game-btn w-25 rounded-pill mx-auto m-2 px-2"
+                    data-dismiss="modal">Decline
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

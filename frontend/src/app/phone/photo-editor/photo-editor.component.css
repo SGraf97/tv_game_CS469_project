@@ -1,0 +1,23 @@
+span{
+    box-shadow: -8px -8px 30px rgba(0, 0, 0, 0.3), 8px 8px 30px rgba(0, 0, 0, 0.5);
+    height: max-content;
+}
+
+#galleryMenu > div{
+    background-color: #E76F51;
+    border-top-right-radius: 73px;
+    height: 100%;
+    overflow-y: scroll;
+    border-top: 10px solid transparent;
+}
+
+#galleryMenu > button{
+    background-color: #E76F51;
+    border-top-right-radius: 73px;
+    border-top-left-radius: 73px;
+}
+
+#galleryMenu{
+    transition-duration: 0.5s;
+}
+

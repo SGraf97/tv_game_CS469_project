@@ -1,0 +1,26 @@
+#upNext > div > p, #rate > div > h4{
+    color: #FFB500;
+}
+
+#upNext, #rate > div > h4 {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 113%;
+}
+
+.spinner-border{
+    width: 10rem; 
+    height: 10rem;
+    animation-duration: 5s;
+}
+
+#rate > img, #rate > span{
+    box-shadow: -8px -8px 30px rgba(0, 0, 0, 0.3), 8px 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+#like{
+    color: #7CFA97;
+}
+#dislike{
+    color: #E76F51;
+}

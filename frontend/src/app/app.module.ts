@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainDisplayComponent } from './main-display/main-display.component';
@@ -24,6 +24,20 @@ import { QuizGameComponent } from './main-display/quiz-game/quiz-game.component'
 import { VotingComponent } from './main-display/voting/voting.component';
 import { CatwalkComponent } from './main-display/catwalk/catwalk.component';
 import { PhotoShotGameComponent } from './main-display/photo-shot-game/photo-shot-game.component';
+import { TopnavComponent } from './phone/topnav/topnav.component';
+import { EnterFormsComponent } from './phone/enter-forms/enter-forms.component';
+import { InputComponent } from './phone/enter-forms/input/input.component';
+import { SocialComponent } from './phone/enter-forms/social/social.component';
+import { MainMenuComponent } from './phone/main-menu/main-menu.component';
+import { MenuButtonComponent } from './phone/main-menu/menu-button/menu-button.component';
+import { GamesComponent } from './phone/games/games.component';
+import { PhotoEditorComponent } from './phone/photo-editor/photo-editor.component';
+import { EditorButtonComponent } from './phone/photo-editor/editor-button/editor-button.component';
+import { ProfileComponent } from './phone/profile/profile.component';
+import { ChatComponent as PhoneChat } from './phone/chat/chat.component';
+import { ToiletBreakComponent } from './phone/toilet-break/toilet-break.component';
+import { ChatContainerComponent } from './phone/chat-container/chat-container.component';
+
 
 @NgModule({
   declarations: [
@@ -42,11 +56,26 @@ import { PhotoShotGameComponent } from './main-display/photo-shot-game/photo-sho
     VotingComponent,
     CatwalkComponent,
     PhotoShotGameComponent
+    ChatComponent,
+    TopnavComponent,
+    EnterFormsComponent,
+    InputComponent,
+    SocialComponent,
+    MainMenuComponent,
+    MenuButtonComponent,
+    GamesComponent,
+    PhotoEditorComponent,
+    EditorButtonComponent,
+    ProfileComponent,
+    PhoneChat,
+    ToiletBreakComponent,
+    ChatContainerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    CommonModule
     RouterModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
