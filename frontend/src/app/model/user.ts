@@ -4,12 +4,14 @@ export class User {
   password: string;
   color: string;
   photoProfile: string;
-  points: number;
+  xp: number;
+  level: number;
 
   constructor(username: any, color: any) {
     this.username = username;
     this.color = color;
-    this.points = 5123;
+    this.xp=0;
+    this.level=0;
   }
 
   // testing function

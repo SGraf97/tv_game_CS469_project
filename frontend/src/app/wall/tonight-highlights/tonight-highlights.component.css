@@ -1,0 +1,86 @@
+.wall-info { 
+    margin:0;
+    padding:0;
+    align-items: center;
+}
+
+h2 {
+   position: absolute;
+   font-style: normal;
+   font-weight: normal;
+   left: 40px;
+   top: 40px;
+   letter-spacing: 0.02em;
+   font-size:33px;
+   color: #EFEFEF;
+}
+
+h1 {
+  position: absolute;
+  left: 40px;
+  top: 75px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  font-size:42px;
+  color: #EFEFEF;
+}
+
+.first_video {
+    position: absolute;
+    top: 30px;
+    left: 300px;
+    width: 360px;
+    height: 200px;
+    border: none;
+}
+
+.second_video {
+    position: absolute;
+    top: 30px;
+    left: 750px;
+    width: 360px;
+    height: 200px;
+    border: none;
+}
+
+p.text1 {
+   position: absolute;
+   left: 300px;
+   top: 220px;
+   font-size: 20px;
+   letter-spacing: 0.02em;
+   line-height: 110%;
+   color: #EFEFEF;
+}
+
+p.text2 {
+    position: absolute;
+    left: 750px;
+    top: 220px;
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: 0.02em;
+    color: #EFEFEF;
+}
+
+.arrow img {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    left: 1150px;
+    top: 100px; 
+    cursor: pointer;
+}
+
+.hand img {
+    position: absolute;
+    height: 36px;
+    width: 35px;
+    left: 1300px;
+    top: 23px;  
+}
+
+
+
+

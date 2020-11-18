@@ -1,0 +1,164 @@
+.wall-info { 
+    margin:0;
+    padding:0;
+    align-items: center;
+}
+
+.profile {
+    position: relative;
+    padding-top: 2%; 
+    left: 48%;
+    height:100px;
+    width:100px;
+    border-radius:80%;
+}
+
+.profile img {
+    border-radius:50%;
+    display: inline;
+    margin: 0 auto;
+    /*margin-left: -35%; */
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    position: absolute;
+    left: 770px;
+    font-style: normal;
+    font-weight: normal;
+    display: flex;
+    top:0px;
+    color: #EFEFEF;
+    letter-spacing: 0.02em;
+}
+
+h3 {
+    position: absolute;
+    left: 770px;
+    top: 45px;
+    font-size:16px;
+    display: flex;
+    font-style: normal;
+    font-weight: normal;
+    line-height:2em;
+    color: #EFEFEF;
+    letter-spacing: 0.02em; 
+}
+
+h2 {
+   position: absolute;
+   left: 670px;
+   top: 130px;
+   font-size:23px;
+   font-style: normal;
+   font-weight: normal;
+   display: flex;
+   letter-spacing: 0.02em;
+   color: #FFFEFE;
+}
+
+.model1 {
+    position: absolute;
+    width: 500px;
+    height: 45px;
+    left: 50px;
+    box-shadow: inset 10px 100px 150px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    top: 20px;
+}
+
+#progress1 {
+    position: absolute;
+    width: 450px;
+    height: 1vh;
+    left: 48px;
+    top: 20px;
+    border-radius: 50px;
+    background-color:#E76F51;
+}
+
+.model2 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50px;
+    top: 70px;
+}
+
+#progress2 {
+    position: absolute;
+    width: 380px;
+    height: 1vh;
+    left: 48px;
+    top: 20px;
+    border-radius: 50px;
+    background-color:#E76F51;
+}
+
+.model3 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50px;
+    top: 120px;
+}
+
+#progress3 {
+    position: absolute;
+    width: 300px;
+    height: 1vh;
+    left: 48px;
+    top: 20px;
+    border-radius: 50px;
+    background-color:#E76F51;
+}
+
+.model4 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50px;
+    top: 170px;
+}
+
+#progress4 {
+    position: absolute;
+    width: 240px;
+    height: 1vh;
+    left: 48px;
+    top: 20px;
+    border-radius: 50px;
+    background-color:#E76F51;
+}
+
+.model5 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50px;
+    top: 220px;
+}
+
+#progress5 {
+    position: absolute;
+    width: 140px;
+    height: 1vh;
+    left: 48px;
+    top: 20px;
+    border-radius: 50px;
+    background-color:#E76F51;
+}
+
+.hand img {
+    position: absolute;
+    height: 36px;
+    width: 35px;
+    left: 1300px;
+    top: 20px;  
+}
+
+
+
+
+

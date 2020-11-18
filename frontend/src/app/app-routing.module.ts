@@ -7,6 +7,11 @@ import {QuizGameComponent} from './main-display/quiz-game/quiz-game.component';
 import {VotingComponent} from './main-display/voting/voting.component';
 import {CatwalkComponent} from './main-display/catwalk/catwalk.component';
 import {PhotoShotGameComponent} from './main-display/photo-shot-game/photo-shot-game.component';
+import { UsersInfoComponent } from './wall/users-info/users-info.component';
+import { ModelsInfoComponent } from './wall/models-info/models-info.component';
+import { TonightHighlightsComponent } from './wall/tonight-highlights/tonight-highlights.component';
+import { WallComponent } from './wall/wall.component';
+import { WallNotificationComponent } from './wall/wall-notification/wall-notification.component';
 
 import { from } from 'rxjs';
 const routes: Routes = [
@@ -17,6 +22,11 @@ const routes: Routes = [
   {path: 'main/voting' , component: VotingComponent},
   {path: 'main/catwalk' , component: CatwalkComponent},
   {path: 'main/photo' , component: PhotoShotGameComponent },
+  { path: 'wall', component: WallComponent },
+  { path: 'wall/tonight-highlights', component: TonightHighlightsComponent },
+  { path: 'wall/models-info', component: ModelsInfoComponent },
+  { path: 'wall/users-info', component: UsersInfoComponent },
+  { path: 'wall/wall-notification', component: WallNotificationComponent}
 ];
 
 @NgModule({
@@ -24,7 +34,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-
-
 }
 
