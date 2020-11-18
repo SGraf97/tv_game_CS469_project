@@ -32,7 +32,16 @@ import { PhotoShotGameComponent } from './main-display/photo-shot-game/photo-sho
     WallComponent,
     TableComponent,
     PhoneComponent,
-    ChatComponent
+    ChatComponent,
+    TwitterComponent,
+    UsersCaruselComponent,
+    FrameComponent,
+    StartingMainScreenComponent,
+    SelectDeviceComponent,
+    QuizGameComponent,
+    VotingComponent,
+    CatwalkComponent,
+    PhotoShotGameComponent
   ],
   imports: [
     BrowserModule,
