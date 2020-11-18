@@ -103,7 +103,7 @@
   bottom: 0;
   display: flex;
   width:100%;
-  justify-content: start;
+  justify-content: flex-start;
   padding: 5%;
 }
 

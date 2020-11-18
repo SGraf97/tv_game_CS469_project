@@ -37,7 +37,7 @@ import { ProfileComponent } from './phone/profile/profile.component';
 import { ChatComponent as PhoneChat } from './phone/chat/chat.component';
 import { ToiletBreakComponent } from './phone/toilet-break/toilet-break.component';
 import { ChatContainerComponent } from './phone/chat-container/chat-container.component';
-
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -55,14 +55,14 @@ import { ChatContainerComponent } from './phone/chat-container/chat-container.co
     QuizGameComponent,
     VotingComponent,
     CatwalkComponent,
-    PhotoShotGameComponent
+    PhotoShotGameComponent,
     ChatComponent,
     TopnavComponent,
     EnterFormsComponent,
     InputComponent,
     SocialComponent,
     MainMenuComponent,
-    MenuButtonComponent,
+    MenuButtonComponent, 
     GamesComponent,
     PhotoEditorComponent,
     EditorButtonComponent,
@@ -73,8 +73,8 @@ import { ChatContainerComponent } from './phone/chat-container/chat-container.co
   ],
   imports: [
     BrowserModule,
-    CommonModule
-    RouterModule
+    CommonModule,
+    RouterModule,
     AppRoutingModule,
   ],
   providers: [],
