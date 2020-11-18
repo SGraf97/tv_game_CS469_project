@@ -13,6 +13,7 @@
 {
   flex-wrap: wrap;
   display: flex;
+  padding: 2%;
 }
 
 
@@ -43,25 +44,33 @@
 
 .info-pop-up-left
 {
+  position: relative;
+  left : 70px;
   font-size: large;
   background-color: #50A6B2;
-  width:100%;
+  min-width:5vw;
+  /* max-height: 5vh; */
+  width:fit-content;
   text-align: right;
-  margin-left:100%;
-  padding: 10%;
+  /* margin-left:100%; */
+  padding: 5%;
   border-radius: 10px 10px 10px 0px;
+  /* display: in; */
 }
 
 
 
 .info-pop-up-right
 {
+  
+  position: relative;
+  right:100px;
   font-size: large;
   background-color: #50A6B2;
-  width:100%;
+  min-width:5vw;
   text-align: right;
-  margin-left:-100%;
-  padding: 10%;
+  /* margin-left:-100%; */
+  padding: 7%;
   border-radius: 10px 10px 0px 10px;
 }
 
