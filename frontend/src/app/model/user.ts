@@ -18,10 +18,10 @@ export class User {
 
   static getUsers(): any {
     return [
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red')
+      new User('Username', 'red'),
+      new User('Username', 'red'),
+      new User('Username', 'red'),
+      new User('Username', 'red')
     ];
   }
 
