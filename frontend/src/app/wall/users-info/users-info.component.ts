@@ -13,8 +13,9 @@ export class UsersInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    //needs users that already exist somewhere
+    //users
     this.users = User.getUsers();
+    
     this.xp = "42069xp";
     this.level = "level3";
   }
