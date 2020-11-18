@@ -19,6 +19,7 @@ import { MainMenuComponent } from './phone/main-menu/main-menu.component';
 import { PhotoEditorComponent } from './phone/photo-editor/photo-editor.component';
 import { ProfileComponent } from './phone/profile/profile.component';
 import { ToiletBreakComponent } from './phone/toilet-break/toilet-break.component';
+import { CommonModule } from '@angular/common';
 
 import { from } from 'rxjs';
 const routes: Routes = [
@@ -45,7 +46,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    CommonModule 
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

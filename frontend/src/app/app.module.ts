@@ -38,6 +38,12 @@ import { ChatComponent as PhoneChat } from './phone/chat/chat.component';
 import { ToiletBreakComponent } from './phone/toilet-break/toilet-break.component';
 import { ChatContainerComponent } from './phone/chat-container/chat-container.component';
 import { RouterModule, Routes } from '@angular/router';
+import { BuzzerComponent } from './table/buzzer/buzzer.component';
+import { OptionComponent } from './table/option/option.component';
+import { CountdownComponent } from './table/countdown/countdown.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
@@ -76,6 +82,12 @@ import { RouterModule, Routes } from '@angular/router';
     CommonModule,
     RouterModule,
     AppRoutingModule,
+    BuzzerComponent,
+    OptionComponent,
+    CountdownComponent,
+    NgbModule,
+    BsDropdownModule,
+    AlertModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
