@@ -1,23 +1,21 @@
-
-
-.deviceSelect{
-  /*padding: 20%;*/
-  display: flex;
-  /*flex-direction: column;*/
-  /*width: 100%;*/
-  height: 100vh;
-  justify-content: space-around;
-  /*align-content: space-around;*/
-  align-items: center;
-
-}
-a{
-  /*margin:10%;*/
-  padding: 5%;
+.btn-primary{
   border-radius: 20px;
+  padding-top: 1%;
+  border-color: black;
+  background-color: transparent;
   box-shadow: 6px 6px 15px rgb(0,0,0,0.5) , -6px -6px 15px rgb(141,141,141,0.5);
   color: whitesmoke;
   font-size: x-large;
   text-decoration: none;
-  text-transform: uppercase;
+  height: min-content;
+  width: auto;
+  transition-duration: 0.5s;
 }
+
+.btn:hover{
+  transition-duration: 0.5s;
+  padding: 5%;
+}
+
+
+

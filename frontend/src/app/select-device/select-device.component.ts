@@ -12,4 +12,8 @@ export class SelectDeviceComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  changeRoute(newRoute: string){
+    window.location.href = newRoute;
+  }
+
 }
