@@ -1,0 +1,51 @@
+<div class="wall">
+    <div class="overlay">
+      <!--notification box-->
+      <div class="notif"><p style="color: #000000; position:absolute; left:65px; font-size:17px; font-weight:bold;">
+        game session started<br>
+        click accept on your phone to join</p></div>
+        <img src="./assets/game-black.svg" width="40" style="position:absolute; left:40px; top:45px" alt="game">
+    </div>
+  
+      <h1 class="header">TODAY’S CONCEPT:<br>MERMAIDS</h1>
+      <div class="logo">
+        <img src="./assets/GNTM-Logo.png" alt="GNTM LOGO">
+      </div>
+    
+     <div class="model1">
+          <div class="model_icon">
+            <img src="./assets/models/hraklis.jpg" width="30" alt="model1">
+          </div>
+          <div class="circle">1</div>
+          <p class="model_info"><a href="/models-info">{{models[0]?.name}}</a><br>{{models[0]?.points}}</p>  
+     </div>
+  
+      <div class="model2">
+         <div class="model_icon">
+          <img src="./assets/models/irida.jpg" width="30" alt="model1"> 
+          </div> 
+          <div class="circle">2</div>  
+          <p class="model_info"><a href="/models-info">{{models[1]?.name}}</a><br>{{models[1]?.points}}</p>  
+      </div>
+  
+      <div class="model3">
+         <div class="model_icon">
+          <img src="./assets/models/emmanouel.jpg" width="30" alt="model1">  
+          </div>
+          <div class="circle">3</div>
+          <p class="model_info"><a href="/models-info">{{models[2]?.name}}</a><br>{{models[2]?.points}}</p>  
+      </div>
+      
+      <p class="episode">{{episode}}</p>
+  
+      <div id="progress">
+         <div id="bar">
+             <p class="time">{{time}}</p>
+         </div>
+      </div>
+  
+      <div class=hand>
+        <img src="./assets/hand.svg" alt="hand for leap">
+      </div>
+  </div>
+  
