@@ -16,6 +16,7 @@ import { ChatComponent } from './main-display/chat/chat.component';
 import { UsersInfoComponent } from './wall/users-info/users-info.component';
 import { ModelsInfoComponent } from './wall/models-info/models-info.component';
 import { TonightHighlightsComponent } from './wall/tonight-highlights/tonight-highlights.component';
+import { WallNotificationComponent } from './wall/wall-notification/wall-notification.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TonightHighlightsComponent } from './wall/tonight-highlights/tonight-hi
     // OptionComponent,
     UsersInfoComponent,
     ModelsInfoComponent,
-    TonightHighlightsComponent
+    TonightHighlightsComponent,
+    WallNotificationComponent
   ],
   imports: [
     BrowserModule,
