@@ -26,7 +26,7 @@ export class FilesController {
    * Uploads a new file to minio server
    */
   public  upload() {
-    return async (req: Request, res: Response, next?: NextFunction): Promise<Response> => {
+    return async (req: Request, res: Response, next?: NextFunction): Promise<any> => {
       try {
         return Multer({ limits: { fileSize: 10 * 1024 * 1024, files: 1 } }) // file size in bytes (10mb)
           .single('file')(req, res, async (err: any) => {

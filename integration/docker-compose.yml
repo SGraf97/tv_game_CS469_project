@@ -2,9 +2,9 @@ version: "3.7"
 
 services:
   backend:
-    image: APP-backend:${APP_VERSION}
+    image: ${APP_NAME}-backend:${APP_VERSION}
     build: ../backend
-    container_name: APP-backend
+    container_name: ${APP_NAME}-backend
     restart: always
     depends_on:
       - database
@@ -30,17 +30,17 @@ services:
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
 
   frontend:
-    image: APP-frontend:${APP_VERSION}
+    image: ${APP_NAME}-frontend:${APP_VERSION}
     build:
       context: ../frontend
-    container_name: APP-frontend
+    container_name: ${APP_NAME}-frontend
     restart: always
     networks:
       - integration-network
 
   database:
     image: mongo:4.0.10-xenial
-    container_name: APP-database
+    container_name: ${APP_NAME}-database
     restart: always
     command:
       - --auth
@@ -59,7 +59,7 @@ services:
 
   redis:
     image: redis:5-alpine
-    container_name: APP-redis
+    container_name: ${APP_NAME}-redis
     command:
       - redis-server
       - --port ${REDIS_PORT}
@@ -71,7 +71,7 @@ services:
 
   minio:
     image: minio/minio:latest
-    container_name: APP-minio
+    container_name: ${APP_NAME}-minio
     command: minio server /data/minio/ --address :${MINIO_PORT}
     environment:
       MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
@@ -83,7 +83,7 @@ services:
 
   reverse-proxy:
     image: nginx
-    container_name: APP-reverse-proxy
+    container_name: ${APP_NAME}-reverse-proxy
     restart: always
     depends_on:
       - backend
@@ -93,12 +93,12 @@ services:
 
 networks:
   integration-network:
-    name: APP-integration-network
+    name: ${APP_NAME}-integration-network
 
 volumes:
   database-volume:
-    name: APP-database-volume
+    name: ${APP_NAME}-database-volume
   redis-volume:
-    name: APP-redis-volume
+    name: ${APP_NAME}-redis-volume
   minio-volume:
-    name: APP-minio-volume
+    name: ${APP_NAME}-minio-volume
