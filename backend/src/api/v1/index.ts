@@ -4,6 +4,7 @@ import { ITask, TaskModel } from '@app/models';
 import { FilesController } from './files/files.controller';
 import { SocketEventsController } from './socket-events/socket-events.controller';
 import { ExampleController } from './example/example.controller';
+import {UserController} from "@app/api/v1/users/user.controller";
 
 const apiV1Router = express.Router();
 
@@ -31,6 +32,11 @@ apiV1Router
   .use(
     '/example',
     new ExampleController().applyRoutes()
+  )
+
+  .use(
+    '/user',
+    new UserController().applyRoutes()
   );
 
 
