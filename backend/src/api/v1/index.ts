@@ -35,9 +35,10 @@ apiV1Router
   )
 
   .use(
-    '/user',
+    '/users',
     new UserController().applyRoutes()
   );
+
 
 
 export { apiV1Router };
