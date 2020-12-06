@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user';
 import { CommonModule } from '@angular/common';
 import { Template } from '@angular/compiler/src/render3/r3_ast';
+import {SmartSpeakerService} from '../smart-speaker.service';
 
 @Component({
   selector: 'app-table',
@@ -30,11 +31,14 @@ export class TableComponent implements OnInit {
   public buzzers: any;
   public options: any;
 
+  //voice commands
+  private _smartSpeaker: any;
 
   constructor() {
     this.state = this.states.BUZZER;
     console.log(this.state);
-   }
+    this._smartSpeaker = new SmartSpeakerService();
+  }
 
   ngOnInit(): void {
     //init state
@@ -61,6 +65,27 @@ export class TableComponent implements OnInit {
       "option C",
       "option D",
     ];
+
+    this._smartSpeaker.addCommand('option a', ()=>{
+      this._smartSpeaker.speak('you choose option a');
+      console.log('You choose Option A'); 
+    });
+
+    this._smartSpeaker.addCommand('option b', ()=>{
+      this._smartSpeaker.speak('you choose option b');
+      console.log('You choose Option B');
+    });
+
+    this._smartSpeaker.addCommand('option c', ()=>{
+      this._smartSpeaker.speak('you choose option c');
+      console.log('You choose Option C');
+    });
+
+    this._smartSpeaker.addCommand('option d', ()=>{
+      this._smartSpeaker.speak('you choose option d');
+      console.log('You choose Option D');
+    });
+
   }
 
   //change rendered elements
@@ -69,4 +94,5 @@ export class TableComponent implements OnInit {
     this.state = newState;
     console.log(this.state);
   }
+
 }
