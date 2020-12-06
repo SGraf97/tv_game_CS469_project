@@ -1,3 +1,13 @@
+.notif {
+    position: absolute;
+    width: 380px;
+    height: 80px;
+    left: 28px;
+    top: 28px;
+    background: #F15253;
+    border-radius: 10px;
+ }
+
 .overlay {
     position: fixed;
     width: 35%;
@@ -15,16 +25,6 @@
     transition-duration: 1s;
 }
 
-.notif {
-   position: absolute;
-   width: 322px;
-   height: 70px;
-   left: 28px;
-   top: 28px;
-   background: #F15253;
-   border-radius: 10px;
-}
-
 .wall { 
     margin:0;
     padding:0;
@@ -32,170 +32,171 @@
 }
 
 p {
-   left:50px;
-}
-
-.header {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 50px;
-    line-height: 110%;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-    color: #E0E0E0;
-}
-
-.logo img {
-    position: absolute;
-    width: 211px;
-    height: 68px;
-    left: 30px;
-    top: 20px;
-}
-
-.model1 {
-    position: absolute;
-    width: 171px;
-    height: 87px;
-    left: 320px;
-    top: 175px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.02em;
-    color: #C2C2C2;
-}
-
-.model2 {
-    position: absolute;
-    width: 171px;
-    height: 87px;
-    left: 620px;
-    top: 175px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.02em;
-    color: #C2C2C2;
-}
-
-.model3 {
-    position: absolute;
-    width: 171px;
-    height: 87px;
-    left: 920px;
-    top: 175px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.02em;
-    color: #C2C2C2;
-}
-
-.circle {
-    position: absolute;
-    background-color:#264653;
-    border:1px solid rgb(0, 0, 0); 
-    font-size: 20px;
-    line-height: 100%;    
-    height:25px;
-    width:25px;
-    top: 48%;
-    left: 13%;
-    border-radius:50%;
-    text-align: center;
-    color: #F9F9F9;
-}
-
-.model_icon {
-    position: relative;
-    top: -10%; 
-    left: -5%;
-    height:55px;
-    width:55px;
-    overflow: hidden;
-    border-radius:50%;
-}
-
-.model_icon img { 
-    display: inline;
-    margin: 0 auto;
-    margin-left: -35%; 
-    height: 100%;
-    width: auto;
-}
-
-a {
-    color:white;
-    text-decoration: none;
-}
-
-p.model_info {
-    position: absolute;
-    font-size: 20px;
-    line-height: 100%;
-    font-style: normal;
-    font-weight: normal;
-    left: 55px;
-    top: 15px;  
-    letter-spacing: 0.02em;
-}
-
-p.episode {
-    position: absolute;
-    left: 40px;
-    top: 265px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 25px;
-    line-height: 100%;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-    display: flex;
-    color: #FFFFFF;
-}
-
-#progress {
-    position: absolute;
-    width: 1300px;
-    height: 4vh;
-    left: 30px;
-    top: 295px;
-    border-radius: 50px;
-    background-color:#336971;
-}
-  
-#bar {
-    position: absolute;
-    width: 181px;
-    height: 4vh;
-    left: 0px;
-    top: 0px;
-    border-radius: 50px;
-    background-color: #FFB500;
-}
-
-/* 16:30 */
-p.time {
-    position: absolute;
-    left: 130px;
-    top: 1px;
-    font-size: 15px;
-    line-height: 113%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-    color: #365559;
-}
-
-.hand img {
-    cursor:pointer;
-    position: absolute;
-    height: 36px;
-    width: 35px;
-    left: 1300px;
-    top: 20px;  
-}
+    left:50px;
+ }
+ 
+ .header {
+     margin-top: 15px;
+     display: flex;
+     justify-content: center;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 55px;
+     line-height: 110%;
+     align-items: center;
+     text-align: center;
+     letter-spacing: 0.02em;
+     color: #E0E0E0;
+ }
+ 
+ .logo img {
+     position: absolute;
+     width: 220px;
+     height: 70px;
+     left: 30px;
+     top: 20px;
+ }
+ 
+ .model1 {
+     position: absolute;
+     width: 171px;
+     height: 87px;
+     left: 520px;
+     top: 200px;
+     display: flex;
+     align-items: center;
+     letter-spacing: 0.02em;
+     color: #C2C2C2;
+ }
+ 
+ .model2 {
+     position: absolute;
+     width: 171px;
+     height: 87px;
+     left: 880px;
+     top: 200px;
+     display: flex;
+     align-items: center;
+     letter-spacing: 0.02em;
+     color: #C2C2C2;
+ }
+ 
+ .model3 {
+     position: absolute;
+     width: 171px;
+     height: 87px;
+     left: 1240px;
+     top: 200px;
+     display: flex;
+     align-items: center;
+     letter-spacing: 0.02em;
+     color: #C2C2C2;
+ }
+ 
+ .circle {
+     position: absolute;
+     background-color:#264653;
+     border:1px solid rgb(0, 0, 0); 
+     font-size: 20px;
+     line-height: 100%;   
+     height:30px;
+     width:30px;
+     top: 65%;
+     left: 33%;
+     border-radius:50%;
+     text-align: center;
+     color: #F9F9F9;
+ }
+ 
+ .model_icon {
+     position: relative;
+     top: -10%; 
+     left: -5%;
+     height:90px;
+     width:90px;
+     overflow: hidden;
+     border-radius:50%;
+ }
+ 
+ .model_icon img { 
+     display: inline;
+     margin: 0 auto;
+     margin-left: -35%; 
+     height: 100%;
+     width: auto;
+ }
+ 
+ a {
+     color: white;
+     text-decoration: none;
+ }
+ 
+ p.model_info {
+     position: absolute;
+     font-size: 25px;
+     line-height: 100%;
+     font-style: normal;
+     font-weight: normal;
+     left: 95px;
+     top: 22px;  
+     letter-spacing: 0.02em;
+ }
+ 
+ p.episode {
+     position: absolute;
+     left: 40px;
+     top: 355px;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 25px;
+     line-height: 100%;
+     align-items: center;
+     text-align: center;
+     letter-spacing: 0.02em;
+     display: flex;
+     color: #FFFFFF;
+ }
+ 
+ #progress {
+     position: absolute;
+     width: 1850px;
+     height: 6vh;
+     left: 30px;
+     top: 385px;
+     border-radius: 50px;
+     background-color:#336971;
+ }
+   
+ #bar {
+     position: absolute;
+     width: 381px;
+     height: 6vh;
+     left: 0px;
+     top: 0px;
+     border-radius: 50px;
+     background-color: #FFB500;
+ }
+ 
+ /* 16:30 */
+ p.time {
+     position: absolute;
+     left: 330px;
+     top:4px;
+     font-size: 15px;
+     line-height: 113%;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     letter-spacing: 0.02em;
+ 
+     color: #365559;
+ }
+ 
+ .hand img {
+     cursor: pointer;
+     position: absolute;
+     height: 50px;
+     width: 49px;
+     left: 1850px;
+     top: 20px;  
+ }
