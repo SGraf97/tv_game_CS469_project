@@ -2,20 +2,20 @@
 <div class="wall">
   <!--overlay-->
   <div class="overlay">
-    <div class="trophy"><img src="./assets/trophy.svg" width="30" alt="trophy"></div>
-    <div class="group"><img src="./assets/group.svg" width="30" alt="group"></div>
-    <div class="video-player"><img src="./assets/video-player.svg" width="30" alt="video-player"></div>
-    <div class="close"><img src="./assets/close.svg" width="30" alt="close"></div>
+    <div class="trophy"><img src="./assets/trophy.svg" width="40" alt="trophy"></div>
+    <div class="group"><img src="./assets/group.svg" width="40" alt="group"></div>
+    <div class="video-player"><img src="./assets/video-player.svg" width="40" alt="video-player"></div>
+    <div class="close"><img src="./assets/close.svg" width="40" alt="close"></div>
 
-    <p style="color: #FFB500; position:absolute; left:135px; top:10px; font-size:20px;">Notifications</p>
+    <p style="color: #FFB500; position:absolute; left:135px; top:20px; font-size:25px;">Notifications</p>
 
-    <img src="./assets/game-white.svg" width="30" style="position:absolute; left:130px; top:73px" alt="game">
-    <p style="color: #FFFFFF; position:absolute; left:170px; top:58px;">
+    <img src="./assets/game-white.svg" width="40" style="position:absolute; left:130px; top:85px" alt="game">
+    <p style="color: #FFFFFF; position:absolute; left:185px; top:80px; font-size:20px;">
       game session started<br>
       click accept on your phone to join</p>
 
-    <img src="./assets/user.svg" width="30" style="position:absolute; left:130px; top:140px" alt="user">
-    <p style="color: #FFFFFF; position:absolute; left:170px; top:140px; font-family:ubuntu;">
+    <img src="./assets/user.svg" width="40" style="position:absolute; left:130px; top:170px" alt="user">
+    <p style="color: #FFFFFF; position:absolute; left:185px; top:175px; font-size:20px;">
       Welcome {{user}}</p>
   </div>
 
@@ -30,7 +30,8 @@
           <img src="./assets/models/hraklis.jpg" width="30" alt="model1">
         </div>
         <div class="circle">1</div>
-        <p class="model_info"><a href="/wall/models-info">{{models[0]?.name}}</a><br>{{models[0]?.points}}</p>  
+        
+        <p class="model_info"><a [routerLink]="['/wall/models-info', modelName1, modelAge1, modelHeight1]" routerLinkActive="active">{{models[0]?.name}}</a><br>{{models[0]?.points}}</p>
    </div>
 
     <div class="model2">
@@ -38,7 +39,7 @@
         <img src="./assets/models/irida.jpg" width="30" alt="model1"> 
         </div> 
         <div class="circle">2</div>  
-        <p class="model_info"><a href="/wall">{{models[1]?.name}}</a><br>{{models[1]?.points}}</p>  
+        <p class="model_info"><a [routerLink]="['/wall/models-info', modelName2, modelAge2, modelHeight2]" routerLinkActive="active">{{models[1]?.name}}</a><br>{{models[1]?.points}}</p>
     </div>
 
     <div class="model3">
@@ -46,7 +47,7 @@
         <img src="./assets/models/emmanouel.jpg" width="30" alt="model1">  
         </div>
         <div class="circle">3</div>
-        <p class="model_info"><a href="/wall">{{models[2]?.name}}</a><br>{{models[2]?.points}}</p>  
+        <p class="model_info"><a [routerLink]="['/wall/models-info', modelName3, modelAge1, modelHeight3]" routerLinkActive="active">{{models[2]?.name}}</a><br>{{models[2]?.points}}</p> 
     </div>
     
     <p class="episode">{{episode}}</p>
