@@ -9,46 +9,46 @@ h2 {
    font-style: normal;
    font-weight: normal;
    left: 40px;
-   top: 50px;
+   top: 90px;
    letter-spacing: 0.02em;
-   font-size:33px;
+   font-size:55px;
    color: #EFEFEF;
 }
 
 h1 {
   position: absolute;
   left: 40px;
-  top: 85px;
+  top: 150px;
   font-style: normal;
   font-weight: normal;
   letter-spacing: 0.02em;
-  font-size:42px;
+  font-size:70px;
   color: #EFEFEF;
 }
 
 .first_video {
     position: absolute;
-    top: 30px;
-    left: 300px;
-    width: 360px;
-    height: 200px;
+    top: 50px;
+    left: 600px;
+    width: 450px;
+    height: 250px;
     border: none;
 }
 
 .second_video {
     position: absolute;
-    top: 30px;
-    left: 750px;
-    width: 360px;
-    height: 200px;
+    top: 50px;
+    left: 1200px;
+    width: 450px;
+    height: 250px;
     border: none;
 }
 
 p.text1 {
    position: absolute;
-   left: 300px;
-   top: 230px;
-   font-size: 20px;
+   left: 600px;
+   top: 310px;
+   font-size: 25px;
    letter-spacing: 0.02em;
    line-height: 110%;
    color: #EFEFEF;
@@ -56,29 +56,20 @@ p.text1 {
 
 p.text2 {
     position: absolute;
-    left: 750px;
-    top: 230px;
-    font-size: 20px;
+    left: 1200px;
+    top: 310px;
+    font-size: 25px;
     line-height: 110%;
     letter-spacing: 0.02em;
     color: #EFEFEF;
 }
 
-.arrow img {
-    position: absolute;
-    height: 70px;
-    width: 70px;
-    left: 1150px;
-    top: 100px; 
-    cursor: pointer;
-}
-
 .hand img {
     cursor:pointer;
     position: absolute;
-    height: 36px;
-    width: 35px;
-    left: 1300px;
+    height: 50px;
+    width: 49px;
+    left: 1850px;
     top: 23px;  
 }
 
