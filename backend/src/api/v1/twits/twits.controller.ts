@@ -3,10 +3,10 @@ import { NotFound, BadRequest } from 'http-errors';
 import { DIContainer, MinioService, SocketsService } from '@app/services';
 import { logger } from '../../../utils/logger';
 import {TaskModel} from '../../../models/task.model';
-import {UserModel} from "@app/models";
+import {TwitModel} from "@app/models";
 
 
-export  class UserController {
+export  class TwitsController {
 
 
   public applyRoutes(): Router {
@@ -14,37 +14,41 @@ export  class UserController {
     const router = Router();
     router
       .post('/add', this.add)
-      .get('/get', this.getUser)
+      .get('/getAll', this.getAll)
       .delete('/all' , this.wipedb);
     return router;
   }
 
   public async add(req: Request, res: Response) {
-    // basic createing of user
-    UserModel.insertMany([
-        {username : 'test1' ,  password : 'test' , level: 0},
-        {username : 'test1' ,  password : 'test' , level: 0},
-        {username : 'test3' ,  password : 'test' , level: 0},
-        {username : 'test4' ,  password : 'test' , level: 0},
+    // basic creating of user
+    TwitModel.insertMany([
+        {
+          userTag: req.params.userTag,
+          username: req.params.username,
+          userProfileImage: req.params.userProfileImage,
+          likes: req.params.likes,
+          retweets: req.params.retweets,
+          whenCreated: req.params.whenCreated, // nomizw
+          twit: req.params.twit,
+        }
       ],
       function(err , result){
         if(err){
+          logger.info('error adding twit');
           res.send(err);
         }else{
+          logger.info('added twit');
           res.send(result);
         }
       });
-
-    logger.info('user Added with username ' + req.params.username);
-    // res.send();
   }
 
-  public getUser(req:Request , res: Response)
+  public getAll(req:Request , res: Response)
   {
-    UserModel.find({} , function (err , users){
+    TwitModel.find({} , function (err , users){
       let userMap: any[] = [];
-      users.forEach(function (user){
-        userMap.push(user);
+      users.forEach(function (twit){
+        userMap.push(twit);
         // res.send(user);
       });
       res.send(userMap);
@@ -52,9 +56,9 @@ export  class UserController {
   }
 
   public wipedb(req: Request , res: Response){
-    UserModel.remove({} , ()=>{
+    TwitModel.remove({} , ()=>{
       res.send('deleted');
-    } );
+    });
 
   }
 }

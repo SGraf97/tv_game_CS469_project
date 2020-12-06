@@ -1,11 +1,11 @@
 import { Document, Schema, Model, model } from 'mongoose';
 import { DefaultSchemaOptions } from './shared';
-import {User} from "../../../frontend/src/app/model/user";
+import {IUSer, UserModel} from './user.model';
 
 // ------------------------------------------
 // Interface declaration
 export interface IMessage extends Document {
-  user: User;
+  user: IUSer;
   messageText: string;
 }
 
@@ -13,7 +13,7 @@ export interface IMessage extends Document {
 // Schema definition
 const MessageSchema = new Schema(
   {
-    user: {type: User , required : true},
+    user: {type: UserModel, required : true},
     messageText: {type: String  , required : true},
   },
   { ...DefaultSchemaOptions }

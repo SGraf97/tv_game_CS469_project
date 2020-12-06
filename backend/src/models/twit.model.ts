@@ -25,7 +25,7 @@ const TwitSchema = new Schema(
     likes: {type:Number,  required : true},
     retweets:{type: Number,  required : true},
     whenCreated:{type: String,  required : true}, // nomizw
-    twittedFrom:{type: String,  required : true},
+    twittedFrom:{type: String,  required : false},
     twit: {type:String,  required : true},
   },
   { ...DefaultSchemaOptions }
