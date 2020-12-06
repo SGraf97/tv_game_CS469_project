@@ -2,7 +2,7 @@ import { Request, Response, NextFunction, Router } from 'express';
 import { NotFound, BadRequest } from 'http-errors';
 import { DIContainer, MinioService, SocketsService } from '@app/services';
 import { logger } from '../../../utils/logger';
-import {TaskModel} from '../../../models/task.model';
+import { TaskModel } from '../../../models/task.model';
 
 export class ExampleController {
 
@@ -17,7 +17,7 @@ export class ExampleController {
         router
             .post('/sendMessageToClients', this.sendMessageToClients)
             .get('/getMessage', this.getMessage)
-            .delete('/test' , this.thisIsAtest);
+            .delete('/test', this.thisIsAtest);
         return router;
     }
 
@@ -36,7 +36,7 @@ export class ExampleController {
         const message: string = req.body.message;
         const event: string = req.body.event;
 
-        //Sending a broadcast message to all clients
+        // Sending a broadcast message to all clients
         const socketService = DIContainer.get(SocketsService);
         socketService.broadcast(event, message);
 
@@ -44,13 +44,8 @@ export class ExampleController {
 
     }
 
-    public thisIsAtest(req: Request , res: Response){
-        res.json({
-            message:"hello",
-            status : "200",
-        });
+    public thisIsAtest(req: Request, res: Response) {
+        res.json({ message: 'hello', status: '200' });
     }
 
 }
-
-

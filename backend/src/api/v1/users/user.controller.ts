@@ -1,60 +1,103 @@
 import { Request, Response, NextFunction, Router } from 'express';
 import { NotFound, BadRequest } from 'http-errors';
 import { DIContainer, MinioService, SocketsService } from '@app/services';
-import { logger } from '../../../utils/logger';
-import {TaskModel} from '../../../models/task.model';
-import {UserModel} from "@app/models";
+import { UserModel } from '@app/models';
 
 
-export  class UserController {
+export class UserController {
 
 
   public applyRoutes(): Router {
 
     const router = Router();
     router
-      .post('/adduser', this.addNewUser)
-      .get('/get', this.getUser)
-      .delete('/all' , this.wipedb);
+      .get('/login', this.login)
+      .put('/logout', this.logout)
+      .post('/user', this.addNewUser)
+      .get('/users/:username', this.getUser)
+      .get('/users', this.getAllUsers)
+      .put('/users/:username', this.updateUserInfo)
+      .delete('/users', this.wipedb);
     return router;
   }
 
   public async addNewUser(req: Request, res: Response) {
-    // basic createing of user
-    UserModel.insertMany([
-      {username : 'test1' ,  password : 'test' , level: 0},
-      {username : 'test1' ,  password : 'test' , level: 0},
-      {username : 'test3' ,  password : 'test' , level: 0},
-      {username : 'test4' ,  password : 'test' , level: 0},
-    ],
-    function(err , result){
-        if(err){
-          res.send(err);
-        }else{
-          res.send(result);
-        }
-      });
-
-    logger.info('user Added with username ' + req.params.username);
-    // res.send();
+    UserModel.find({ username: req.query.username }, (err, user) => {
+      if (user.length === 0) {
+        UserModel.create(
+          {
+            username: req.query.username,
+            password: req.query.password,
+            color: req.query.color,
+            level: 0,
+            xp: 0,
+            service: 'DIContainer.get(SocketsService)'
+          }, (err: any) => {
+            if (err) {
+              res.send(err);
+            } else {
+              res.send('new user created');
+            }
+          });
+      } else {
+        res.send('Invalid username');
+      }
+    });
   }
 
-  public getUser(req:Request , res: Response)
-  {
-      UserModel.find({} , function (err , users){
-        let userMap: any[] = [];
-        users.forEach(function (user){
-            userMap.push(user);
-          // res.send(user);
+  public getUser(req: Request, res: Response) {
+    UserModel.find({ username: req.params.username }, (err, users) => {
+      const requestedUser = users[0];
+      if(users[0]){
+        res.json(requestedUser);
+      } else {
+        res.send('no such user is registered')
+      }
+    });
+  }
+
+  public getAllUsers(req: Request, res: Response) {
+    UserModel.find({}, (err, users) => {
+      const allUsers: any[] = [];
+      users.forEach(user => {
+        allUsers.push(user);
+      });
+      res.json(allUsers);
+    });
+  }
+
+  public updateUserInfo(req: Request, res: Response) {
+    UserModel.updateOne(
+      { username: req.params.username },
+      { xp: req.query.xp, level: req.query.level, color: req.query.color },
+      (err, users) => {
+        const requestedUser = users;
+      if(users){
+        UserModel.find({ username: req.params.username }, (err, users) => {
+          res.send(users[0]);
         });
-        res.send(userMap);
-      });
+      } else {
+        res.send('no such user is registered')
+      }
+    });
   }
 
-  public wipedb(req: Request , res: Response){
-    UserModel.remove({} , ()=>{
+  public login(req: Request, res: Response) {
+    UserModel.findOneAndUpdate({ username: req.params.username }, {
+      socket: 'DIContainer.get(SocketsService)'
+    });
+  }
+
+  public logout(req: Request, res: Response) {
+    UserModel.findOneAndUpdate({ username: req.params.username }, {
+      socket: null
+    });
+  }
+
+  public wipedb(req: Request, res: Response) {
+    UserModel.remove({}, () => {
       res.send('deleted');
-    } );
+    });
 
   }
 }

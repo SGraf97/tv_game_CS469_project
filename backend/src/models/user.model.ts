@@ -1,3 +1,4 @@
+import { Socket } from 'dgram';
 import { Document, Schema, Model, model } from 'mongoose';
 import { DefaultSchemaOptions } from './shared';
 
@@ -11,18 +12,20 @@ export interface IUSer extends Document {
   photoProfile: string;
   xp: number;
   level: number;
+  socket: string;
 }
 
 // ------------------------------------------
 // Schema definition
 const userSchema = new Schema(
   {
-    username: { type: String, required: true },
+    username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    color: {type: String , required : false},
-    photoProfile: {type: String  , required : false},
-    xp: {type: Number , required : false},
-    level : {type : Number , required : true}
+    color: {type: String , required : true},
+    photoProfile: {type: String, required : false},
+    xp: {type: Number, required : false},
+    level : {type : Number, required : true},
+    socket: {type: String, default : null, required: false}
   },
   { ...DefaultSchemaOptions }
 );
