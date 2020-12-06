@@ -1,40 +1,19 @@
 export class User {
 
-  username: string;
-  password: string;
-  color: string;
-  photoProfile: string;
-  xp: number;
-  level: number;
+  public username: string;
+  public password: string;
+  public color: string;
+  public photoProfile: string;
+  public xp: number;
+  public level: number;
+  public socket: any;
 
-  constructor(username: any, color: any) {
+  constructor(username: string, color: string) {
     this.username = username;
     this.color = color;
     this.xp=0;
     this.level=0;
+    this.socket = 'socket';
   }
 
-  // testing function
-  static getUsers(): any {
-    return [
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-      new User('testUsername', 'red'),
-
-
-    ];
-  }
-
-  static getUser(username: any): User {
-
-
-    return undefined;
-  }
 }

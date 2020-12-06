@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {UserService} from '../../model/user.service';
 
 @Component({
   selector: 'app-enter-forms',
@@ -19,7 +20,7 @@ export class EnterFormsComponent implements OnInit {
   };
   public stateAlt: string;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.state = this.states.LOGIN;
   }
 
@@ -41,8 +42,11 @@ export class EnterFormsComponent implements OnInit {
 
   //will user authorization
   enterFunc() {
-    if (this.state === this.states.LOGIN)
-      this.errMssg = true;
+    this.errMssg = false;
+    if (this.state === this.states.LOGIN){
+      let users = this.userService.getByUsername('user1');
+      console.log(users);
+    }
     else if(this.state === this.states.REGISTER) {
       this.errMssg = false;
       this.state = this.states.COLORS;

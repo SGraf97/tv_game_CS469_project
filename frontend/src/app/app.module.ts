@@ -44,6 +44,8 @@ import { CountdownComponent } from './table/countdown/countdown.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService }  from './model/user.service';
 
 @NgModule({
   declarations: [
@@ -87,7 +89,8 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     AppRoutingModule,
     NgbModule,
     BsDropdownModule,
-    AlertModule,
+    HttpClientModule,
+    AlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]
