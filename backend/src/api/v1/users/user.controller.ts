@@ -12,7 +12,6 @@ export class UserController {
     const router = Router();
     router
       .get('/login', this.login)
-      .put('/logout', this.logout)
       .post('/user', this.addNewUser)
       .get('/users/:username', this.getUser)
       .get('/users', this.getAllUsers)
@@ -49,7 +48,7 @@ export class UserController {
     UserModel.find({ username: req.params.username }, (err, users) => {
       const requestedUser = users[0];
       if(users[0]){
-        res.json(requestedUser);
+        res.send(requestedUser);
       } else {
         res.send('no such user is registered')
       }
@@ -83,14 +82,13 @@ export class UserController {
   }
 
   public login(req: Request, res: Response) {
-    UserModel.findOneAndUpdate({ username: req.params.username }, {
-      socket: 'DIContainer.get(SocketsService)'
-    });
-  }
-
-  public logout(req: Request, res: Response) {
-    UserModel.findOneAndUpdate({ username: req.params.username }, {
-      socket: null
+    UserModel.find({ username: req.query.username, password: req.query.password }, (err, users) => {
+      const requestedUser = users[0];
+      if(users[0]){
+        res.send(requestedUser);
+      } else {
+        res.send('no such user is registered')
+      }
     });
   }
 
