@@ -6,10 +6,10 @@
 
 .profile {
     position: absolute;
-    width: 120px;
-    height: 120px;
-    left: 77px;
-    top: 40px;
+    width: 170px;
+    height: 170px;
+    left: 100px;
+    top: 60px;
     background: #C4C4C4;
     border: 2px solid #000000;
     border-radius:50%;
@@ -18,17 +18,17 @@
 .arrow img {
     cursor:pointer;
     position: absolute;
-    height: 36px;
-    width: 35px;
+    height: 40px;
+    width: 39px;
     left: 11px;
     top: 5px;  
 }
 
 h1 {
   position: absolute;
-  left: 400px;
-  top: 30px;
-  font-size: 25px;
+  left: 500px;
+  top: 50px;
+  font-size: 35px;
   line-height: 100%;
   letter-spacing: 0.03em;
   color: #EFEFEF;
@@ -36,9 +36,9 @@ h1 {
 
 h2 {
   position: absolute;
-  left: 60px;
-  top: 160px;
-  font-size: 25px;
+  left: 85px;
+  top: 250px;
+  font-size: 30px;
   line-height: 100%;
   align-items: center;
   letter-spacing: 0.03em;
@@ -47,9 +47,9 @@ h2 {
 
 p.fullname {
     position: absolute;
-    left: 40px;
-    top: 200px;
-    font-size: 22px;
+    left: 70px;
+    top: 315px;
+    font-size: 25px;
     font-style: normal;
     font-weight: normal;
     line-height: 100%;
@@ -60,11 +60,11 @@ p.fullname {
 
 p.twitter {
    position: absolute;
-   left: 40px;
-   top: 230px;
+   left: 70px;
+   top: 350px;
    font-style: normal;
    font-weight: normal;
-   font-size: 22px;
+   font-size: 25px;
    line-height: 100%;
    align-items: center;
    letter-spacing: 0.03em;
@@ -73,10 +73,10 @@ p.twitter {
 
 .photo1 {
     position: absolute;
-    height: 120px;
-    width: 90px;
-    left: 400px;
-    top: 100px;
+    height: 220px;
+    width: 150px;
+    left: 500px;
+    top: 140px;
     display: inline-block;
     box-sizing: border-box;
     border: 1px solid #000000;
@@ -92,10 +92,10 @@ p.twitter {
 
 .photo2 {
     position: absolute;
-    height: 120px;
-    width: 90px;
-    left: 520px;
-    top: 100px;
+    height: 220px;
+    width: 150px;
+    left: 700px;
+    top: 140px;
     display: inline-block;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -111,10 +111,10 @@ p.twitter {
 
 .photo3 {
     position: absolute;
-    height: 120px;
-    width: 90px;
-    left: 640px;
-    top: 100px;
+    height: 220px;
+    width: 150px;
+    left: 900px;
+    top: 140px;
     display: inline-block;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -130,10 +130,10 @@ p.twitter {
 
 .photo4 {
     position: absolute;
-    height: 120px;
-    width: 90px;
-    left: 760px;
-    top: 100px;
+    height: 220px;
+    width: 150px;
+    left: 1100px;
+    top: 140px;
     display: inline-block;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -149,10 +149,10 @@ p.twitter {
 
 .photo5 {
     position: absolute;
-    height: 120px;
-    width: 90px;
-    left: 880px;
-    top: 100px;
+    height: 220px;
+    width: 150px;
+    left: 1300px;
+    top: 140px;
     display: inline-block;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -169,26 +169,26 @@ p.twitter {
 .hand img {
     cursor:pointer;
     position: absolute;
-    height: 36px;
-    width: 35px;
-    left: 1300px;
+    height: 50px;
+    width: 49px;
+    left: 1850px;
     top: 20px;  
 }
 
 #progress {
     position: absolute;
-    width: 150px;
-    height: 2vh;
-    left: 1190px;
-    top: 250px;
+    width: 250px;
+    height: 4vh;
+    left: 1620px;
+    top: 400px;
     border-radius: 20px;
     background-color:#2D657C;
 }
   
 #bar {
     position: absolute;
-    width: 30px;
-    height: 2vh;
+    width: 70px;
+    height: 4vh;
     left: 0px;
     top: 0px;
     border-radius: 20px;
@@ -197,9 +197,9 @@ p.twitter {
 
 p.xp {
    position: absolute;
-   left: 1190px;
-   top: 220px;
-   font-size: 23px;
+   left: 1620px;
+   top: 360px;
+   font-size: 35px;
    line-height: 100%;
    letter-spacing: 0.03em;
    color: #EFEFEF;
@@ -208,8 +208,8 @@ p.xp {
 p.level {
     position: absolute;
     left: 3px;
-    top: 15px;
-    font-size: 15px;
+    top: 20px;
+    font-size: 20px;
     line-height: 100%;
     letter-spacing: 0.03em;
     color: #EFEFEF;
