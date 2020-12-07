@@ -45,7 +45,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService }  from './model/user.service';
+import { UserService }  from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +73,7 @@ import { UserService }  from './model/user.service';
     InputComponent,
     SocialComponent,
     MainMenuComponent,
-    MenuButtonComponent, 
+    MenuButtonComponent,
     GamesComponent,
     PhotoEditorComponent,
     EditorButtonComponent,

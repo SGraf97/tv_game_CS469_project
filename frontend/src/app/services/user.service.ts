@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from './user';
+import { User } from '../model/user';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import * as _ from 'lodash';
@@ -15,7 +15,7 @@ export class UserService {
   private hostURl: string;
   httpClient: any;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient ) {
     this.hostURl = environment.host;
   }
 
@@ -25,24 +25,44 @@ export class UserService {
       .pipe(map(result => _.map(result, (t) => new User(t.username, t.color))));
   }
 
-  public getByUsername(username: string): Observable<void> {
-    console.log(`${this.hostURl}/api/user/users/${username}`);
-    let promise = new Promise((resolve, reject) => {
-      let apiURL = `${this.hostURl}/api/user/users/${username}`;
-      this.http.get(apiURL)
-          .toPromise()
-          .then(
-              res => { // Success
+  public getUsers(){
+    let apiURL = `${this.hostURl}/api/user`;
+    console.log(apiURL);
+    return this.http
+      .get<User>(apiURL)
+      .toPromise()
+      ;
 
-                console.log(res);
-                resolve();
-              },
-              msg => { // Error
-                reject(msg);
-              }
-          );
-    });
   }
+
+
+  private getUserReq(username: string): Observable<any>{
+    return this.http.get(`${this.hostURl}/api/user/${username}`);
+  }
+
+
+
+
+  public async getByUsername(username: string): Promise<User> {
+    let user: any;
+    return this.getUserReq(username)
+      .toPromise()
+      .then(
+        res => {return new User(res.username, res.color)}
+      )
+
+  }
+
+
+  // public getByUsername(username: string): any {
+  //   console.log(`${this.hostURl}/api/user/${username}`);
+  //   let promise = new Promise((resolve, reject) => {
+  //     let apiURL = `${this.hostURl}/api/user/users/${username}`;
+  //     return this.http.get(apiURL)
+  //         .toPromise();
+  //
+  //   });
+  // }
 
   public newUser(resource: User): Observable<any> {
     return this.http
