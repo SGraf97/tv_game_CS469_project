@@ -4,7 +4,6 @@ import {IMessage, IModela, ITask, IUSer, MessageModel, ModelaModel, TaskModel, U
 import { FilesController } from './files/files.controller';
 import { SocketEventsController } from './socket-events/socket-events.controller';
 import { ExampleController } from './example/example.controller';
-import {MessageController} from "@app/api/v1/messages/message.controller";
 import {ITwit, TwitModel} from "@app/models/twit.model";
 
 

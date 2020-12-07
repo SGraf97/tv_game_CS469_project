@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../model/user';
 import {FrameComponent} from '../frame/frame.component';
 import {UserService} from "../../services/user.service";
+import {SocketsService} from "../../services";
+
 
 @Component({
   selector: 'app-starting-main-screen',
@@ -11,10 +13,25 @@ import {UserService} from "../../services/user.service";
 export class StartingMainScreenComponent implements OnInit {
   onlineUsers: any;
   nextEpisode: any;
+  public socketEvents : any[];
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService , private socketService:SocketsService) {
+    this.socketEvents = [];
+  }
 
   ngOnInit(): void {
+
+    this.socketService.syncAllMessages().subscribe(msg=>{
+      console.log(msg);
+      if(msg.event == 'create'){
+        this.userService.getUsers().then(res=>{
+          this.onlineUsers = res;
+        });
+      }
+    });
+
+
+
      this.userService.getUsers().then(res=>{
        this.onlineUsers = res;
      });

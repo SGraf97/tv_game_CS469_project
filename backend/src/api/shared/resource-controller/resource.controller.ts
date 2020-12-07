@@ -4,6 +4,7 @@ import { MongooseQueryParser, QueryOptions } from 'mongoose-query-parser';
 import { Model, Document } from 'mongoose';
 import { OK, CREATED, NO_CONTENT } from 'http-status-codes';
 import { ICrudController, ICrudRouteOptions, CrudOperations, IPaginateOptions } from '@app/api/shared/interfaces/crud.interface';
+import {DIContainer, SocketsService} from "@app/services";
 
 export class ResourceController<T extends Document> implements ICrudController {
 
@@ -101,7 +102,8 @@ export class ResourceController<T extends Document> implements ICrudController {
       try {
         const resource = await new this.modelSchema(req.body)
           .save();
-
+        const socketService = DIContainer.get(SocketsService);
+        socketService.broadcast('create', req.body);
         return res
           .status(CREATED)
           .json(resource);
