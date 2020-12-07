@@ -13,6 +13,7 @@ export interface IUSer extends Document {
   xp: number;
   level: number;
   socket: string;
+  isLoggedIn: boolean;
 }
 
 // ------------------------------------------
@@ -25,7 +26,8 @@ const userSchema = new Schema(
     photoProfile: {type: String, required : false},
     xp: {type: Number, required : false},
     level : {type : Number, required : true},
-    socket: {type: String, default : null, required: false}
+    socket: {type: String, default : null, required: false},
+    isLoggedIn: {type:Boolean , default: false}
   },
   { ...DefaultSchemaOptions }
 );
