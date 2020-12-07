@@ -7,6 +7,7 @@ export class User {
   public xp: number;
   public level: number;
   public socket: any;
+  public isLoggedIn: boolean;
 
   constructor(username: string, color: string) {
     this.username = username;

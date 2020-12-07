@@ -41,7 +41,7 @@ apiV1Router
     new ResourceController<IUSer>(UserModel).applyRoutes()
   )
 
-  
+
   .use(
     '/message',
    new ResourceController<IMessage>(MessageModel).applyRoutes()

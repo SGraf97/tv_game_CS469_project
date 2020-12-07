@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../model/user';
 import {FrameComponent} from '../frame/frame.component';
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-starting-main-screen',
@@ -10,10 +11,15 @@ import {FrameComponent} from '../frame/frame.component';
 export class StartingMainScreenComponent implements OnInit {
   onlineUsers: any;
   nextEpisode: any;
-  constructor() { }
+
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
-      this.onlineUsers = User.getUsers();
+     this.userService.getUsers().then(res=>{
+       this.onlineUsers = res;
+     });
+     console.log(this.onlineUsers);
+    // this.onlineUsers = User.getUsers();
       this.nextEpisode = '20/12/20';
 
 
