@@ -50,7 +50,7 @@ export class UserController {
       if(users[0]){
         res.send(requestedUser);
       } else {
-        res.send('no such user is registered')
+        res.send('no such user is registered');
       }
     });
   }
@@ -76,7 +76,7 @@ export class UserController {
           res.send(users[0]);
         });
       } else {
-        res.send('no such user is registered')
+        res.send('no such user is registered');
       }
     });
   }
@@ -87,7 +87,7 @@ export class UserController {
       if(users[0]){
         res.send(requestedUser);
       } else {
-        res.send('no such user is registered')
+        res.send('no such user is registered');
       }
     });
   }
