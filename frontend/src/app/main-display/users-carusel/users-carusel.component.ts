@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../model/user';
+import {UserService} from "../../services";
 
 @Component({
   selector: 'app-users-carusel',
@@ -9,10 +10,12 @@ import {User} from '../../model/user';
 export class UsersCaruselComponent implements OnInit {
   users: any;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.users = User.getUsers();
+      this.userService.getUsers().then(res=>{
+          this.users = res;
+      });
 
 
 

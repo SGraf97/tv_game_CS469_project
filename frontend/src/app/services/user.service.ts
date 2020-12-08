@@ -19,11 +19,7 @@ export class UserService {
     this.hostURl = environment.host;
   }
 
-  public getAll(): Observable<User[]> {
-    return this.http
-      .get<User[]>(`${this.hostURl}/api/user/users`)
-      .pipe(map(result => _.map(result, (t) => new User(t.username, t.color))));
-  }
+
 
   public getUsers(){
     let apiURL = `${this.hostURl}/api/user`;
@@ -35,6 +31,13 @@ export class UserService {
 
   }
 
+  public getUser(id : any)
+  {
+    let apiURL = `${this.hostURl}/api/user/` + id;
+    return this.http
+      .get<User>(apiURL)
+      .toPromise();
+  }
 
   private getUserReq(username: string): Observable<any>{
     return this.http.get(`${this.hostURl}/api/user/${username}`);
@@ -54,15 +57,6 @@ export class UserService {
   }
 
 
-  // public getByUsername(username: string): any {
-  //   console.log(`${this.hostURl}/api/user/${username}`);
-  //   let promise = new Promise((resolve, reject) => {
-  //     let apiURL = `${this.hostURl}/api/user/users/${username}`;
-  //     return this.http.get(apiURL)
-  //         .toPromise();
-  //
-  //   });
-  // }
 
   public newUser(resource: User): Observable<any> {
     return this.http

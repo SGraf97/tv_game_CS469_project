@@ -3,7 +3,7 @@ import {User} from './user';
 export class Message {
   user: User;
   messageText: string;
-
+  createdAt: Date;
 
   constructor(username , messageText , color) {
     this.messageText = messageText;

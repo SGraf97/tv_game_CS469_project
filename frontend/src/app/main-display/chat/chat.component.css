@@ -1,6 +1,6 @@
 
 *{
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 .ChatTop{
@@ -56,5 +56,5 @@ h1{
   display: flex;
   justify-content: flex-end;
 
-  border:1px solid red;
+
 }

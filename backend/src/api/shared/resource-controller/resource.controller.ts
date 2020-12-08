@@ -83,11 +83,9 @@ export class ResourceController<T extends Document> implements ICrudController {
           .select(queryOptions.options.select)
           .populate(queryOptions.options.populate)
           .exec();
-
         return res
           .status(OK)
           .json(resources);
-
       } catch (e) {
         next(e);
       }
@@ -107,7 +105,6 @@ export class ResourceController<T extends Document> implements ICrudController {
         return res
           .status(CREATED)
           .json(resource);
-
       } catch (e) {
         next(e);
       }
@@ -169,7 +166,8 @@ export class ResourceController<T extends Document> implements ICrudController {
           )
           .orFail(new NotFound())
           .exec();
-
+        const socketService = DIContainer.get(SocketsService);
+        socketService.broadcast('update', req.body);
         return res
           .status(OK)
           .json(resource);
@@ -194,7 +192,8 @@ export class ResourceController<T extends Document> implements ICrudController {
           .findOneAndDelete({ _id: modelId })
           .orFail(new NotFound())
           .exec();
-
+        const socketService = DIContainer.get(SocketsService);
+        socketService.broadcast('delete', req.body);
         return res
           .sendStatus(NO_CONTENT);
 

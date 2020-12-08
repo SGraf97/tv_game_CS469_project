@@ -18,7 +18,7 @@ export class FrameComponent implements OnInit {
     this.link = 'youtube.com/embed/';
     this.link += this.id;
 
-    // this.source = '\"https://www.youtube.com/embed/3EB13m5Ng9c\";
+
   }
 
 }

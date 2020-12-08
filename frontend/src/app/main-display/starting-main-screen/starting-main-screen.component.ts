@@ -12,6 +12,7 @@ import {SocketsService} from "../../services";
 })
 export class StartingMainScreenComponent implements OnInit {
   onlineUsers: any;
+  allUsers : any;
   nextEpisode: any;
   public socketEvents : any[];
 
@@ -21,22 +22,50 @@ export class StartingMainScreenComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.onlineUsers = [];
+    this.allUsers = [];
+
+
     this.socketService.syncAllMessages().subscribe(msg=>{
       console.log(msg);
       if(msg.event == 'create'){
         this.userService.getUsers().then(res=>{
-          this.onlineUsers = res;
+          this.allUsers = res;
+          for(let i of this.allUsers){
+            if(i.isLoggedIn)this.onlineUsers.push(i);
+          }
         });
       }
+
+      if(msg.event == 'delete'){
+        this.userService.getUsers().then(res=>{
+          this.allUsers = res;
+          for(let i of this.allUsers){
+            if(i.isLoggedIn)this.onlineUsers.push(i);
+          }
+        })
+      }
+
+      if(msg.event == 'update'){
+        this.userService.getUsers().then(res=>{
+          this.allUsers = res;
+          for(let i of this.allUsers){
+            if(i.isLoggedIn)this.onlineUsers.push(i);
+          }
+        });
+      }
+
     });
 
 
 
      this.userService.getUsers().then(res=>{
-       this.onlineUsers = res;
+       this.allUsers = res;
+       for(let i of this.allUsers){
+         if(i.isLoggedIn)this.onlineUsers.push(i);
+       }
      });
-     console.log(this.onlineUsers);
-    // this.onlineUsers = User.getUsers();
+
       this.nextEpisode = '20/12/20';
 
 
