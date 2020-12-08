@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { User } from '../model/user';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import * as _ from 'lodash';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { promise } from 'protractor';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,14 +16,17 @@ export class UserService {
   private hostURl: string;
   httpClient: any;
 
+  private user = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+  loggedInUser = this.user.asObservable();
+
   constructor(private http: HttpClient ) {
-    this.hostURl = environment.host;
+    this.hostURl = environment.host;    
   }
 
-  public getAll(): Observable<User[]> {
+  public getAll(){
     return this.http
-      .get<User[]>(`${this.hostURl}/api/user/users`)
-      .pipe(map(result => _.map(result, (t) => new User(t.username, t.color))));
+      .get<User[]>(`${this.hostURl}/api/user`)
+      .toPromise();
   }
 
   public getUsers(){
@@ -35,48 +39,39 @@ export class UserService {
 
   }
 
-
-  private getUserReq(username: string): Observable<any>{
-    return this.http.get(`${this.hostURl}/api/user/${username}`);
-  }
-
-
-
-
-  public async getByUsername(username: string): Promise<User> {
-    let user: any;
-    return this.getUserReq(username)
-      .toPromise()
-      .then(
-        res => {return new User(res.username, res.color)}
-      )
-
-  }
-
-
-  // public getByUsername(username: string): any {
-  //   console.log(`${this.hostURl}/api/user/${username}`);
-  //   let promise = new Promise((resolve, reject) => {
-  //     let apiURL = `${this.hostURl}/api/user/users/${username}`;
-  //     return this.http.get(apiURL)
-  //         .toPromise();
-  //
-  //   });
-  // }
-
-  public newUser(resource: User): Observable<any> {
+  public getById(id: string) {
     return this.http
-      .post<User>(`${this.hostURl}/api/user/user`, resource)
-      .pipe(map(result => console.log(result)));
+      .get<User>(`${this.hostURl}/api/user/${id}`)
+      .toPromise();
+  }
+
+  public newUser(resource: User){
+    return this.http
+      .post<User>(`${this.hostURl}/api/user`, resource)
+      .toPromise();
   }
 
   public update(resource: User): Observable<any> {
     return this.http
-      .put<User>(`${this.hostURl}/api/user/users/${resource.username}`, resource)
+      .put<User>(`${this.hostURl}/api/user/${resource._id}`, resource)
       .pipe(map(result => console.log(result)));
   }
 
   public delete(): Observable<void> {
     return this.http.delete<void>(`${this.hostURl}/api/users`);
+  }
+
+  /**
+   * update logged-in user's instance
+   */
+  updateUser(userUpdate: User) {
+    localStorage.setItem('user', JSON.stringify(userUpdate));
+    this.user.next(userUpdate);
+    console.log('service got:');
+    console.log(this.user);
+  }
+
+  logout(){
+    localStorage.removeItem('user');
   }
 }

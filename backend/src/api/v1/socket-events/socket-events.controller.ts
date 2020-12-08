@@ -1,8 +1,6 @@
 import { Request, Response, NextFunction, Router } from 'express';
 import { DIContainer, SocketsService } from '@app/services';
 import { NO_CONTENT } from 'http-status-codes';
-import {UserModel} from "@app/models";
-import {User} from "../../../../../frontend/src/app/model/user";
 
 export class SocketEventsController {
 

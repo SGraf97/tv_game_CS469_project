@@ -2,14 +2,13 @@
 
 <div *ngIf="!colors">
     <div class="d-flex flex-column mt-5">
-        <app-input id="username" type="text" label="Username"></app-input>
-        <app-input id="password" type="password" label="Password"></app-input>
+        <app-input id="username" type="text" label="Username" (change)='getValue($event.target.id, $event.target.value)'></app-input>
+        <app-input id="password" type="password" label="Password" (change)='getValue($event.target.id, $event.target.value)'></app-input>
 
-        <app-input id="confirm-password" type="password" label="Confirm Password" *ngIf="state === 'Sign Up'">
+        <app-input id="confirmPassword" type="password" label="Confirm Password" *ngIf="state === 'Sign Up'" (change)='getValue($event.target.id, $event.target.value)'>
         </app-input>
 
-        <h6 *ngIf="errMssg" id="errorMessage" class="text-weight-lighter text-danger mt-2 ml-3">Invalid username or
-            password.</h6>
+        <h6 *ngIf="errMssg" id="errorMessage" class="text-weight-lighter text-danger mt-2 ml-3">{{errMessage}}</h6>
 
         <button type="submit" class="btn w-50 mx-auto mt-5 rounded-pill" (click)="enterFunc()">{{state}}</button>
     </div>
@@ -20,6 +19,6 @@
 </div>
 
 <div *ngIf="colors" class="d-flex flex-wrap p-4 mx-auto justify-content-center">
-    <button *ngFor="let color of colorList" class="btn btn-primary rounded-circle p-5 m-3" [style.background]="color" (click)="enterFunc()"></button>
+    <button *ngFor="let colors of colorList" class="btn btn-primary rounded-circle p-5 m-3" [name]="colors.val" [disabled]="colors.disabled" [style.background]="colors.val" (click)='getValue("color", $event.target.name)'></button>
 </div>
 

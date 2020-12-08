@@ -8,13 +8,27 @@ export class User {
   public level: number;
   public socket: any;
   public isLoggedIn: boolean;
+  public _id: string;
 
   constructor(username: string, color: string) {
     this.username = username;
     this.color = color;
     this.xp=0;
     this.level=0;
-    this.socket = 'socket';
+    this.isLoggedIn = true;
   }
 
+  public update(level: number, xp: number){
+    this.level = level;
+    this.xp = xp;
+  }
+
+  // testing function
+  static getUsers(): any {
+    return [];
+  }
+
+  static getUser(username: any): User {
+    return undefined;
+  }
 }

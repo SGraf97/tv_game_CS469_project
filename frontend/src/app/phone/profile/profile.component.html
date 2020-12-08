@@ -4,14 +4,14 @@
     <!-- profile pic -->
     <img src="https://i.imgflip.com/3qlsp.jpg" class="rounded-circle mx-auto d-block w-25 h-25" alt="avatar">
     <!-- username -->
-    <h5 class="text-center mt-3">Username</h5>
+    <h5 class="text-center mt-3">{{user.username}}</h5>
 
     <!-- status -->
-    <label class="text-center mt-4">2350xp</label>
+    <label class="text-center mt-4">{{user.xp}} xp</label>
     <div class="progress">
         <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-    <label class="text-center mt-2">Level 5</label>
+    <label class="text-center mt-2">Level {{user.level}}</label>
 </div>
 
 <!-- top 3 photos -->
@@ -29,6 +29,6 @@
     <button class="btn btn-primary rounded-pill py-2 w-50 mx-auto">
         <i class="fas fa-cogs mr-2"></i>settings
     </button>
-    <a href="/phone/login" class="text-white text-center mb-0 mt-4">logout</a>
+    <a class="text-white text-center mb-0 mt-4" (click)="logout()">logout</a>
 </div>
 

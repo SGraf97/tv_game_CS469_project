@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/model/user';
+import { UserService } from 'src/app/services';
 
 @Component({
   selector: 'app-main-menu',
@@ -6,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
+  loggedInUser: User;
   public btnClass: string;
-
   public menuButtons: any;
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.loggedInUser.subscribe(user => this.loggedInUser = user)
+
+    //if user is not logged in, do not allow access in main menu
+    if(!this.loggedInUser)
+      window.location.href = "phone/login"
+      
     this.menuButtons = {
       screenshot: {
         class: "fas fa-camera fa-4x pt-2 mx-auto",

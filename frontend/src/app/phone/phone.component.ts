@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { User } from '../model/user';
+import { UserService } from '../services';
+import { EnterFormsComponent } from './enter-forms/enter-forms.component';
 
 @Component({
   selector: 'app-phone',
@@ -7,9 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PhoneComponent implements OnInit {
-  
-
   public state: string;
+  loggedInUser: User;
 
   constructor() { 
   }
@@ -17,6 +19,12 @@ export class PhoneComponent implements OnInit {
   ngOnInit(): void {
     this.state = "Login";
   }
+
+  // ngOnChange(){
+  //   this.loggedInUser = this.enterForms.user;
+  //   console.log('user changed: ')
+  //   console.log(this.loggedInUser)
+  // }
 
   
 
