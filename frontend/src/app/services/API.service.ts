@@ -29,6 +29,7 @@ export class APIService {
   }
 
   public create( where : String , resource: any) {
+    console.log(`${this.hostURl}`+where);
     return this.http
       .post(`${this.hostURl}`+where, resource)
       .toPromise();

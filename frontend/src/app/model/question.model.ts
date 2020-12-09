@@ -1,5 +1,5 @@
 export  class  questionModel{
     question : String;
-    options : [];
-    answare : String;
+    options : [string, string, string, string];
+    answer : String;
 }

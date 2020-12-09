@@ -25,21 +25,21 @@ export class PhotoShotGameComponent implements OnInit {
     this.personalRes = document.getElementById('personalResaults');
     this.congrats = document.getElementById('congratsUser');
 
-    
-    this.users =  User.getUsers();
-    
+
+    // this.users =  User.getUsers();
+
     this.activeUser = this.users[0];
-    
+
     // navigate
     this.start.style.display = 'block';
     setTimeout(() => {
       this.choosePhoto.style.display = 'block';
       this.start.style.display = 'none';
     }, 5000);
-    
+
     // listeners
     this.userPhotos = document.querySelectorAll('#choosing>img');
-   
+
     for(let p of this.userPhotos){
       p.addEventListener('click' , () => {
         this.choosePhoto.style.display = 'none';

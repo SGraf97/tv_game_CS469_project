@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../model/user';
 import {FrameComponent} from '../frame/frame.component';
 import {UserService} from "../../services/user.service";
-import {SocketsService} from "../../services";
+import {APIService, SocketsService} from "../../services";
 
 
 @Component({
@@ -16,7 +16,7 @@ export class StartingMainScreenComponent implements OnInit {
   nextEpisode: any;
   public socketEvents : any[];
 
-  constructor(private userService:UserService , private socketService:SocketsService) {
+  constructor(private userService:UserService , private socketService:SocketsService , private APIservice:APIService) {
     this.socketEvents = [];
   }
 
@@ -93,12 +93,15 @@ export class StartingMainScreenComponent implements OnInit {
 
       // buttons
       document.getElementsByClassName('box')[0].addEventListener('click' , () => {
+        this.APIservice.broadcastEvent('new-quiz-game' , 'quiz');
         location.href = 'main/quiz';
       });
       document.getElementsByClassName('box')[1].addEventListener('click' , ()=>{
+        this.APIservice.broadcastEvent('new-photo-game' , 'Photo');
         location.href= 'main/photo';
       });
       document.getElementsByClassName('box')[2].addEventListener('click' , ()=>{
+        this.APIservice.broadcastEvent('new-cat-game' , 'CAT');
         location.href= 'main/catwalk';
       });
 

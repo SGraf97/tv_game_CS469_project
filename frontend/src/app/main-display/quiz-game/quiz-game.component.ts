@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {APIService, SocketsService} from "../../services";
+import {APIService, initdbService, SocketsService} from "../../services";
+import {questionModel} from "../../model/question.model";
 
 @Component({
   selector: 'app-quiz-game',
@@ -10,18 +11,19 @@ export class QuizGameComponent implements OnInit {
 
   question: string;
   questions: any;
-  constructor( private socketService : SocketsService ,private APIservice:APIService) { }
+  constructor( private socketService : SocketsService ,private APIservice:APIService ) { }
 
   ngOnInit(): void {
-    //post some questions
-    this.APIservice.broadcastEvent('testEvent' , 'einaio to body');
 
+    // this.addQuestions();
 
     this.APIservice.getAllfrom('questions').then(res=>{
       this.questions = res;
+      console.log(res);
       let random = Math.floor(Math.random() * this.questions.length );
-      this.APIservice.broadcastEvent('table-question' , this.questions[random]);
-      console.log(random);
+      this.APIservice.broadcastEvent('table-question' , this.questions[random]).then(res=>{
+      });
+      this.question = this.questions[random].question;
     });
 
 
@@ -30,10 +32,31 @@ export class QuizGameComponent implements OnInit {
       console.log(msg);
     })
 
+  }
 
-    // get question from db
-    this.question = 'Η Βίκυ Καγιά έχει πρωταγωνιστήσει στο βίντεο κλιπ του γνωστού τραγουδιστή ...';
+
+
+  public  addQuestions(){
+    this.questions = [];
+    let q = new questionModel();
+    let tempArray = [];
+    q.question = 'Η Βίκυ Καγιά έχει πρωταγωνιστήσει στο βίντεο κλιπ του γνωστού τραγουδιστή ...';
+    q.answer = 'Σακη Ρουβα';
+    q.options = [
+      'Σακη Ρουβα',
+      'Ρεμος',
+      'χατζηφραγκετα',
+      'ΝΙΒΟ'
+    ];
+
+    tempArray.push(q);
+    console.log(tempArray);
+    this.APIservice.create('questions' , tempArray[0]).then(res=>{
+      this.questions.push(res);
+    });
 
   }
+
+
 
 }
