@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Tweet } from 'src/app/model/tweet';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services';
+import { APIService } from 'src/app/services/API.service';
 
 @Component({
   selector: 'app-main-menu',
@@ -11,7 +13,10 @@ export class MainMenuComponent implements OnInit {
   loggedInUser: User;
   public btnClass: string;
   public menuButtons: any;
-  constructor(private userService: UserService) { }
+
+  public tweetText = "Write your tweet...#gntm";
+
+  constructor(private userService: UserService, private apiService: APIService) { }
 
   ngOnInit(): void {
     this.userService.loggedInUser.subscribe(user => this.loggedInUser = user)
@@ -19,7 +24,7 @@ export class MainMenuComponent implements OnInit {
     //if user is not logged in, do not allow access in main menu
     if(!this.loggedInUser)
       window.location.href = "phone/login"
-      
+    
     this.menuButtons = {
       screenshot: {
         class: "fas fa-camera fa-4x pt-2 mx-auto",
@@ -94,4 +99,14 @@ export class MainMenuComponent implements OnInit {
     }
   }
 
+
+  postTweet(){
+    let username = this.loggedInUser.username;
+    let newTweet = new Tweet(username, this.tweetText);
+    this.apiService.create('twitter', {username, twit: this.tweetText});
+  }
+
+  tweet(event: any){
+    this.tweetText = event.target.value;
+  }
 }

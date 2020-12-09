@@ -51,10 +51,10 @@ export class UserService {
       .toPromise();
   }
 
-  public update(resource: User): Observable<any> {
+  public update(resource: User){
     return this.http
       .put<User>(`${this.hostURl}/api/user/${resource._id}`, resource)
-      .pipe(map(result => console.log(result)));
+      .toPromise();
   }
 
   public delete(): Observable<void> {
@@ -69,6 +69,10 @@ export class UserService {
     this.user.next(userUpdate);
     console.log('service got:');
     console.log(this.user);
+  }
+
+  getLoggedInUser(){
+    return this.user.value;
   }
 
   logout(){
