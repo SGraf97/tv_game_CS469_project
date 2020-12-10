@@ -25,6 +25,7 @@
     "jquery": "^3.5.1",
     "ng-bootstrap": "^1.6.3",
     "ngx-bootstrap": "^6.2.0",
+    "ngx-capture": "^0.10.2",
     "npm-install-peers": "^1.2.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",

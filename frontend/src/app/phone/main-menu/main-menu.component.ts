@@ -1,5 +1,4 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Tweet } from 'src/app/model/tweet';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services';
 import { APIService } from 'src/app/services/API.service';
@@ -102,7 +101,6 @@ export class MainMenuComponent implements OnInit {
 
   postTweet(){
     let username = this.loggedInUser.username;
-    let newTweet = new Tweet(username, this.tweetText);
     this.apiService.create('twitter', {username, twit: this.tweetText});
   }
 
