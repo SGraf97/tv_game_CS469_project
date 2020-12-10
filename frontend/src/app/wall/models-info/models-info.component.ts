@@ -9,26 +9,36 @@ import {Model} from '../../model/models';
 })
 export class ModelsInfoComponent implements OnInit {
   @Input() name:string;
-  @Input() age:string;
-  @Input() height:string;
+  //@Input() age:string;
+  //@Input() height:string;
+  age: string;
+  height: string;
   models = [];
+  src: string;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
     /*this.name = this.route.snapshot.paramMap.get('name');*/
     this.route.paramMap.subscribe( params =>
       this.name = params.get('name') 
-    ),
-    this.route.paramMap.subscribe( params =>
+    )
+    /*this.route.paramMap.subscribe( params =>
       this.age = params.get('age')
     ),
     this.route.paramMap.subscribe( params =>
       this.height = params.get('height')
-    )
+    )*/
     
     this.models = Model.getModels();
     this.sortArray();
-    /*console.log(this.model);*/
+
+    /*find in array the model from input name*/
+    const result = this.models.find( ({ fullname }) => fullname === this.name );
+    //console.log(result);
+    this.src = "./assets/models/" + result.name + ".jpg";
+    this.age = result.age;
+    this.height = result.height;
   }
 
   sortArray() {
