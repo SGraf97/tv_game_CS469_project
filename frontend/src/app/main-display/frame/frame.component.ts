@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SmartSpeakerService} from '../../smart-speaker.service';
+import {SmartSpeakerService} from '../../services/smart-speaker.service';
 
 @Component({
   selector: 'app-frame',
@@ -13,30 +13,49 @@ export class FrameComponent implements OnInit {
   link : any;
   private _smartSpeaker: any;
   constructor() {
-    this._smartSpeaker = new SmartSpeakerService();
-   }
+    
+  }
 
   ngOnInit(): void {
 
-    this.id = 'tgbNymZ7vqY';
-    this.link = 'youtube.com/embed/';
-    this.link += this.id;
+    //this.id = 'a21STYnfr_w';
+    //this.link = 'youtube.com/embed/';
+    //this.link += this.id;
+    this._smartSpeaker = new SmartSpeakerService();
 
-    /*this._smartSpeaker.addCommand('play', ()=>{
+    if (!window['YT']){
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+
+    var player;
+    window['onYouTubeIframeAPIReady'] = function() {
+      player = new window['YT'].Player('player', {
+          height: '800',
+          width: '1430',
+          videoId: 'a21STYnfr_w'
+        /*events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }*/
+      });
+    }
+
+    console.log("Say 'play' or 'stop'");
+    this._smartSpeaker.addCommand('play', ()=>{
       console.log('Play the video');
-      var iframe = document.getElementsByTagName("iframe");
-      var video = iframe[0].contentWindow;
-      video.postMessage('{"event":"command","func":"' + 'playVideo' +   '","args":""}', '*');
-    });*/
+      player.playVideo();
+    });
 
-    /*this._smartSpeaker.addCommand('pause', ()=>{
-      console.log('Stop the video');
-      var iframe = document.getElementsByTagName("iframe");
-      var video = iframe[0].contentWindow;
-      video.postMessage('{"event":"command","func":"' + 'pauseVideo' +   '","args":""}', '*');
-    });*/
+    this._smartSpeaker.addCommand('stop', ()=>{
+      console.log('Pause the video');
+      player.stopVideo();
+    });
 
-    // this.source = '\"https://www.youtube.com/embed/3EB13m5Ng9c\";
+
   }
+
 
 }
