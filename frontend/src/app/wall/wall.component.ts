@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {Model} from '../model/models';
-import {SmartSpeakerService} from '../smart-speaker.service';
+import {SmartSpeakerService} from '../services/smart-speaker.service';
 import { ModelsInfoComponent } from './models-info/models-info.component';
 
 @Component({
@@ -20,13 +20,10 @@ export class WallComponent implements OnInit {
   modelName1:string;
   modelName2:string;
   modelName3:string;
-  modelAge1:string;
-  modelAge2:string;
-  modelAge3:string;
-  modelHeight1:string;
-  modelHeight2:string;
-  modelHeight3:string;
   private _smartSpeaker: any;
+  image1: string;
+  image2: string;
+  image3: string;
 
   constructor(private router: Router) { 
     this._smartSpeaker = new SmartSpeakerService();
@@ -58,19 +55,14 @@ export class WallComponent implements OnInit {
     
     this.models = Model.getModels();
     this.sortArray();
+    this.image1 = "./assets/models/" + this.models[0].name + ".jpg";
+    this.image2 = "./assets/models/" + this.models[1].name + ".jpg";
+    this.image3 = "./assets/models/" + this.models[2].name + ".jpg";
+    //console.log(this.src);
 
     this.modelName1=this.models[0].fullname;
     this.modelName2=this.models[1].fullname;
     this.modelName3=this.models[2].fullname;
-
-    this.modelAge1=this.models[0].age;
-    this.modelAge2=this.models[1].age;
-    this.modelAge3=this.models[2].age;
-
-    this.modelHeight1=this.models[0].height;
-    this.modelHeight2=this.models[1].height;
-    this.modelHeight3=this.models[2].height;
-    
   }
 
   /*sort array of models by points*/
