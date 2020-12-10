@@ -37,6 +37,11 @@ export class EnterFormsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.loggedInUser.subscribe(user => { this.loggedInUser = user; console.log('enter forms got:'); console.log(user) })
+    //if user is already logged in, go to main menu
+    if(this.loggedInUser._id){
+      window.location.href = "/phone/menu"
+    }
+    
     this.stateAlt = this.state === this.states.LOGIN ? this.states.REGISTER : this.states.LOGIN;
     this.colors = false;
 
