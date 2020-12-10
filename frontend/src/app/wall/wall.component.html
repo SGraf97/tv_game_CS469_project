@@ -27,27 +27,27 @@
 
    <div class="model1">
         <div class="model_icon">
-          <img src="./assets/models/hraklis.jpg" width="30" alt="model1">
+          <img src="{{image1}}" width="30" alt="model1">
         </div>
         <div class="circle">1</div>
         
-        <p class="model_info"><a [routerLink]="['/wall/models-info', modelName1, modelAge1, modelHeight1]" routerLinkActive="active">{{models[0]?.name}}</a><br>{{models[0]?.points}}</p>
+        <p class="model_info"><a [routerLink]="['/wall/models-info', modelName1]" routerLinkActive="active">{{models[0]?.name}}</a><br>{{models[0]?.points}}</p>
    </div>
 
     <div class="model2">
        <div class="model_icon">
-        <img src="./assets/models/irida.jpg" width="30" alt="model1"> 
+        <img src="{{image2}}" width="30" alt="model1"> 
         </div> 
         <div class="circle">2</div>  
-        <p class="model_info"><a [routerLink]="['/wall/models-info', modelName2, modelAge2, modelHeight2]" routerLinkActive="active">{{models[1]?.name}}</a><br>{{models[1]?.points}}</p>
+        <p class="model_info"><a [routerLink]="['/wall/models-info', modelName2]" routerLinkActive="active">{{models[1]?.name}}</a><br>{{models[1]?.points}}</p>
     </div>
 
     <div class="model3">
        <div class="model_icon">
-        <img src="./assets/models/emmanouel.jpg" width="30" alt="model1">  
+        <img src="{{image3}}" width="30" alt="model1">  
         </div>
         <div class="circle">3</div>
-        <p class="model_info"><a [routerLink]="['/wall/models-info', modelName3, modelAge1, modelHeight3]" routerLinkActive="active">{{models[2]?.name}}</a><br>{{models[2]?.points}}</p> 
+        <p class="model_info"><a [routerLink]="['/wall/models-info', modelName3]" routerLinkActive="active">{{models[2]?.name}}</a><br>{{models[2]?.points}}</p> 
     </div>
     
     <p class="episode">{{episode}}</p>
