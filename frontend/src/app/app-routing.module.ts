@@ -33,7 +33,7 @@ const routes: Routes = [
   {path: 'main/photo' , component: PhotoShotGameComponent },
   { path: 'wall', component: WallComponent },
   { path: 'wall/tonight-highlights', component: TonightHighlightsComponent },
-  { path: 'wall/models-info/:name/:age/:height', component: ModelsInfoComponent },
+  { path: 'wall/models-info/:name', component: ModelsInfoComponent },
   { path: 'wall/users-info', component: UsersInfoComponent },
   { path: 'wall/wall-notification', component: WallNotificationComponent},
   {path: 'phone' , component: MainMenuComponent},
