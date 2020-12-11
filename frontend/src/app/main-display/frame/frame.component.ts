@@ -23,29 +23,17 @@ export class FrameComponent implements OnInit {
     this.link += this.id;
 
     // this.source = '\"https://www.youtube.com/embed/3EB13m5Ng9c\";
-    this.socketService.syncAllMessages().subscribe(
+    let username: string;
+    this.socketService.syncMessages("capture").subscribe(
       msg => {
-        if (msg.event === 'create') {//when a "create" event occurs
-          let tmpCaptures: any;
-          this.apiService.getAllfrom("capture").then(//get all capture events
-            res => {
-              tmpCaptures = res;
-              for (let capture of tmpCaptures) {
-                if (!capture.captureURL) { //if capture url in event is null
-                  //capture screen
-                  this.captureService.getImage(this.screen.nativeElement, true)
-                    .pipe(
-                      tap(img => {
-                        console.log(img);
-                        this.apiService.update("capture/"+capture._id, {captureURL: img });
-                      })
-                    ).subscribe();
-                    break;
-                }
-              }
-            }
-          )
-        }
+        username = msg.message.user;
+        this.captureService.getImage(this.screen.nativeElement, true)
+          .pipe(
+            tap(img => {
+              console.log(img);
+              this.apiService.broadcastEvent("capture" + username, {screenshot:img})
+            })
+          ).subscribe();
       }
     )
 

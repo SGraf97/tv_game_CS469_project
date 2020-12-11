@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxCaptureService } from 'ngx-capture';
 import { tap } from 'rxjs/operators';
 import { User } from 'src/app/model/user';
-import { UserService } from 'src/app/services';
+import { SocketsService, UserService } from 'src/app/services';
 import { APIService } from 'src/app/services/API.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { APIService } from 'src/app/services/API.service';
   styleUrls: ['./photo-editor.component.css']
 })
 export class PhotoEditorComponent implements OnInit {
-  
+
   public edit = "Edit Screenshot";
 
   public galleryHeight = "20%";
@@ -40,7 +40,7 @@ export class PhotoEditorComponent implements OnInit {
 
   }
 
-  constructor(private apiService: APIService, private userService: UserService) {
+  constructor(private apiService: APIService, private userService: UserService, private socketService: SocketsService) {
 
   }
 
@@ -49,26 +49,16 @@ export class PhotoEditorComponent implements OnInit {
     //get logged-in user
     this.userService.loggedInUser.subscribe(user => this.loggedInUser = user);
     //capture screen request
-    this.apiService.create("capture", {user: this.loggedInUser.username})
+    this.apiService.broadcastEvent("capture", {user: this.loggedInUser.username})
     //get screenshot
-    this.apiService.getAllfrom("capture").then(
-      res => {
-        tmpCaptures = res;
-        for(let capture of tmpCaptures){
-          if(capture.user === this.loggedInUser.username){
-            this.captureURL = capture.captureURL;
-            console.log(this.captureURL)
-            break;
-          }
-        }
-      }
-    )
+    this.socketService.syncMessages("capture"+this.loggedInUser.username).subscribe(msg => {
+        this.captureURL = msg.message.screenshot;
+    })
   }
 
   extendGallery() {
     this.galleryHeight =
       this.galleryHeight == "20%" ? "85%" : "20%";
   }
-
 
 }
