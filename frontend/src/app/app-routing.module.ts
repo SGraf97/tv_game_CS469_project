@@ -23,6 +23,7 @@ import {TableComponent} from './table/table.component';
 import { CommonModule } from '@angular/common';
 
 import { from } from 'rxjs';
+
 const routes: Routes = [
   {path: 'main/home' , component: MainDisplayComponent},
   {path: 'main' , component : StartingMainScreenComponent},
@@ -36,7 +37,7 @@ const routes: Routes = [
   { path: 'wall/models-info', component: ModelsInfoComponent },
   { path: 'wall/users-info', component: UsersInfoComponent },
   { path: 'wall/wall-notification', component: WallNotificationComponent},
-  {path: 'phone' , component: MainMenuComponent},
+  {path: 'phone/menu' , component: MainMenuComponent},
   {path: 'phone/login' , component: EnterFormsComponent},
   {path: 'phone/vote' , component: GamesComponent},
   {path: 'phone/profile' , component: ProfileComponent},

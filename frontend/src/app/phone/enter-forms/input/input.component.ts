@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -9,9 +9,11 @@ export class InputComponent implements OnInit {
   @Input() id:string;
   @Input() type:string;
   @Input() label:string;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

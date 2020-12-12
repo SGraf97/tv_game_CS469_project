@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/model/user';
+import { UserService } from 'src/app/services';
 
 @Component({
   selector: 'app-profile',
@@ -6,11 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  user: User;
   public profile = "Profile";
   
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.loggedInUser.subscribe(user => this.user = user)
+  }
+
+  logout(){
+    this.userService.logout();
+    window.location.href = "phone/login"
   }
 
 }

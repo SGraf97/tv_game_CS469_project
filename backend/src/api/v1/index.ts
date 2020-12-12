@@ -1,6 +1,6 @@
 import * as express from 'express';
 import { ResourceController } from '../shared';
-import {IMessage, IModela, ITask, IUSer, MessageModel, ModelaModel, TaskModel, UserModel} from '@app/models';
+import {CaptureModel, ICapture, IMessage, IModela, ITask, IUSer, MessageModel, ModelaModel, TaskModel, UserModel} from '@app/models';
 import { FilesController } from './files/files.controller';
 import { SocketEventsController } from './socket-events/socket-events.controller';
 import { ExampleController } from './example/example.controller';
@@ -54,6 +54,11 @@ apiV1Router
   .use(
     '/models',
     new ResourceController<IModela>(ModelaModel).applyRoutes()
+  )
+
+  .use(
+    '/capture',
+    new ResourceController<ICapture>(CaptureModel).applyRoutes()
   );
 
 export { apiV1Router };

@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgxCaptureService } from 'ngx-capture';
+import { tap } from 'rxjs/operators';
+import { User } from 'src/app/model/user';
+import { SocketsService, UserService } from 'src/app/services';
+import { APIService } from 'src/app/services/API.service';
 
 @Component({
   selector: 'app-photo-editor',
@@ -6,10 +11,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photo-editor.component.css']
 })
 export class PhotoEditorComponent implements OnInit {
+
   public edit = "Edit Screenshot";
 
   public galleryHeight = "20%";
   public gallery = new Array(20);
+  public loggedInUser: User;
+  public captureURL: string;
 
   public buttons = {
     save: {
@@ -32,16 +40,24 @@ export class PhotoEditorComponent implements OnInit {
 
   }
 
-  constructor() {
-    
-   }
+  constructor(private apiService: APIService, private userService: UserService, private socketService: SocketsService) {
 
-  ngOnInit(): void {
   }
 
-  extendGallery(){
-    this.galleryHeight = 
-        this.galleryHeight == "20%" ? "85%" : "20%";
+  ngOnInit(): void {
+    //get logged-in user
+    this.userService.loggedInUser.subscribe(user => this.loggedInUser = user);
+    //capture screen request
+    this.apiService.broadcastEvent("capture", {user: this.loggedInUser.username})
+    //get screenshot
+    this.socketService.syncMessages("capture"+this.loggedInUser.username).subscribe(msg => {
+        this.captureURL = msg.message.screenshot;
+    })
+  }
+
+  extendGallery() {
+    this.galleryHeight =
+      this.galleryHeight == "20%" ? "85%" : "20%";
   }
 
 }

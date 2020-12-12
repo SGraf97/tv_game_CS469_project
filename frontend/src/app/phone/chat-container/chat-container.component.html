@@ -1,14 +1,14 @@
 <div id="messagesContainer" class="px-2 pb-3 d-flex flex-column" [style.height]="height">
     <div *ngFor="let mssg of messages" class="px-2 mt-3">
-        <label [class]="mssg.user.color">{{mssg.user.username}}</label>
-        <div class="{{mssg.user.color}}">
+        <label class="{{mssg.color}}">{{mssg.user}}</label>
+        <div class="{{mssg.color}}">
             {{mssg.messageText}}
         </div>
     </div>
 </div>
 
 <div id="newMssg" class="form-group container-fluid d-flex d-inline-flex mb-0 pt-3 pb-0 fixed-bottom">
-    <input type="text" class="form-control rounded-pill bg-transparent" placeholder="Write new message...">
-    <button type="submit" class="btn text-white bg-transparent"><i
+    <input type="text" class="form-control rounded-pill bg-transparent" placeholder="Write new message..." (keyup)="message($event)">
+    <button type="submit" class="btn text-white bg-transparent" (click)="sendMessage()"><i
             class="fab fa-telegram-plane fa-2x pb-3"></i></button>
 </div>
