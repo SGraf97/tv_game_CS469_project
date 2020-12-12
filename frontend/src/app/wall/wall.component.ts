@@ -31,7 +31,8 @@ export class WallComponent implements OnInit {
   
  
   ngOnInit(): void {
-    const overlay = document.getElementsByClassName('overlay')[0] as any;
+   // const overlay = document.getElementsByClassName('overlay')[0] as any;
+    const overlay = document.getElementById("ov");
     this.user="User1";
     this.episode="s03e44";
     this.time="16:30";
@@ -43,14 +44,14 @@ export class WallComponent implements OnInit {
     
 
     document.querySelector('.wall').addEventListener('click', () => {  
-        /*overlay.style.display = 'block';*/
-        overlay.style.visibility = 'visible';
+        overlay.style.display = 'flex';
+        //overlay.style.visibility = 'visible';
     });
 
     document.querySelector('.close').addEventListener('click', () => {  
-      /*console.log("ekei");*/
-      overlay.style.display = 'none';
-      /*overlay.style.visibility = 'hidden';*/
+      //console.log("ekei");
+        //overlay.style.display = 'none';
+      overlay.style.visibility = 'hidden';
     });
     
     this.models = Model.getModels();
