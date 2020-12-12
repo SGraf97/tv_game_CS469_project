@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Tweet} from '../../model/tweet';
+import {APIService, SocketsService} from "../../services";
 
 @Component({
   selector: 'app-twitter',
@@ -12,10 +13,10 @@ export class TwitterComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private Api :APIService ,private sockets: SocketsService ) { }
 
   ngOnInit(): void {
-
+  // this.addTwits();
     document.querySelector('.closeMain').addEventListener('click' , () => {
       const a = document.querySelector('app-main-display') as any;
       console.log(a.querySelector('app-frame'));
@@ -28,20 +29,29 @@ export class TwitterComponent implements OnInit {
       frame.setAttribute('height' , '1080');
     });
 
+    this.sockets.syncMessages('create').subscribe(msg=>{
+      this.Api.getAllfrom('twitter').then(res=>{
+        this.twits = res;
+      });
+    })
 
-  //  adding some twits for testing
-    this.twits = [
-      new Tweet(),
-      new Tweet(),
-      new Tweet(),
-      new Tweet(),
-      new Tweet(),
-      new Tweet(),
-      new Tweet()
-    ];
-
+    this.Api.getAllfrom('twitter').then(res=>{
+        this.twits = res;
+    });
 
 
   }
+
+
+  public addTwits(){
+    this.Api.create('/twitter' , {
+      userTag:'Test',
+      twit:'this is a sample twit'
+    }).then(res=>{
+      console.log(res);
+    });
+  }
+
+
 
 }

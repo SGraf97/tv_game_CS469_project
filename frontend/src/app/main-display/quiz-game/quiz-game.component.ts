@@ -29,7 +29,6 @@ export class QuizGameComponent implements OnInit {
 
 
     this.socketService.syncAllMessages().subscribe(msg=> {
-
       if(msg.event == 'end-game'){
         location.href = '/main/home';
       }
