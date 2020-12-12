@@ -1,20 +1,17 @@
 .overlay {
     position: fixed;
-    /*display: none;*/
+    display: none;
     width: 35%;
     height: 100%;
-   
-    visibility: hidden;
+    /*visibility: none;
+    opacity: 0;*/
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: linear-gradient(89.81deg, rgba(0, 0, 0, 0.9) 50.51%, rgba(0, 0, 0, 0) 99.83%);
     z-index: 2;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    backdrop-filter: blur(1px);
-    transition-duration: 1s;
+    overflow-x: hidden;
 }
 
 .wall { 
@@ -250,13 +247,4 @@ p.time {
     letter-spacing: 0.02em;
 
     color: #365559;
-}
-
-.hand img {
-    cursor: pointer;
-    position: absolute;
-    height: 50px;
-    width: 49px;
-    left: 1850px;
-    top: 20px;  
 }
