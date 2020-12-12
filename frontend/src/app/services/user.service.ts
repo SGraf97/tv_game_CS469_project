@@ -34,8 +34,7 @@ export class UserService {
     console.log(apiURL);
     return this.http
       .get<User>(apiURL)
-      .toPromise()
-      ;
+      .toPromise();
 
   }
 

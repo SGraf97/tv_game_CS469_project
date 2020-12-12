@@ -2,25 +2,25 @@
 <!--options top -->
 <div class="d-flex justify-content-between pt-3 mb-4" *ngIf="this.state == this.states.OPTION">
     <i class="col fas fa-hand-paper fa-7x d-flex mr-auto px-3"></i>
-    <h1 class="col-6 text-center mt-auto">User#</h1>
-    <app-countdown class="col text-right pr-5" style="color:#E76F51; font-size: 96px;"></app-countdown>
+    <h1 class="col-6 text-center mt-auto">{{userAnswering.username}}</h1>
+    <app-countdown class="col text-right pr-5" style="color:#E76F51; font-size: 96px;" id="table-countdown"></app-countdown>
 </div>
 
 <!--buzzers top -->
 <div class="d-flex pt-3 mb-4" *ngIf="this.state == this.states.BUZZER">
     <i class="fas fa-hand-paper fa-7x d-flex mr-auto px-3"></i>
     <app-countdown class="flex-grow d-flex pr-5 m-0 px-0 mr-auto" style="color:white; font-size: 114px;"></app-countdown>
-    
+
 </div>
 
 <div id="buzzers" *ngIf="this.state == this.states.BUZZER" class="fixed-bottom d-flex justify-content-between flex-wrap-reverse">
-    <app-buzzer *ngFor="let buzzer of buzzers" (click)="changeState(this.states.OPTION)" class="d-flex m-5 w-auto" [color]="buzzer.color">
+    <app-buzzer *ngFor="let buzzer of buzzers" (click)="changeState(this.states.OPTION);this.userAnswering=buzzer;this.showWhoAnswaring();this.startCountDown();" class="d-flex m-5 w-auto" [color]="buzzer.color">
     </app-buzzer>
 </div>
 
 <div id="options" *ngIf="this.state == this.states.OPTION" class="d-flex flex-column mx-auto mt-5">
-    
-    <app-option *ngFor="let option of options" [option]='option'
+
+    <app-option *ngFor="let option of options" (click)="this.checkAnswer(option)"  [option]='option'
         class=" mx-auto w-75 mb-3">
     </app-option>
 </div>

@@ -1,10 +1,9 @@
-import {Component, DoCheck, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 // ειναι μεσα στον φακελο model για να ειναι ιδιο full stack
-import {Message} from '../../model/message';
 import {SocketsService} from "../../services";
 import {UserService} from "../../services";
 import {MessageService} from "../../services/message.service";
-import {type} from "os";
+
 
 @Component({
   selector: 'app-chats',
@@ -90,8 +89,8 @@ export class ChatComponent implements OnInit  {
 
       const a = document.querySelector('app-main-display') as any;
       console.log(a.querySelector('app-frame'));
-      // hide chat-twiter
-      a.querySelector('app-chat').style.display = 'none';
+
+      a.querySelector('app-chats').style.display = 'none';
       a.querySelector('app-users-carusel').style.display = 'none';
       // resize iframe
       const frame = a.querySelector('app-frame > iframe');
@@ -100,7 +99,7 @@ export class ChatComponent implements OnInit  {
     });
 
 
-    this.onlineCounter = 4;
+
     // fill container data
 
 
@@ -119,7 +118,7 @@ export class ChatComponent implements OnInit  {
     }
   }
 
-//
+
 // // καλειτε οποτε αλλαζει το αντικειμενο
 //
 //   ngDoCheck(): void{

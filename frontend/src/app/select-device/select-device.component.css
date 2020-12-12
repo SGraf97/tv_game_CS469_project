@@ -1,9 +1,9 @@
 .btn-primary{
   border-radius: 20px;
   padding-top: 1%;
-  border-color: black;
+  border:none;
   background-color: transparent;
-  box-shadow: 6px 6px 15px rgb(0,0,0,0.5) , -6px -6px 15px rgb(141,141,141,0.5);
+  box-shadow: 6px 6px 15px rgb(0,0,0 , 0.5) , -6px -6px 15px rgb(141,141,141 , 0.5);
   color: whitesmoke;
   font-size: x-large;
   text-decoration: none;
@@ -13,8 +13,9 @@
 }
 
 .btn:hover{
-  transition-duration: 0.5s;
-  padding: 5%;
+  transition-duration: 0.2s;
+  color:#EE7B90;
+  box-shadow: 6px 6px 15px rgb(0,0,0) , -6px -6px 15px rgb(141,141,141);
 }
 
 

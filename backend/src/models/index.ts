@@ -3,4 +3,4 @@ export * from './user.model';
 export * from './message.model';
 export * from './twit.model';
 export * from  './modela.model';
-export * from  './capture.model';
+export * from './questions.model';

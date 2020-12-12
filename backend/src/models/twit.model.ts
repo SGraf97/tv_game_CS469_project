@@ -19,14 +19,14 @@ export interface ITwit extends Document {
 // Schema definition
 const TwitSchema = new Schema(
   {
-    userTag: {type:String , required : false},
-    username:{type: String,  required : true},
-    userProfileImage:{type: String,  required : false},
-    likes: {type:Number,  required : false},
-    retweets:{type: Number,  required : false},
-    whenCreated:{type: String,  required : false}, // nomizw
-    twittedFrom:{type: String,  required : false},
-    twit: {type:String,  required : true},
+    userTag: {type:String },
+    username:{type: String },
+    userProfileImage:{type: String},
+    likes: {type:Number },
+    retweets:{type: Number},
+    whenCreated:{type: String}, // nomizw
+    twittedFrom:{type: String},
+    twit: {type:String},
   },
   { ...DefaultSchemaOptions }
 );

@@ -131,8 +131,4 @@ export class App {
     res.status(status).json({ status, code, message, errors });
   }
 
-  // #endregion Private methods
-  // ---------------------------------------
-
-
 }

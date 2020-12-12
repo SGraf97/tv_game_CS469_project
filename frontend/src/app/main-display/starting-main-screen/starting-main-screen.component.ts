@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../model/user';
 import {FrameComponent} from '../frame/frame.component';
 import {UserService} from "../../services/user.service";
-import {SocketsService} from "../../services";
+import {APIService, SocketsService} from "../../services";
 
 
 @Component({
@@ -16,7 +16,7 @@ export class StartingMainScreenComponent implements OnInit {
   nextEpisode: any;
   public socketEvents : any[];
 
-  constructor(private userService:UserService , private socketService:SocketsService) {
+  constructor(private userService:UserService , private socketService:SocketsService , private APIservice:APIService) {
     this.socketEvents = [];
   }
 
@@ -57,8 +57,6 @@ export class StartingMainScreenComponent implements OnInit {
 
     });
 
-
-
      this.userService.getUsers().then(res=>{
        this.allUsers = res;
        for(let i of this.allUsers){
@@ -93,16 +91,16 @@ export class StartingMainScreenComponent implements OnInit {
 
       // buttons
       document.getElementsByClassName('box')[0].addEventListener('click' , () => {
+        this.APIservice.broadcastEvent('quiz' , this.allUsers);
         location.href = 'main/quiz';
       });
       document.getElementsByClassName('box')[1].addEventListener('click' , ()=>{
+        this.APIservice.broadcastEvent('photoshooting' , this.allUsers);
         location.href= 'main/photo';
       });
       document.getElementsByClassName('box')[2].addEventListener('click' , ()=>{
+        this.APIservice.broadcastEvent('catwalk' , this.allUsers);
         location.href= 'main/catwalk';
       });
-
   }
-
-
 }
