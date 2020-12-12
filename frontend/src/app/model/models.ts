@@ -12,7 +12,7 @@ export class Model {
     this.height = height;
     this.points = points;
     this.fullname=fullname;
-    /*this.description = "Born in Thessaloniki, he started modeling two years ago. She is studying modeling and at the same time, she is working on it.";*/
+    //this.description = "Born in Thessaloniki, he started modeling two years ago. She is studying modeling and at the same time, she is working on it.";*/
   }
 
   static getModels(): any {
