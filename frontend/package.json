@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
+    "@types/videojs": "^5.16.2",
     "angular-in-memory-web-api": "^0.11.0",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
@@ -30,6 +31,8 @@
     "rxjs": "~6.6.0",
     "socket.io-client": "^2.2.0",
     "tslib": "^2.0.0",
+    "video.js": "^7.10.2",
+    "videojs-record": "^4.1.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
