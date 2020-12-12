@@ -14,6 +14,7 @@ export interface IUSer extends Document {
   level: number;
   socket: string;
   isLoggedIn: boolean;
+
 }
 
 // ------------------------------------------
@@ -28,6 +29,7 @@ const userSchema = new Schema(
     level : {type : Number, required : true},
     socket: {type: String, default : null, required: false},
     isLoggedIn: {type:Boolean , default: false}
+
   },
   { ...DefaultSchemaOptions }
 );
@@ -37,3 +39,4 @@ const userSchema = new Schema(
 export const UserModel: Model<IUSer> = model<IUSer>(
   'User', userSchema
 );
+

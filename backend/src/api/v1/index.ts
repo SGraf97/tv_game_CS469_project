@@ -17,6 +17,7 @@ import { SocketEventsController } from './socket-events/socket-events.controller
 import { ExampleController } from './example/example.controller';
 import {ITwit, TwitModel} from "@app/models/twit.model";
 
+//import {UserController} from "@app/api/v1/users/user.controller";
 
 const apiV1Router = express.Router();
 
@@ -50,6 +51,11 @@ apiV1Router
     '/user',
     new ResourceController<IUSer>(UserModel).applyRoutes()
   )
+
+  /*.use(
+    '/user',
+    new UserController().applyRoutes()
+  );*/
 
 
   .use(

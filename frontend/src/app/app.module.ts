@@ -8,9 +8,6 @@ import { WallComponent } from './wall/wall.component';
 import { TableComponent } from './table/table.component';
 import { PhoneComponent } from './phone/phone.component';
 import { ChatComponent } from './main-display/chat/chat.component';
-// import { TwitterComponent } from './main-display/twitter/twitter.component';
-// import { BuzzerComponent } from './table/buzzer/buzzer.component';
-// import { OptionComponent } from './table/option/option.component';
 import { UsersInfoComponent } from './wall/users-info/users-info.component';
 import { ModelsInfoComponent } from './wall/models-info/models-info.component';
 import { TonightHighlightsComponent } from './wall/tonight-highlights/tonight-highlights.component';
@@ -53,6 +50,10 @@ import { UserService }  from './services/user.service';
     AppComponent,
     MainDisplayComponent,
     WallComponent,
+    ModelsInfoComponent,
+    UsersInfoComponent,
+    TonightHighlightsComponent,
+    WallNotificationComponent,
     TableComponent,
     BuzzerComponent,
     OptionComponent,

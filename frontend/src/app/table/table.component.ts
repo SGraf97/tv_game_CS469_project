@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user';
 import { CommonModule } from '@angular/common';
 import { Template } from '@angular/compiler/src/render3/r3_ast';
+import {SmartSpeakerService} from '../services/smart-speaker.service';
+import { Router } from '@angular/router';
 import {APIService, SocketsService} from "../services";
 
 @Component({
@@ -33,11 +35,15 @@ export class TableComponent implements OnInit {
   public buzzers: any;
   public options: any;
 
+  //voice commands
+  private _smartSpeaker: any;
 
-  constructor(private socketService : SocketsService , private APIService:APIService) {
+
+  constructor(private socketService : SocketsService , private APIService:APIService, private router: Router) {
     this.state = this.states.BUZZER;
     console.log(this.state);
-   }
+    this._smartSpeaker = new SmartSpeakerService();
+  }
 
   ngOnInit(): void {
     this.buzzers = [];
@@ -61,6 +67,7 @@ export class TableComponent implements OnInit {
 
 
 
+
     // getting users
     this.APIService.getAllfrom('user').then(res=>{
       let users:any;
@@ -71,7 +78,6 @@ export class TableComponent implements OnInit {
           this.buzzers.push(u);
         }
       }
-
       console.log(this.buzzers);
 
     });
@@ -81,6 +87,31 @@ export class TableComponent implements OnInit {
     this.state = this.states.NONE;
     this.optionsDisplay="none";
     this.buzzersDisplay="block";
+
+    /*voice for options*/
+    this._smartSpeaker.addCommand('option a', ()=>{
+      this._smartSpeaker.speak('you choose option a');
+      console.log('You choose Option A'); 
+      //this.router.navigate(['/path_name']);
+    });
+  
+    this._smartSpeaker.addCommand('option b', ()=>{
+      this._smartSpeaker.speak('you choose option b');
+      console.log('You choose Option B');
+      //this.router.navigate(['/path_name']);
+    });
+  
+    this._smartSpeaker.addCommand('option c', ()=>{
+      this._smartSpeaker.speak('you choose option c');
+      console.log('You choose Option C');
+      //this.router.navigate(['/path_name']);
+    });
+  
+    this._smartSpeaker.addCommand('option d', ()=>{
+      this._smartSpeaker.speak('you choose option d');
+      console.log('You choose Option D');
+      //this.router.navigate(['/path_name']);
+    });
 
   }
 
@@ -110,4 +141,6 @@ export class TableComponent implements OnInit {
 
     this.state = this.states.NONE;
   }
+
+
 }

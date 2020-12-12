@@ -6,11 +6,11 @@
 
 .profile {
     position: relative;
-    padding-top: 2%; 
-    left: 48%;
-    height:110px;
-    width:110px;
-    border-radius:80%;
+    padding-top: 1%; 
+    left: 50%;
+    height:200px;
+    width:200px;
+    border-radius:50%;
 }
 
 .profile img {
@@ -24,20 +24,21 @@
 
 h1 {
     position: absolute;
-    left: 780px;
+    left: 1180px;
     font-style: normal;
     font-weight: normal;
+    font-size:45px;
     display: flex;
-    top:0px;
+    top:30px;
     color: #EFEFEF;
     letter-spacing: 0.02em;
 }
 
 h3 {
     position: absolute;
-    left: 780px;
-    top: 45px;
-    font-size:16px;
+    left: 1180px;
+    top: 90px;
+    font-size:22px;
     display: flex;
     font-style: normal;
     font-weight: normal;
@@ -48,9 +49,9 @@ h3 {
 
 h2 {
    position: absolute;
-   left: 670px;
-   top: 130px;
-   font-size:23px;
+   left: 980px;
+   top: 250px;
+   font-size:33px;
    font-style: normal;
    font-weight: normal;
    display: flex;
@@ -60,8 +61,8 @@ h2 {
 
 .model1 {
     position: absolute;
-    width: 500px;
-    height: 45px;
+    width: 780px;
+    height: 58px;
     left: 50px;
     box-shadow: inset 10px 100px 150px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
@@ -70,10 +71,10 @@ h2 {
 
 #progress1 {
     position: absolute;
-    width: 450px;
-    height: 1vh;
-    left: 48px;
-    top: 20px;
+    width: 720px;
+    height: 2vh;
+    left: 55px;
+    top: 27px;
     border-radius: 50px;
     background-color:#E76F51;
 }
@@ -83,15 +84,15 @@ h2 {
     width: 100px;
     height: 100px;
     left: 50px;
-    top: 70px;
+    top: 100px;
 }
 
 #progress2 {
     position: absolute;
-    width: 380px;
-    height: 1vh;
-    left: 48px;
-    top: 20px;
+    width: 630px;
+    height: 2vh;
+    left: 55px;
+    top: 27px;
     border-radius: 50px;
     background-color:#E76F51;
 }
@@ -101,15 +102,15 @@ h2 {
     width: 100px;
     height: 100px;
     left: 50px;
-    top: 120px;
+    top: 180px;
 }
 
 #progress3 {
     position: absolute;
-    width: 300px;
-    height: 1vh;
-    left: 48px;
-    top: 20px;
+    width: 520px;
+    height: 2vh;
+    left: 55px;
+    top: 27px;
     border-radius: 50px;
     background-color:#E76F51;
 }
@@ -119,15 +120,15 @@ h2 {
     width: 100px;
     height: 100px;
     left: 50px;
-    top: 170px;
+    top: 260px;
 }
 
 #progress4 {
     position: absolute;
-    width: 240px;
-    height: 1vh;
-    left: 48px;
-    top: 20px;
+    width: 340px;
+    height: 2vh;
+    left: 55px;
+    top: 27px;
     border-radius: 50px;
     background-color:#E76F51;
 }
@@ -137,15 +138,15 @@ h2 {
     width: 100px;
     height: 100px;
     left: 50px;
-    top: 220px;
+    top: 340px;
 }
 
 #progress5 {
     position: absolute;
-    width: 140px;
-    height: 1vh;
-    left: 48px;
-    top: 20px;
+    width: 180px;
+    height: 2vh;
+    left: 55px;
+    top: 27px;
     border-radius: 50px;
     background-color:#E76F51;
 }
@@ -153,9 +154,9 @@ h2 {
 .hand img {
     cursor:pointer;
     position: absolute;
-    height: 36px;
-    width: 35px;
-    left: 1300px;
+    height: 50px;
+    width: 49px;
+    left: 1850px;
     top: 20px;  
 }
 

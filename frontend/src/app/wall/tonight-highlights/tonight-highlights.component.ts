@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tonight-highlights',
@@ -9,10 +10,15 @@ export class TonightHighlightsComponent implements OnInit {
 
   title1: string;
   title2: string;
-  constructor() { }
+  src:string;
+  constructor(private router: Router) { }
 
   
   ngOnInit(): void {
+    document.querySelector('.hand').addEventListener('click' , () => {
+      this.router.navigate(['/wall']);
+    });
+    
     /*(get title from iframe)
     
     let iframe = document.getElementById('video1') as HTMLIFrameElement;

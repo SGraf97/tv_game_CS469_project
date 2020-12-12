@@ -11,9 +11,9 @@ export class OptionComponent implements OnInit {
   @Input() option: string;
 
   public rightOption: any;
-  
-  constructor() {
 
+  constructor() {
+    
   }
 
   ngOnInit(): void {

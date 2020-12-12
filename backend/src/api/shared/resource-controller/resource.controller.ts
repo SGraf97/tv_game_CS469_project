@@ -162,7 +162,7 @@ export class ResourceController<T extends Document> implements ICrudController {
           .findOneAndUpdate(
             { _id: modelId },
             req.body,
-            { new: true, runValidators: true, context: 'query' }
+            //{ new: true, runValidators: true, context: 'query' }
           )
           .orFail(new NotFound())
           .exec();

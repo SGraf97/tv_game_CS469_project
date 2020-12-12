@@ -1,0 +1,12 @@
+
+GNTM-app/.idea/codeStyles/codeStyleConfig.xml
+
+GNTM-app/.idea/vcs.xml
+
+GNTM-app/.idea/workspace.xml
+
+frontend/angular.json
+/GNTM-app/*
+GNTM-app/node_modules/@angular-devkit/build-angular/node_modules/rxjs/add/operator/onErrorResumeNext.js
+
+.idea/
