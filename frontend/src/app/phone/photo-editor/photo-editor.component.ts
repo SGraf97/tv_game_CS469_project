@@ -45,7 +45,6 @@ export class PhotoEditorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let tmpCaptures: any;
     //get logged-in user
     this.userService.loggedInUser.subscribe(user => this.loggedInUser = user);
     //capture screen request

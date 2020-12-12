@@ -23,6 +23,7 @@ import {TableComponent} from './table/table.component';
 import { CommonModule } from '@angular/common';
 
 import { from } from 'rxjs';
+
 const routes: Routes = [
   {path: 'main/home' , component: MainDisplayComponent},
   {path: 'main' , component : StartingMainScreenComponent},

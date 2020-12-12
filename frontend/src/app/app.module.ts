@@ -47,6 +47,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService }  from './services/user.service';
 import { NgxCaptureModule } from 'ngx-capture';
+import {WebcamModule} from 'ngx-webcam';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { NgxCaptureModule } from 'ngx-capture';
     BsDropdownModule,
     HttpClientModule,
     AlertModule,
-    NgxCaptureModule
+    NgxCaptureModule,
+    WebcamModule
   ],
   providers: [],
   bootstrap: [AppComponent]

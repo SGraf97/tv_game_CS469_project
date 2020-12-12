@@ -42,6 +42,7 @@ export class ChatContainerComponent implements OnInit {
     if (this.newMessage) {
       this.apiService.create('message', { user: this.loggedInUser, messageText: this.newMessage });
       this.messages.push(new Message(this.loggedInUser.username, this.newMessage, "out"));
+      this.newMessage = ''
     }
   }
 
