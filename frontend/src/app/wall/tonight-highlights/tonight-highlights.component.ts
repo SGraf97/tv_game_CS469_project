@@ -10,6 +10,7 @@ export class TonightHighlightsComponent implements OnInit {
 
   title1: string;
   title2: string;
+  src:string;
   constructor(private router: Router) { }
 
   
@@ -17,6 +18,7 @@ export class TonightHighlightsComponent implements OnInit {
     document.querySelector('.hand').addEventListener('click' , () => {
       this.router.navigate(['/wall']);
     });
+    
     /*(get title from iframe)
     
     let iframe = document.getElementById('video1') as HTMLIFrameElement;
