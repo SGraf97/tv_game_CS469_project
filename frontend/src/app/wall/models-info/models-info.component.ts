@@ -15,7 +15,7 @@ export class ModelsInfoComponent implements OnInit {
   height: string;
   models = [];
   src: string;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     
@@ -39,6 +39,11 @@ export class ModelsInfoComponent implements OnInit {
     this.src = "./assets/models/" + result.name + ".jpg";
     this.age = result.age;
     this.height = result.height;
+
+    document.querySelector('.hand').addEventListener('click' , () => {
+      //console.log('ekei');
+      this.router.navigate(['/wall']);
+    });
   }
 
   sortArray() {
