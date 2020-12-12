@@ -35,7 +35,12 @@ export class FrameComponent implements OnInit {
       player = new window['YT'].Player('player', {
           height: '800',
           width: '1430',
-          videoId: 'a21STYnfr_w'
+          videoId: 'a21STYnfr_w',
+          playerVars: {
+            'enablejsapi': 1,
+            'origin':'http://localhost:4200'
+          }
+          //host: 'http://www.youtube.com',
         /*events: {
           'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
@@ -53,6 +58,10 @@ export class FrameComponent implements OnInit {
       console.log('Pause the video');
       player.stopVideo();
     });
+
+    /*if (player.destroy) {
+      player.destroy();
+    }*/
 
 
   }
