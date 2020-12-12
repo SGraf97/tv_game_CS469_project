@@ -15,7 +15,7 @@ export class UsersInfoComponent implements OnInit {
 
   ngOnInit(): void {
     //users
-    this.users = User.getUsers();
+    //this.users = User.getUsers();
     
     this.xp = "42069xp";
     this.level = "level3";
