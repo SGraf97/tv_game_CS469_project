@@ -29,6 +29,10 @@ export class QuizGameComponent implements OnInit {
 
 
     this.socketService.syncAllMessages().subscribe(msg=> {
+
+      if(msg.event == 'end-game'){
+        location.href = '/main/home';
+      }
       console.log(msg);
     })
 
@@ -41,9 +45,9 @@ export class QuizGameComponent implements OnInit {
     let q = new questionModel();
     let tempArray = [];
     q.question = 'Η Βίκυ Καγιά έχει πρωταγωνιστήσει στο βίντεο κλιπ του γνωστού τραγουδιστή ...';
-    q.answer = 'Σακη Ρουβα';
+    q.answer = 'Λε Πα';
     q.options = [
-      'Σακη Ρουβα',
+      'Λε Πα',
       'Ρεμος',
       'χατζηφραγκετα',
       'ΝΙΒΟ'

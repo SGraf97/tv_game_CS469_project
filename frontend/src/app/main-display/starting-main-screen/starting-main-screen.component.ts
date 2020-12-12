@@ -57,8 +57,6 @@ export class StartingMainScreenComponent implements OnInit {
 
     });
 
-
-
      this.userService.getUsers().then(res=>{
        this.allUsers = res;
        for(let i of this.allUsers){
@@ -93,19 +91,16 @@ export class StartingMainScreenComponent implements OnInit {
 
       // buttons
       document.getElementsByClassName('box')[0].addEventListener('click' , () => {
-        this.APIservice.broadcastEvent('new-quiz-game' , 'quiz');
+        this.APIservice.broadcastEvent('quiz' , this.allUsers);
         location.href = 'main/quiz';
       });
       document.getElementsByClassName('box')[1].addEventListener('click' , ()=>{
-        this.APIservice.broadcastEvent('new-photo-game' , 'Photo');
+        this.APIservice.broadcastEvent('photoshooting' , this.allUsers);
         location.href= 'main/photo';
       });
       document.getElementsByClassName('box')[2].addEventListener('click' , ()=>{
-        this.APIservice.broadcastEvent('new-cat-game' , 'CAT');
+        this.APIservice.broadcastEvent('catwalk' , this.allUsers);
         location.href= 'main/catwalk';
       });
-
   }
-
-
 }
