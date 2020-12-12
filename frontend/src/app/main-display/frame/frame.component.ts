@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import {SmartSpeakerService} from '../../services/smart-speaker.service';
+import { NgxCaptureService } from 'ngx-capture';
+import { tap } from 'rxjs/operators';
+import { SocketsService } from 'src/app/services';
+import { APIService } from 'src/app/services/API.service';
 
 @Component({
   selector: 'app-frame',
@@ -7,12 +11,12 @@ import {SmartSpeakerService} from '../../services/smart-speaker.service';
   styleUrls: ['./frame.component.css']
 })
 export class FrameComponent implements OnInit {
-
+  @ViewChild('screenshot', { static: true }) screen: any;
 
   id : any;
   link : any;
   private _smartSpeaker: any;
-  constructor() {
+  constructor(private captureService: NgxCaptureService, private socketService: SocketsService, private apiService: APIService) {
     
   }
 
@@ -26,6 +30,7 @@ export class FrameComponent implements OnInit {
     if (!window['YT']){
       var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
+      //console.log(tag.src);
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     }
@@ -35,12 +40,12 @@ export class FrameComponent implements OnInit {
       player = new window['YT'].Player('player', {
           height: '800',
           width: '1430',
-          videoId: 'a21STYnfr_w',
-          playerVars: {
+          videoId: 'a21STYnfr_w'
+          //host: 'http://www.youtube.com',
+         /* playerVars: {
             'enablejsapi': 1,
             'origin':'http://localhost:4200'
-          }
-          //host: 'http://www.youtube.com',
+          },*/
         /*events: {
           'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
@@ -59,9 +64,19 @@ export class FrameComponent implements OnInit {
       player.stopVideo();
     });
 
-    /*if (player.destroy) {
-      player.destroy();
-    }*/
+    let username: string;
+    this.socketService.syncMessages("capture").subscribe(
+      msg => {
+        username = msg.message.user;
+        this.captureService.getImage(this.screen.nativeElement, true)
+          .pipe(
+            tap(img => {
+              console.log(img);
+              this.apiService.broadcastEvent("capture" + username, {screenshot:img})
+            })
+          ).subscribe();
+      }
+    )
 
 
   }
