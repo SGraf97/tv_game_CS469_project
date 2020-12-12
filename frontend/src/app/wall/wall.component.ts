@@ -50,7 +50,7 @@ export class WallComponent implements OnInit {
 
     document.querySelector('.close').addEventListener('click', () => {  
       //console.log("ekei");
-        //overlay.style.display = 'none';
+      //overlay.style.display = 'none';
       overlay.style.visibility = 'hidden';
     });
     
