@@ -1,6 +1,7 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/model/user';
-import { UserService } from 'src/app/services';
+import { SocketsService, UserService } from 'src/app/services';
 import { APIService } from 'src/app/services/API.service';
 
 @Component({
@@ -9,21 +10,52 @@ import { APIService } from 'src/app/services/API.service';
   styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
+
   loggedInUser: User;
   public btnClass: string;
   public menuButtons: any;
+  public game: string;
 
   public tweetText = "Write your tweet...#gntm";
 
-  constructor(private userService: UserService, private apiService: APIService) { }
+  constructor(private userService: UserService, private apiService: APIService, private socketService: SocketsService) { }
 
   ngOnInit(): void {
+    this.initMenuButtons();
     this.userService.loggedInUser.subscribe(user => this.loggedInUser = user)
+    //get new game's notification event
+    this.socketService.syncAllMessages().subscribe(
+      msg => {
+        if(msg.event === "quiz" || msg.event === "catwalk" || msg.event === "photoshooting"){
+          document.getElementById("toggleGameModal").click();
+          this.game = msg.event;
+        }
+      }
+    )
 
     //if user is not logged in, do not allow access in main menu
     if(!this.loggedInUser)
       window.location.href = "phone/login"
     
+  }
+
+
+  postTweet(){
+    let username = this.loggedInUser.username;
+    this.apiService.create('twitter', {username, twit: this.tweetText});
+  }
+
+  tweet(event: any){
+    this.tweetText = event.target.value;
+  }
+
+  acceptInvitaton(){
+    this.apiService.broadcastEvent("userAccepted", this.loggedInUser);
+    if(this.game === "photoshooting" || this.game === "catwalk")
+      window.location.href = "/phone/vote"
+  }
+
+  initMenuButtons(){
     this.menuButtons = {
       screenshot: {
         class: "fas fa-camera fa-4x pt-2 mx-auto",
@@ -82,8 +114,8 @@ export class MainMenuComponent implements OnInit {
         background: "white",
         color: "black",
         label: "Games",
-        target: "#gamesModal",
-        toggle: "modal",
+        target: "",
+        toggle: "",
         route: "/phone/vote"
       },
       user: {
@@ -99,12 +131,4 @@ export class MainMenuComponent implements OnInit {
   }
 
 
-  postTweet(){
-    let username = this.loggedInUser.username;
-    this.apiService.create('twitter', {username, twit: this.tweetText});
-  }
-
-  tweet(event: any){
-    this.tweetText = event.target.value;
-  }
 }

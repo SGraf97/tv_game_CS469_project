@@ -53,6 +53,7 @@
     </div>
 </div>
 
+<button id="toggleGameModal" class="d-none" data-toggle="modal" data-target="#gamesModal"></button>
 <!--Games Modal -->
 <div class="modal fade mt-5 pt-5" id="gamesModal" tabindex="-1">
     <div class="modal-dialog rounded-lg w-75 mx-auto">
@@ -63,7 +64,7 @@
             </div>
             <div class="d-flex d-inline-flex justify-content-around">
                 <button type="button" id="accept" class="btn btn-primary game-btn w-25 rounded-pill mx-auto m-2 px-2"
-                    data-dismiss="modal">Accept
+                    data-dismiss="modal" (click)="acceptInvitaton()">Accept
                 </button>
                 <button type="button" id="decline" class="btn btn-primary game-btn w-25 rounded-pill mx-auto m-2 px-2"
                     data-dismiss="modal">Decline

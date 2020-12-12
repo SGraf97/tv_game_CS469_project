@@ -35,3 +35,8 @@ textarea:focus{
 #decline{
     background-color: #E76F51 !important;
 }
+
+.modal-open .modal
+   {
+     opacity: 1;
+   }
