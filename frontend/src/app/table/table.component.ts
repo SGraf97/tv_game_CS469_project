@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { Template } from '@angular/compiler/src/render3/r3_ast';
 import {SmartSpeakerService} from '../services/smart-speaker.service';
 import { Router } from '@angular/router';
-import {APIService, SocketsService} from "../services";
+import {SocketsService} from "../services";
+import {APIService} from "../services/API.service";
 
 @Component({
   selector: 'app-table',
@@ -34,6 +35,7 @@ export class TableComponent implements OnInit {
   //data
   public buzzers: any;
   public options: any;
+  public exit = false;
 
   //voice commands
   private _smartSpeaker: any;
@@ -49,19 +51,16 @@ export class TableComponent implements OnInit {
     this.buzzers = [];
     this.options = [];
 
+    this.state = this.states.NONE;
+
     // Listening at Socket
     this.socketService.syncAllMessages().subscribe(msg=> {
-      console.log(msg);
+
       if(msg.event == 'table-question'){
         this.options = msg.message.options;
-        console.log(msg);
-        console.log(this.options);
         this.correctAnswer = msg.message.answer;
-      }
-
-      if(msg.event == 'quiz'){
-        console.log('we got a new game');
         this.state = this.states.BUZZER;
+        this.exit = true;
       }
     })
 
@@ -69,22 +68,13 @@ export class TableComponent implements OnInit {
 
 
     // getting users
-    this.APIService.getAllfrom('user').then(res=>{
-      let users:any;
-      console.log(res);
-      users = res;
-      for(let u of users){
-        if(u.isLoggedIn){
-          this.buzzers.push(u);
-        }
+    this.socketService.syncMessages("userAccepted").subscribe(
+      msg => {
+        this.buzzers.push(msg.message);
       }
-      console.log(this.buzzers);
-
-    });
+    )
 
     //init state
-    //N E E D S  T O  C H A N G E
-    this.state = this.states.NONE;
     this.optionsDisplay="none";
     this.buzzersDisplay="block";
 
@@ -132,15 +122,17 @@ export class TableComponent implements OnInit {
     if(option == this.correctAnswer){
       console.log('CORRECT!!!!!!!');
       this.APIService.update('user/'+this.userAnswering._id , {level : this.userAnswering.level+1 });
-      this.APIService.broadcastEvent('end-game' , 'we got a winner');
+      this.APIService.broadcastEvent('end-game' , {message: 'correct'});
       console.log(this.userAnswering);
     }else{
-      this.APIService.broadcastEvent('end-game' , 'no winner');
+      this.APIService.broadcastEvent('end-game' , {message: 'wrong'});
       console.log(option);
     }
-
     this.state = this.states.NONE;
   }
 
-
+  leave(){
+    this.APIService.broadcastEvent('end-game' , '');
+    this.exit = false;
+  }
 }

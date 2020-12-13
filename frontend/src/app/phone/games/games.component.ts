@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TopnavComponent } from '../topnav/topnav.component';
+import { User } from 'src/app/model/user';
+import { SocketsService, UserService } from 'src/app/services';
+import { APIService } from 'src/app/services/API.service';
 
 @Component({
   selector: 'app-games',
@@ -14,13 +16,34 @@ export class GamesComponent implements OnInit {
   };
 
   public state: any;
-
   public game = "Game";
+
+
+  loggedInUser: User;
+  turn: User;
   
-  constructor() { }
+  constructor(private userService: UserService, private apiService: APIService, private socketService: SocketsService) { }
 
   ngOnInit(): void {
     this.state = this.states.WAIT;
+    this.userService.loggedInUser.subscribe(user => this.loggedInUser = user)
+    this.socketService.syncMessages("turn").subscribe(
+      msg => {
+        this.turn = msg.message;
+      }
+    )
+  }
+
+  like(){
+    if(!this.turn)
+      return;
+    this.turn.xp = this.turn.xp+10;
+    this.userService.update(this.turn)
+    this.changeState()
+  }
+
+  dislike(){
+    this.changeState()
   }
 
   changeState(){

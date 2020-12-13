@@ -71,6 +71,11 @@ apiV1Router
   .use(
     '/models',
     new ResourceController<IModela>(ModelaModel).applyRoutes()
+  )
+
+  .use(
+    '/questions',
+    new ResourceController<Iquestion>(QuestionModel).applyRoutes()
   );
 
 export { apiV1Router };

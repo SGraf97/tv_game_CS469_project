@@ -29,3 +29,10 @@
 <div *ngIf="this.state == this.states.OPTION" class="fixed-bottom d-flex flex-row-reverse pb-5 pr-5 pt-0 ">
     <i class="fas fa-microphone-alt fa-7x ml-auto"></i>
 </div>
+
+<!-- exit btn -->
+<div class="d-flex pt-3 mb-4" *ngIf="this.state == this.states.NONE && exit">
+    <app-option (click)="leave()" option='Leave Game'
+        class=" mx-auto w-75 mb-3">
+    </app-option>
+</div>

@@ -23,10 +23,10 @@
 
     <!-- voting options -->
     <div *ngIf="state === states.RATE" class="d-flex justify-content-between mt-5 pt-5">
-        <span class="mx-auto px-3" id="like" (click)="changeState()">
+        <span class="mx-auto px-3" id="like" (click)="like()">
             <i class="fas fa-heart fa-5x text-center"></i>
         </span>
-        <span class="mx-auto px-3" id="dislike" (click)="changeState()">
+        <span class="mx-auto px-3" id="dislike" (click)="dislike()">
             <i class="far fa-times-circle fa-5x text-center"></i>
         </span>
     </div>
