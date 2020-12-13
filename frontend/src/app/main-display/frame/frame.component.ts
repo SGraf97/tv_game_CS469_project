@@ -65,7 +65,7 @@ export class FrameComponent implements OnInit {
     });
 
     this._smartSpeaker.addCommand('close', ()=>{
-      console.log('close');
+      console.log('close chat');
       const a = document.querySelector('app-main-display') as any;
 
       a.querySelector('app-chats').style.display = 'none';
@@ -77,7 +77,7 @@ export class FrameComponent implements OnInit {
     });
 
    this._smartSpeaker.addCommand('open', ()=>{
-      console.log('open');
+      console.log('open chat');
       const a = document.querySelector('app-main-display') as any;
 
       a.querySelector('app-chats').style.display = 'block';
