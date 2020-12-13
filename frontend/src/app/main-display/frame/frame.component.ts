@@ -42,7 +42,7 @@ export class FrameComponent implements OnInit {
           width: '1430',
           videoId: 'a21STYnfr_w'
           //host: 'http://www.youtube.com',
-         /* playerVars: {
+          /*playerVars: {
             'enablejsapi': 1,
             'origin':'http://localhost:4200'
           },*/
@@ -63,6 +63,31 @@ export class FrameComponent implements OnInit {
       console.log('Pause the video');
       player.stopVideo();
     });
+
+    this._smartSpeaker.addCommand('close', ()=>{
+      console.log('close');
+      const a = document.querySelector('app-main-display') as any;
+
+      a.querySelector('app-chats').style.display = 'none';
+      a.querySelector('app-users-carusel').style.display = 'none';
+
+      const frame = a.querySelector('app-frame > iframe');
+      frame.setAttribute('width' , '1920');
+      frame.setAttribute('height' , '1080');
+    });
+
+   this._smartSpeaker.addCommand('open', ()=>{
+      console.log('open');
+      const a = document.querySelector('app-main-display') as any;
+
+      a.querySelector('app-chats').style.display = 'block';
+      a.querySelector('app-users-carusel').style.display = 'block';
+
+      const frame = a.querySelector('app-frame > iframe');
+      frame.setAttribute('width', '1430');
+      frame.setAttribute('height', '800');
+    });
+
 
     let username: string;
     this.socketService.syncMessages("capture").subscribe(
