@@ -34,8 +34,8 @@ export class ChatComponent implements OnInit  {
           this.messages  = res;
           for(let m of this.messages){
 
-            if(typeof m.user == 'string'){
-              this.userService.getUser(m.user).then(res=>{
+            if(m.user){
+              this.userService.getById(m.user._id).then(res=>{
                 m.user = res;
               });
             }
@@ -65,7 +65,7 @@ export class ChatComponent implements OnInit  {
       for(let m of this.messages){
 
         console.log();
-        this.userService.getUser(m.user).then(res=>{
+        this.userService.getById(m.user._id).then(res=>{
           m.user = res;
         });
       }

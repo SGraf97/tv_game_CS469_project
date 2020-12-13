@@ -15,6 +15,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.loggedInUser.subscribe(user => this.user = user)
+    this.userService.getById(this.user._id).then(
+      res => {this.user.level = res.level; this.user.xp = res.xp}
+    )
   }
 
   logout(){

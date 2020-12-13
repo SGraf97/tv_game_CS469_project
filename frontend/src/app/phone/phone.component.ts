@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../model/user';
 import { SocketsService, UserService } from '../services';
-import { EnterFormsComponent } from './enter-forms/enter-forms.component';
 
 @Component({
   selector: 'app-phone',
@@ -20,27 +19,5 @@ export class PhoneComponent implements OnInit {
     this.userService.loggedInUser.subscribe(user => this.loggedInUser = user)
     this.state = "Login";
   }
-
-  listenToSocket(){
-    this.socketService.syncAllMessages().subscribe(
-      msg=> {
-        //always keep logged in user up to date with db
-        if(msg.event === 'update'){
-          this.userService.getById(this.loggedInUser._id)
-          .then(res=>
-            this.userService.updateUser(res)
-          )
-        }
-      }
-    )
-  }
-  // ngOnChange(){
-  //   this.loggedInUser = this.enterForms.user;
-  //   console.log('user changed: ')
-  //   console.log(this.loggedInUser)
-  // }
-
-  
-
   
 }

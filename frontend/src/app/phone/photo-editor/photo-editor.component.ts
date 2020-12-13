@@ -60,4 +60,11 @@ export class PhotoEditorComponent implements OnInit {
       this.galleryHeight == "20%" ? "85%" : "20%";
   }
 
+  shareOnTwitter(){
+    let username = this.loggedInUser.username;
+    let twit = "";
+    let media = this.captureURL;
+    this.apiService.create('twitter', {username, twit});
+  }
+
 }
