@@ -55,6 +55,7 @@ export class TableComponent implements OnInit {
     this.options = [];
 
     this.state = this.states.NONE;
+    this.exit = false;
 
     // Listening at Socket
     this.socketService.syncAllMessages().subscribe(msg => {
@@ -64,6 +65,7 @@ export class TableComponent implements OnInit {
         this.correctAnswer = msg.message.answer;
         this.state = this.states.BUZZER;
         this.exit = true;
+        console.log(this.options)
       }
     })
 
@@ -84,27 +86,26 @@ export class TableComponent implements OnInit {
 
     /*voice for options*/
     this._smartSpeaker.addCommand('option a', () => {
-      this._smartSpeaker.speak('you choose option a');
-      console.log('You choose Option A');
-      //this.router.navigate(['/path_name']);
+      if (this.state === this.states.OPTION)
+        this.checkAnswer(this.options[0])
     });
 
+
     this._smartSpeaker.addCommand('option b', () => {
-      this._smartSpeaker.speak('you choose option b');
-      console.log('You choose Option B');
-      //this.router.navigate(['/path_name']);
+      console.log(this.options[1])
+      if (this.state === this.states.OPTION)
+        this.checkAnswer(this.options[1])
     });
 
     this._smartSpeaker.addCommand('option c', () => {
-      this._smartSpeaker.speak('you choose option c');
-      console.log('You choose Option C');
-      //this.router.navigate(['/path_name']);
+      console.log(this.options[2])
+      if (this.state === this.states.OPTION) 
+        this.checkAnswer(this.options[2])
     });
 
     this._smartSpeaker.addCommand('option d', () => {
-      this._smartSpeaker.speak('you choose option d');
-      console.log('You choose Option D');
-      //this.router.navigate(['/path_name']);
+      if (this.state === this.states.OPTION)
+        this.checkAnswer(this.options[3])
     });
 
   }
@@ -114,11 +115,6 @@ export class TableComponent implements OnInit {
     //change state
     this.state = newState;
     // console.log(this.state);
-  }
-
-
-  startCountDown() {
-    this.countdown.begin();
   }
 
   onTimerFinished(event: any) {
@@ -145,6 +141,7 @@ export class TableComponent implements OnInit {
 
   leave() {
     this.APIService.broadcastEvent('end-game', '');
+    this.state = this.states.NONE;
     this.exit = false;
   }
 }

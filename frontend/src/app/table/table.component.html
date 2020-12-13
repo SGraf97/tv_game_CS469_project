@@ -13,7 +13,7 @@
 </div>
 
 <div id="buzzers" *ngIf="this.state == this.states.BUZZER" class="fixed-bottom d-flex justify-content-between flex-wrap-reverse">
-    <app-buzzer *ngFor="let buzzer of buzzers" (click)="changeState(this.states.OPTION);this.userAnswering=buzzer;this.showWhoAnswaring();this.startCountDown();" class="d-flex m-5 w-auto" [color]="buzzer.color">
+    <app-buzzer *ngFor="let buzzer of buzzers" (click)="changeState(this.states.OPTION);this.userAnswering=buzzer;" class="d-flex m-5 w-auto" [color]="buzzer.color">
     </app-buzzer>
 </div>
 
