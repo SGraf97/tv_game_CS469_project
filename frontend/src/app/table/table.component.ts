@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../model/user';
 import { CommonModule } from '@angular/common';
 import { Template } from '@angular/compiler/src/render3/r3_ast';
-import {SmartSpeakerService} from '../services/smart-speaker.service';
+import { SmartSpeakerService } from '../services/smart-speaker.service';
 import { Router } from '@angular/router';
-import {SocketsService} from "../services";
-import {APIService} from "../services/API.service";
+import { SocketsService } from "../services";
+import { APIService } from "../services/API.service";
+import { CountdownComponent } from 'ngx-countdown';
 
 @Component({
   selector: 'app-table',
@@ -13,8 +14,10 @@ import {APIService} from "../services/API.service";
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  public userAnswering:any;
-  public correctAnswer:any;
+  @ViewChild('cd', { static: false }) private countdown: CountdownComponent;
+
+  public userAnswering: any;
+  public correctAnswer: any;
   public states = {
     BUZZER: "buzz",
     OPTION: "opt",
@@ -41,7 +44,7 @@ export class TableComponent implements OnInit {
   private _smartSpeaker: any;
 
 
-  constructor(private socketService : SocketsService , private APIService:APIService, private router: Router) {
+  constructor(private socketService: SocketsService, private APIService: APIService, private router: Router) {
     this.state = this.states.BUZZER;
     console.log(this.state);
     this._smartSpeaker = new SmartSpeakerService();
@@ -54,9 +57,9 @@ export class TableComponent implements OnInit {
     this.state = this.states.NONE;
 
     // Listening at Socket
-    this.socketService.syncAllMessages().subscribe(msg=> {
+    this.socketService.syncAllMessages().subscribe(msg => {
 
-      if(msg.event == 'table-question'){
+      if (msg.event == 'table-question') {
         this.options = msg.message.options;
         this.correctAnswer = msg.message.answer;
         this.state = this.states.BUZZER;
@@ -71,33 +74,34 @@ export class TableComponent implements OnInit {
     this.socketService.syncMessages("userAccepted").subscribe(
       msg => {
         this.buzzers.push(msg.message);
+        this.exit = false;
       }
     )
 
     //init state
-    this.optionsDisplay="none";
-    this.buzzersDisplay="block";
+    this.optionsDisplay = "none";
+    this.buzzersDisplay = "block";
 
     /*voice for options*/
-    this._smartSpeaker.addCommand('option a', ()=>{
+    this._smartSpeaker.addCommand('option a', () => {
       this._smartSpeaker.speak('you choose option a');
-      console.log('You choose Option A'); 
+      console.log('You choose Option A');
       //this.router.navigate(['/path_name']);
     });
-  
-    this._smartSpeaker.addCommand('option b', ()=>{
+
+    this._smartSpeaker.addCommand('option b', () => {
       this._smartSpeaker.speak('you choose option b');
       console.log('You choose Option B');
       //this.router.navigate(['/path_name']);
     });
-  
-    this._smartSpeaker.addCommand('option c', ()=>{
+
+    this._smartSpeaker.addCommand('option c', () => {
       this._smartSpeaker.speak('you choose option c');
       console.log('You choose Option C');
       //this.router.navigate(['/path_name']);
     });
-  
-    this._smartSpeaker.addCommand('option d', ()=>{
+
+    this._smartSpeaker.addCommand('option d', () => {
       this._smartSpeaker.speak('you choose option d');
       console.log('You choose Option D');
       //this.router.navigate(['/path_name']);
@@ -113,26 +117,34 @@ export class TableComponent implements OnInit {
   }
 
 
-  startCountDown(){
-    let countDownElement = document.getElementById('table-countdown');
-    console.log(countDownElement);
+  startCountDown() {
+    this.countdown.begin();
   }
 
-  public checkAnswer(option:String){
-    if(option == this.correctAnswer){
+  onTimerFinished(event: any) {
+    if (event.left == 0) {
+      this.APIService.broadcastEvent('end-game', { message: 'wrong' });
+      this.state = this.states.NONE;
+      this.exit = true;
+    }
+  }
+
+  public checkAnswer(option: String) {
+    if (option == this.correctAnswer) {
       console.log('CORRECT!!!!!!!');
-      this.APIService.update('user/'+this.userAnswering._id , {level : this.userAnswering.level+1 });
-      this.APIService.broadcastEvent('end-game' , {message: 'correct'});
+      this.APIService.update('user/' + this.userAnswering._id, { level: this.userAnswering.level + 1 });
+      this.APIService.broadcastEvent('end-game', { message: 'correct' });
       console.log(this.userAnswering);
-    }else{
-      this.APIService.broadcastEvent('end-game' , {message: 'wrong'});
+    } else {
+      this.APIService.broadcastEvent('end-game', { message: 'wrong' });
       console.log(option);
     }
     this.state = this.states.NONE;
+    this.exit = true;
   }
 
-  leave(){
-    this.APIService.broadcastEvent('end-game' , '');
+  leave() {
+    this.APIService.broadcastEvent('end-game', '');
     this.exit = false;
   }
 }

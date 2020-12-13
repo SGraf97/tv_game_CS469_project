@@ -26,7 +26,7 @@ export class MainMenuComponent implements OnInit {
     //get new game's notification event
     this.socketService.syncAllMessages().subscribe(
       msg => {
-        if(msg.event === "quiz" || msg.event === "catwalk" || msg.event === "photoshooting"){
+        if (msg.event === "quiz" || msg.event === "catwalk" || msg.event === "photoshooting") {
           document.getElementById("toggleGameModal").click();
           this.game = msg.event;
         }
@@ -34,28 +34,34 @@ export class MainMenuComponent implements OnInit {
     )
 
     //if user is not logged in, do not allow access in main menu
-    if(!this.loggedInUser)
+    if (!this.loggedInUser)
       window.location.href = "phone/login"
-    
+
   }
 
 
-  postTweet(){
+  postTweet() {
     let username = this.loggedInUser.username;
-    this.apiService.create('twitter', {username, twit: this.tweetText});
+    this.apiService.create('twitter', { username, twit: this.tweetText });
   }
 
-  tweet(event: any){
+  tweet(event: any) {
     this.tweetText = event.target.value;
   }
 
-  acceptInvitaton(){
+  acceptInvitaton() {
     this.apiService.broadcastEvent("userAccepted", this.loggedInUser);
-    if(this.game === "photoshooting" || this.game === "catwalk")
+    if (this.game === "photoshooting" || this.game === "catwalk")
       window.location.href = "/phone/vote"
   }
 
-  initMenuButtons(){
+  autoClose() {
+    setTimeout(() => {
+      document.getElementById("decline").click();
+    }, 10000);
+  }
+
+  initMenuButtons() {
     this.menuButtons = {
       screenshot: {
         class: "fas fa-camera fa-4x pt-2 mx-auto",
@@ -71,7 +77,7 @@ export class MainMenuComponent implements OnInit {
         background: "#264653",
         color: "#F15253",
         label: "Record",
-        route: ""
+        route: "/phone/edit"
       },
       info: {
         class: "fas fa-info fa-4x pt-2 mx-auto",

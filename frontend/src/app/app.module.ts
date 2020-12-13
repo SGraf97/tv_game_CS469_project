@@ -37,12 +37,12 @@ import { ChatContainerComponent } from './phone/chat-container/chat-container.co
 import { RouterModule, Routes } from '@angular/router';
 import { BuzzerComponent } from './table/buzzer/buzzer.component';
 import { OptionComponent } from './table/option/option.component';
-import { CountdownComponent } from './table/countdown/countdown.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService }  from './services/user.service';
+import { CountdownModule } from 'ngx-countdown';
 
 
 @NgModule({
@@ -57,7 +57,6 @@ import { UserService }  from './services/user.service';
     TableComponent,
     BuzzerComponent,
     OptionComponent,
-    CountdownComponent,
     PhoneComponent,
     ChatComponent,
     TwitterComponent,
@@ -93,7 +92,7 @@ import { UserService }  from './services/user.service';
     BsDropdownModule,
     HttpClientModule,
     AlertModule,
-
+    CountdownModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,7 +19,12 @@ export class QuizGameComponent implements OnInit {
     this.APIservice.getAllfrom("questions").then(res=>{
       this.questions = res;
       console.log(res);
-      this.nextQuestion();
+      let random = Math.floor(Math.random() * this.questions.length );
+      this.APIservice.broadcastEvent('table-question' , this.questions[random])
+      setTimeout(() => {
+        this.question = this.questions[random].question;
+    }, 10000);
+    
     });
 
 

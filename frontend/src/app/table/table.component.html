@@ -3,14 +3,13 @@
 <div class="d-flex justify-content-between pt-3 mb-4" *ngIf="this.state == this.states.OPTION">
     <i class="col fas fa-hand-paper fa-7x d-flex mr-auto px-3"></i>
     <h1 class="col-6 text-center mt-auto">{{userAnswering.username}}</h1>
-    <app-countdown class="col text-right pr-5" style="color:#E76F51; font-size: 96px;" id="table-countdown"></app-countdown>
+    <countdown #cd [config]="{leftTime: 10}" class="flex-grow d-flex pr-5 m-0 px-0 mr-auto" style="color:white; font-size: 114px;" (event)="onTimerFinished($event)"></countdown>
+    <!-- class="flex-grow d-flex pr-5 m-0 px-0 mr-auto" style="color:white; font-size: 114px;" -->
 </div>
 
 <!--buzzers top -->
 <div class="d-flex pt-3 mb-4" *ngIf="this.state == this.states.BUZZER">
     <i class="fas fa-hand-paper fa-7x d-flex mr-auto px-3"></i>
-    <app-countdown class="flex-grow d-flex pr-5 m-0 px-0 mr-auto" style="color:white; font-size: 114px;"></app-countdown>
-
 </div>
 
 <div id="buzzers" *ngIf="this.state == this.states.BUZZER" class="fixed-bottom d-flex justify-content-between flex-wrap-reverse">
@@ -31,8 +30,8 @@
 </div>
 
 <!-- exit btn -->
-<div class="d-flex pt-3 mb-4" *ngIf="this.state == this.states.NONE && exit">
+<div class="d-flex pt-3 mb-4" *ngIf="exit">
     <app-option (click)="leave()" option='Leave Game'
-        class=" mx-auto w-75 mb-3">
+        class=" mx-auto w-25 h-25 mb-3 small">
     </app-option>
 </div>
