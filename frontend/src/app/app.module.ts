@@ -93,7 +93,6 @@ import { UserService }  from './services/user.service';
     BsDropdownModule,
     HttpClientModule,
     AlertModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,8 +9,8 @@ import {initdbService, SocketsService} from "./services";
   providers: [initdbService]
 })
 export class AppComponent implements OnInit {
-  constructor(private socketsService: SocketsService, private initDB: initdbService ) {
-    
+  constructor(private socketsService: SocketsService, private initDB:initdbService ) {
+
     // Connect to sockets server on startup
     this.socketsService.initAndConnect();
 
@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.initDB.create();
   }
 
 }

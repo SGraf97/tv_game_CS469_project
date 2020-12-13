@@ -85,7 +85,7 @@ export class ChatComponent implements OnInit  {
       this.onlineCounter = temp;
     });
 
-    document.querySelector('.closeMain').addEventListener('click' , () => {
+    document.querySelector('#close-chat').addEventListener('click' , () => {
 
       const a = document.querySelector('app-main-display') as any;
       console.log(a.querySelector('app-frame'));
@@ -98,7 +98,27 @@ export class ChatComponent implements OnInit  {
       frame.setAttribute('height' , '1080');
     });
 
+    this.socketService.syncMessages('open-chat').subscribe(msg=>{
 
+      const twitter = document.querySelector('app-twitter');
+      //
+      // if(twitter.style.display == 'block'){
+      //   twitter.style.display = 'none';
+      // }
+
+      const a = document.querySelector('app-main-display') as any;
+      console.log(a.querySelector('app-frame'));
+      a.querySelector('app-chats').style.display = 'block';
+      a.querySelector('app-users-carusel').style.display = 'block';
+      // resize iframe
+      const frame = a.querySelector('app-frame > iframe');
+      frame.setAttribute('width' , '1430');
+      frame.setAttribute('height' , '800');
+
+
+
+
+    });
 
     // fill container data
 
