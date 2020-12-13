@@ -29,7 +29,8 @@
 
 .username{
   /*padding-left: 2%;*/
-  margin-top: 0;
+  font-weight: lighter;
+  margin-top: 6%;
   margin-bottom: 0;
   margin-left: 2%;
 }
