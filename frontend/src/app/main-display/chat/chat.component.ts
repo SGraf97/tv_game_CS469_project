@@ -23,7 +23,7 @@ export class ChatComponent implements OnInit  {
   containerMessages: HTMLCollectionOf<Element>;
   // private socketService: any;
   constructor(private socketService : SocketsService , private messageService:MessageService ,private userService:UserService ) {
-
+    
   }
 
   ngOnInit(): void {
@@ -73,7 +73,6 @@ export class ChatComponent implements OnInit  {
     });
 
 
-
     this.userService.getUsers().then(res=>{
       let temp = 0 ;
       this.users = res;
@@ -85,25 +84,7 @@ export class ChatComponent implements OnInit  {
       this.onlineCounter = temp;
     });
 
-    document.querySelector('.closeMain').addEventListener('click' , () => {
-
-      const a = document.querySelector('app-main-display') as any;
-      console.log(a.querySelector('app-frame'));
-
-      a.querySelector('app-chats').style.display = 'none';
-      a.querySelector('app-users-carusel').style.display = 'none';
-      // resize iframe
-      const frame = a.querySelector('app-frame > iframe');
-      frame.setAttribute('width' , '1920');
-      frame.setAttribute('height' , '1080');
-    });
-
-
-
     // fill container data
-
-
-
     this.container = document.getElementById('chatContainer');
     this.containerMessages = document.getElementsByClassName('chat-cmp');
 
