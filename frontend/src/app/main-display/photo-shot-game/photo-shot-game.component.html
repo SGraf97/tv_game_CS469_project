@@ -21,11 +21,7 @@
         Choose your best photo
     </h1>
     <div id="choosing">
-        <img src="../../../assets/Rectangle 10.svg" alt="">
-        <img src="../../../assets/Rectangle 10.svg" alt="">
-        <img src="../../../assets/Rectangle 10.svg" alt="">
-        <img src="../../../assets/Rectangle 10.svg" alt="">
-        <img src="../../../assets/Rectangle 10.svg" alt="">
+        <img class ="imageToChoose"   *ngFor="let i of imagesBase64" src="{{i}}">
     </div>
 
 

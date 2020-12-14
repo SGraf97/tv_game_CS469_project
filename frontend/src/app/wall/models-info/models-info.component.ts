@@ -8,7 +8,7 @@ import {Model} from '../../model/models';
   styleUrls: ['./models-info.component.css']
 })
 export class ModelsInfoComponent implements OnInit {
-  @Input() name:string;
+  // @Input() name:string;
   //@Input() age:string;
   //@Input() height:string;
   age: string;
@@ -18,10 +18,10 @@ export class ModelsInfoComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    
+
     /*this.name = this.route.snapshot.paramMap.get('name');*/
     this.route.paramMap.subscribe( params =>
-      this.name = params.get('name') 
+      this.name = params.get('name')
     )
     /*this.route.paramMap.subscribe( params =>
       this.age = params.get('age')
@@ -29,7 +29,7 @@ export class ModelsInfoComponent implements OnInit {
     this.route.paramMap.subscribe( params =>
       this.height = params.get('height')
     )*/
-    
+
     this.models = Model.getModels();
     this.sortArray();
 
@@ -48,7 +48,7 @@ export class ModelsInfoComponent implements OnInit {
 
   sortArray() {
     this.models.sort((a, b) => parseFloat(b.points) - parseFloat(a.points));
- 
+
     /*console.log(this.models[1]);*/
   }
 

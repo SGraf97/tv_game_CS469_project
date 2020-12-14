@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../model/user';
 import {APIService, SocketsService} from "../../services";
 import * as html2canvas from "html2canvas";
+import * as Html2Canvas from "html2canvas";
 @Component({
   selector: 'app-photo-shot-game',
   templateUrl: './photo-shot-game.component.html',
@@ -12,20 +13,23 @@ export class PhotoShotGameComponent implements OnInit {
 
   users: any;
   activeUser: User;
-
+  images : Blob[];
+  imagesBase64: [];
   start: any;
   choosePhoto: any;
   personalRes: any;
   congrats: any;
   userPhotos: any;
   countDownElem: HTMLElement;
-  photosTaken: Number;
+  photosTaken: any;
 
   constructor(private api: APIService, private socket: SocketsService) {
   }
 
   ngOnInit(): void {
-
+    this.imagesBase64 = [];
+    this.photosTaken = 0;
+    this.images = [];
     this.start = document.getElementById('gettingReady');
     this.choosePhoto = document.getElementById('chooseBestPhoto');
     this.personalRes = document.getElementById('personalResaults');
@@ -40,28 +44,11 @@ export class PhotoShotGameComponent implements OnInit {
     this.setTimer('#counter');
 
 
-    // this.users =  User.getUsers();
-
-    // navigate
     this.start.style.display = 'block';
-    // setTimeout(() => {
-    //   this.choosePhoto.style.display = 'block';
-    //   this.start.style.display = 'none';
-    // }, 5000);
+
 
     // listeners
-    this.userPhotos = document.querySelectorAll('#choosing>img');
 
-    for (let p of this.userPhotos) {
-      p.addEventListener('click', () => {
-        this.choosePhoto.style.display = 'none';
-        this.personalRes.style.display = 'block';
-        setTimeout(() => {
-          this.personalRes.style.display = 'none';
-          this.congrats.style.display = 'block';
-        }, 2000);
-      });
-    }
 
     document.getElementById('exit').addEventListener('click', () => {
       location.href = '/main';
@@ -83,39 +70,49 @@ export class PhotoShotGameComponent implements OnInit {
         this.snapPhoto();
       }
 
-    }, 200);
+    }, 100);
 
   }
 
   snapPhoto() {
-    if (this.photosTaken > 5) {
+    if (this.photosTaken >= 5) {
+      console.log(this.images);
+      for(let i in this.images){
+        this.convertBlobToBase64(this.images[i]).then(res=>{
+          this.imagesBase64.push(res);
+        });
+      }
+
+      this.showImagesTochoose();
+      console.log(this.imagesBase64);
       return;
     }
+    this.photosTaken = this.photosTaken + 1;
+    console.log(this.photosTaken);
 
-    this.countDownElem.innerText = 'SNAP!';
-    let video = document.getElementById('video') as HTMLImageElement;
+    this.api.getImage().toPromise().then((res)=>{
 
-    let canvas = document.getElementById('browser_video') as HTMLCanvasElement;
-    let contex = canvas.getContext('2d');
-    contex.drawImage(video, 0, 0);
-
-
-    // let video = document.querySelector('*') as HTMLImageElement;
-
-    html2canvas(document.querySelector('*')).then((canvas)=>{
-      document.getElementById('test').append(canvas);
-      console.log(this.getImageAsBase64FromCanvas(canvas));
+      let canvas = document.getElementById('browser_video') as HTMLCanvasElement;
+      let contex = canvas.getContext('2d');
+      // contex.drawImage(res , 0 , 0 );
+      this.images.push(res);
+      this.setTimer('#counter');
     });
 
 
+}
 
 
-    // console.log(canvas.getContext('2d'));
-
-    // console.log(this.getImageAsBase64FromCanvas(canvas));
-
-
-
+  blobToImage (blob){
+    return new Promise(resolve => {
+      const url = URL.createObjectURL(blob)
+      let img = new Image()
+      img.onload = () => {
+        URL.revokeObjectURL(url)
+        resolve(img)
+      }
+      img.src = url
+    })
   }
 
 
@@ -125,31 +122,40 @@ export class PhotoShotGameComponent implements OnInit {
 
   }
 
-  getImageAsBlobFromCanvas(canvas) {
-
-    // function that converts the dataURL to a binary blob object
-    function dataURLtoBlob(dataUrl) {
-      // Decode the dataURL
-      let binary = atob(dataUrl.split(',')[1]);
-
-      // Create 8-bit unsigned array
-      let array = [];
-      for (let i = 0; i < binary.length; i++) {
-        array.push(binary.charCodeAt(i));
-      }
-
-      // Return our Blob object
-      return new Blob([new Uint8Array(array)], {
-        type: 'image/jpg',
-      });
-    }
-
-    let fullQuality = canvas.toDataURL('image/jpeg', 1.0);
-    return dataURLtoBlob(fullQuality);
-
+  convertBlobToBase64 (blob) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader;
+      reader.onerror = reject;
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+      reader.readAsDataURL(blob);
+    });
   }
 
+  showImagesTochoose(){
+    this.start.style.display = 'none';
+    this.choosePhoto.style.display = 'block';
 
+    this.userPhotos = document.querySelectorAll(`.imageToChoose`) ;
+    console.log(this.userPhotos);
+    for (let p in this.userPhotos) {
+      console.log('mpika');
+
+      // this.userPhotos[p].addEventListener('click', () => {
+        // console.log('you clickes');
+        // this.choosePhoto.style.display = 'none';
+        // this.personalRes.style.display = 'block';
+        // setTimeout(() => {
+        //   this.personalRes.style.display = 'none';
+        //   this.congrats.style.display = 'block';
+        // }, 2000);
+      // });
+    }
+  }
+  clicked(){
+    console.log(this);
+  }
 }
 
 

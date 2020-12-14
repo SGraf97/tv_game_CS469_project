@@ -9,6 +9,11 @@
     display: none;
 }
 
+.imageToChoose{
+  width:20%;
+  height: auto;
+   margin: 2%;
+}
 
 #gettingReady > h1{
     padding:2%;

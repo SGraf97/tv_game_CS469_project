@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import {User} from "../model/user";
 import {map} from "rxjs/operators";
 import {Message} from "../model/message";
+// import {request} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +56,20 @@ export class APIService {
       console.log('egine to event');
     })
   }
+
+  public getImage(){
+    let phoneURL = 'http://192.168.1.4:5000/photo.jpg';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'image/jpeg',
+      }),
+      responseType: 'blob' // This tells angular to parse it as a blob, default is json
+    };
+
+    return this.http.get<void>(phoneURL , httpOptions);
+
+  }
+
+
 
 }
