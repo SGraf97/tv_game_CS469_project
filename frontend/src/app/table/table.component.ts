@@ -55,14 +55,13 @@ export class TableComponent implements OnInit {
 
     // Listening at Socket
     this.socketService.syncAllMessages().subscribe(msg=> {
-
       if(msg.event == 'table-question'){
         this.options = msg.message.options;
         this.correctAnswer = msg.message.answer;
         this.state = this.states.BUZZER;
         this.exit = true;
       }
-    })
+    });
 
 
 
@@ -70,7 +69,9 @@ export class TableComponent implements OnInit {
     // getting users
     this.socketService.syncMessages("userAccepted").subscribe(
       msg => {
+        console.log(msg);
         this.buzzers.push(msg.message);
+        console.log(this.buzzers);
       }
     )
 
@@ -81,22 +82,22 @@ export class TableComponent implements OnInit {
     /*voice for options*/
     this._smartSpeaker.addCommand('option a', ()=>{
       this._smartSpeaker.speak('you choose option a');
-      console.log('You choose Option A'); 
+      console.log('You choose Option A');
       //this.router.navigate(['/path_name']);
     });
-  
+
     this._smartSpeaker.addCommand('option b', ()=>{
       this._smartSpeaker.speak('you choose option b');
       console.log('You choose Option B');
       //this.router.navigate(['/path_name']);
     });
-  
+
     this._smartSpeaker.addCommand('option c', ()=>{
       this._smartSpeaker.speak('you choose option c');
       console.log('You choose Option C');
       //this.router.navigate(['/path_name']);
     });
-  
+
     this._smartSpeaker.addCommand('option d', ()=>{
       this._smartSpeaker.speak('you choose option d');
       console.log('You choose Option D');

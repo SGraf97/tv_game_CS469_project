@@ -1,3 +1,5 @@
+
+
 <div id="messagesContainer" class="px-2 pb-3 d-flex flex-column" [style.height]="height">
     <div *ngFor="let mssg of messages" class="px-2 mt-3">
         <label class="{{mssg.color}}">{{mssg.user}}</label>
@@ -12,3 +14,12 @@
     <button type="submit" class="btn text-white bg-transparent" (click)="sendMessage()"><i
             class="fab fa-telegram-plane fa-2x pb-3"></i></button>
 </div>
+
+
+<button style="width:100%;
+  padding: 5%;
+  border:none;
+  background-color: #2A4F5E;
+  color:whitesmoke" (click)="this.apiService.broadcastEvent('open-chat')">
+    open chat
+</button>

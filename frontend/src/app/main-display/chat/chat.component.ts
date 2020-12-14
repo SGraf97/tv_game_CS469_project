@@ -36,7 +36,7 @@ export class ChatComponent implements OnInit  {
 
             if(m.user){
               this.userService.getById(m.user).then(res=>{
-                m.user = res.username;
+                m.user = res;
               });
             }
           }
@@ -66,7 +66,7 @@ export class ChatComponent implements OnInit  {
 
         console.log();
         this.userService.getById(m.user).then(res=>{
-          m.user = res.username;
+          m.user = res;
         });
       }
       console.log(this.messages);
@@ -86,7 +86,11 @@ export class ChatComponent implements OnInit  {
     });
 
     document.querySelector('#close-chat').addEventListener('click' , () => {
-
+      const twitter = document.querySelector('app-twitter') as HTMLElement;
+      //
+      if(twitter.style.display != 'none'){
+        twitter.style.display = 'none';
+      }
       const a = document.querySelector('app-main-display') as any;
       console.log(a.querySelector('app-frame'));
 
@@ -100,11 +104,11 @@ export class ChatComponent implements OnInit  {
 
     this.socketService.syncMessages('open-chat').subscribe(msg=>{
 
-      const twitter = document.querySelector('app-twitter');
+      const twitter = document.querySelector('app-twitter') as HTMLElement;
       //
-      // if(twitter.style.display == 'block'){
-      //   twitter.style.display = 'none';
-      // }
+      if(twitter.style.display != 'none'){
+        twitter.style.display = 'none';
+      }
 
       const a = document.querySelector('app-main-display') as any;
       console.log(a.querySelector('app-frame'));

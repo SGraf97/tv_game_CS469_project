@@ -18,6 +18,10 @@ export class TwitterComponent implements OnInit {
   ngOnInit(): void {
   // this.addTwits();
     document.querySelector('#close-twitter').addEventListener('click' , () => {
+      let chat = document.querySelector('app-chats') as HTMLElement;
+      if(chat.style.display != 'none'){
+        chat.style.display = 'none';
+      }
       const a = document.querySelector('app-main-display') as any;
       // console.log(a.querySelector('app-frame'));
       // hide chat-twiter
@@ -37,8 +41,8 @@ export class TwitterComponent implements OnInit {
 
     this.sockets.syncMessages('open-twitter').subscribe(msg=>{
 
-      let chat = document.querySelector('app-chat');
-      if(chat.style.display == 'block'){
+      let chat = document.querySelector('app-chats') as HTMLElement;
+      if(chat.style.display != 'none'){
         chat.style.display = 'none';
       }
 
