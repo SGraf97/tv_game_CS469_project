@@ -79,7 +79,8 @@ export class PhotoShotGameComponent implements OnInit {
       console.log(this.images);
       for(let i in this.images){
         this.convertBlobToBase64(this.images[i]).then(res=>{
-          this.imagesBase64.push(res);
+          let image = res as any;
+          this.imagesBase64.push(image);
         });
       }
 

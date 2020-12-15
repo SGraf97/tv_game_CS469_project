@@ -59,14 +59,15 @@ export class APIService {
 
   public getImage(){
     let phoneURL = 'http://192.168.1.4:5000/photo.jpg';
-    const httpOptions = {
+    let httpOptions : any;
+    httpOptions = {
       headers: new HttpHeaders({
         'Accept': 'image/jpeg',
       }),
       responseType: 'blob' // This tells angular to parse it as a blob, default is json
     };
 
-    return this.http.get<void>(phoneURL , httpOptions);
+    return this.http.get(phoneURL , httpOptions);
 
   }
 
