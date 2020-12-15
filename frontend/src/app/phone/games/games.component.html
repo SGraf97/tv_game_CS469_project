@@ -15,7 +15,7 @@
 </div>
 
 <!-- vote user's photo/catwalk -->
-<div *ngIf="state !== states.WAIT" id="rate" class="d-flex flex-column py-5 my-5">
+<div *ngIf="state !== states.WAIT && state !== states.NONE" id="rate" class="d-flex flex-column py-5 my-5">
     <span class="mx-auto p-5 rounded-lg">
         <img [src]="photoToVote" class="rounded mx-auto d-block w-25 h-25" alt="user's photo">
     </span>

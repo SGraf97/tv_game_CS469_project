@@ -12,7 +12,8 @@ export class GamesComponent implements OnInit {
   public states = {
     WAIT: "waitForUser",
     RATE: "rateUser",
-    DONE: "userRated"
+    DONE: "userRated",
+    NONE: ""
   };
 
   public state: any;
@@ -26,7 +27,7 @@ export class GamesComponent implements OnInit {
   constructor(private userService: UserService, private apiService: APIService, private socketService: SocketsService) { }
 
   ngOnInit(): void {
-    this.state = this.states.WAIT;
+    this.state = this.states.NONE;
     this.userService.loggedInUser.subscribe(user => this.loggedInUser = user)
     this.socketService.syncMessages("turn").subscribe(
       msg => {
@@ -39,8 +40,12 @@ export class GamesComponent implements OnInit {
     this.socketService.syncMessages("votePhoto").subscribe(
       msg => {
         console.log(msg)
-        this.state = this.states.RATE;
-        this.photoToVote = msg.message.img;
+        if (this.turn._id === this.loggedInUser._id)
+          this.state = this.states.WAIT
+        else {
+          this.state = this.states.RATE;
+          this.photoToVote = msg.message.img;
+        }
       }
     )
 

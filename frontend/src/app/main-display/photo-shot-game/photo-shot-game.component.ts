@@ -23,7 +23,10 @@ export class PhotoShotGameComponent implements OnInit {
   countDownElem: HTMLElement;
   photosTaken: any;
 
+  selectedPhoto: any;
+
   turn = 0;
+  voted = 0;
 
   constructor(private api: APIService, private socket: SocketsService, private userService: UserService) {
   }
@@ -37,25 +40,27 @@ export class PhotoShotGameComponent implements OnInit {
     this.personalRes = document.getElementById('personalResaults');
     this.congrats = document.getElementById('congratsUser');
 
-    this.userService.getAll().then(res => {
-      let u: any;
-      let newUser: User;
-      u = res;
-      for (let i of u) {
-        if (i.isLoggedIn){
-          newUser = new User(i.username, i.color);
-          newUser.xp = i.xp;
-          newUser.level = i.level;
-          newUser._id = i._id;
-          this.users.push(newUser);
-        }
+    this.socket.syncMessages("userAccepted").subscribe(
+      msg => {
+        let newUser: User;
+        newUser = new User(msg.message.username, msg.message.color);
+        newUser.xp = msg.message.xp;
+        newUser.level = msg.message.level;
+        newUser._id = msg.message._id;
+        this.users.push(newUser);
+
+        if(this.users.length === 1)
+          this.nextTurn();
       }
-      this.nextTurn();
-    });
+    )
+
 
     this.socket.syncMessages("voted").subscribe(
       msg => {
-        this.nextTurn()
+        this.voted = this.voted + 1;
+        //if everyone's voted, go to next round
+        if(this.voted === this.users.length)
+          this.endOfRound();
       }
     )
 
@@ -64,13 +69,19 @@ export class PhotoShotGameComponent implements OnInit {
 
 
     document.getElementById('exit').addEventListener('click', () => {
+      this.users.length = 0;
       location.href = '/main';
     });
     
   }
 
   nextTurn(){
-    
+    //end game when everyon'es played
+    if(this.turn > this.users.length){
+      this.users.length = 0;
+      location.href = '/main';
+    }
+
     this.activeUser = this.users[this.turn];
     console.log("active user")
     console.log(this.activeUser.username)
@@ -180,6 +191,21 @@ export class PhotoShotGameComponent implements OnInit {
   select(i: any){
     this.api.broadcastEvent("votePhoto", {img:i});
     console.log(i);
+    this.selectedPhoto = i;
+    this.showSelectedImage();
+  }
+
+  showSelectedImage(){
+    this.start.style.display = 'none';
+    this.personalRes.style.display = 'block';
+  }
+
+  endOfRound(){
+    this.personalRes.style.display = 'none';
+    this.congrats.style.display = 'block';
+    setTimeout(() => {
+      this.nextTurn();
+    }, 4000);
   }
 }
 
