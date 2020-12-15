@@ -7,6 +7,7 @@
   </div>
     <div class = "canvas">
        <canvas id = "browser_video"></canvas>
+<!--      IP kinitoy apo to app IP Webcam-->
       <img style= "width: 100%;"  id="video" class="video-image" alt="video" src="http://192.168.1.4:5000/video"  >
     </div>
 
@@ -21,6 +22,7 @@
         Choose your best photo
     </h1>
     <div id="choosing">
+  <!--      εδω μπαινουν οι εικονες (το ξερω οτι τα εχω κανει για το μπουτσο ...)-->
         <img class ="imageToChoose"   *ngFor="let i of imagesBase64" src="{{i}}">
     </div>
 

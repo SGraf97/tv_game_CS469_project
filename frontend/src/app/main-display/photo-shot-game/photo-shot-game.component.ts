@@ -140,17 +140,9 @@ export class PhotoShotGameComponent implements OnInit {
     this.userPhotos = document.querySelectorAll(`.imageToChoose`) ;
     console.log(this.userPhotos);
     for (let p in this.userPhotos) {
-      console.log('mpika');
+      //adding event listeners to photos
+      console.log(p);
 
-      // this.userPhotos[p].addEventListener('click', () => {
-        // console.log('you clickes');
-        // this.choosePhoto.style.display = 'none';
-        // this.personalRes.style.display = 'block';
-        // setTimeout(() => {
-        //   this.personalRes.style.display = 'none';
-        //   this.congrats.style.display = 'block';
-        // }, 2000);
-      // });
     }
   }
   clicked(){
