@@ -25,4 +25,10 @@ export class PhoneComponent implements OnInit {
     this.api.broadcastEvent('open-chat' ,  '');
   }
 
+  ngOnDestroy(){
+    this.loggedInUser.isLoggedIn = false;
+    this.userService.update(this.loggedInUser)
+    this.userService.logout();
+  }
+  
 }

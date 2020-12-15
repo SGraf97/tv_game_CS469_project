@@ -1,7 +1,7 @@
 import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../model/user';
-import {APIService, SocketsService} from "../../services";
+import {APIService, SocketsService, UserService} from "../../services";
 import * as html2canvas from "html2canvas";
 import * as Html2Canvas from "html2canvas";
 @Component({
@@ -11,10 +11,10 @@ import * as Html2Canvas from "html2canvas";
 })
 export class PhotoShotGameComponent implements OnInit {
 
-  users: any;
+  users = [];
   activeUser: User;
-  images : Blob[];
-  imagesBase64: [];
+  images  = [];
+  imagesBase64 = [];
   start: any;
   choosePhoto: any;
   personalRes: any;
@@ -23,7 +23,9 @@ export class PhotoShotGameComponent implements OnInit {
   countDownElem: HTMLElement;
   photosTaken: any;
 
-  constructor(private api: APIService, private socket: SocketsService) {
+  turn = 0;
+
+  constructor(private api: APIService, private socket: SocketsService, private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -35,16 +37,27 @@ export class PhotoShotGameComponent implements OnInit {
     this.personalRes = document.getElementById('personalResaults');
     this.congrats = document.getElementById('congratsUser');
 
-    this.api.getAllfrom('user').then(res => {
-      this.users = res;
-      this.activeUser = this.users[0];
+    this.userService.getAll().then(res => {
+      let u: any;
+      let newUser: User;
+      u = res;
+      for (let i of u) {
+        if (i.isLoggedIn){
+          newUser = new User(i.username, i.color);
+          newUser.xp = i.xp;
+          newUser.level = i.level;
+          newUser._id = i._id;
+          this.users.push(newUser);
+        }
+      }
+      this.nextTurn();
     });
 
-
-    this.setTimer('#counter');
-
-
-    this.start.style.display = 'block';
+    this.socket.syncMessages("voted").subscribe(
+      msg => {
+        this.nextTurn()
+      }
+    )
 
 
     // listeners
@@ -53,12 +66,25 @@ export class PhotoShotGameComponent implements OnInit {
     document.getElementById('exit').addEventListener('click', () => {
       location.href = '/main';
     });
-
-
+    
   }
 
+  nextTurn(){
+    
+    this.activeUser = this.users[this.turn];
+    console.log("active user")
+    console.log(this.activeUser.username)
+    this.api.broadcastEvent("turn", this.activeUser);
 
-  setTimer(queryElement: String) {
+    this.imagesBase64 = [];
+    this.photosTaken = 0;
+    this.images = [];
+    this.setTimer('#counter');
+    this.start.style.display = 'block';
+    this.turn = this.turn + 1;
+  }
+
+  setTimer(queryElement: string) {
 
     this.countDownElem = document.querySelector(queryElement);
 
@@ -76,10 +102,11 @@ export class PhotoShotGameComponent implements OnInit {
 
   snapPhoto() {
     if (this.photosTaken >= 5) {
+      let image: any;
       console.log(this.images);
       for(let i in this.images){
         this.convertBlobToBase64(this.images[i]).then(res=>{
-          let image = res as any;
+          image = res;
           this.imagesBase64.push(image);
         });
       }
@@ -91,7 +118,7 @@ export class PhotoShotGameComponent implements OnInit {
     this.photosTaken = this.photosTaken + 1;
     console.log(this.photosTaken);
 
-    this.api.getImage().toPromise().then((res)=>{
+    this.api.getImage().toPromise().then(res=>{
 
       let canvas = document.getElementById('browser_video') as HTMLCanvasElement;
       let contex = canvas.getContext('2d');
@@ -148,6 +175,11 @@ export class PhotoShotGameComponent implements OnInit {
   }
   clicked(){
     console.log(this);
+  }
+
+  select(i: any){
+    this.api.broadcastEvent("votePhoto", {img:i});
+    console.log(i);
   }
 }
 

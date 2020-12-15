@@ -21,6 +21,7 @@ export class UserService {
 
   constructor(private http: HttpClient ) {
     this.hostURl = environment.host;    
+    
   }
 
   public getAll(){

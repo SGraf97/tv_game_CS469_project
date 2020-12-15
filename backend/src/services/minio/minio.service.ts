@@ -23,7 +23,7 @@ export class MinioService {
     try {
       if (this.minioClient) { return; }
 
-      const minioSetupPromise = new Promise((resolve, reject) => {
+      const minioSetupPromise = new Promise<void>((resolve, reject) => {
 
         const clientOptions: Minio.ClientOptions = {
           useSSL: false,

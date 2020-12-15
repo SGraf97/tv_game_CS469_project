@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services';
 import { APIService } from 'src/app/services/API.service';
@@ -10,6 +10,7 @@ import { Message } from '../../model/message';
   styleUrls: ['./chat-container.component.css']
 })
 export class ChatContainerComponent implements OnInit {
+  @ViewChild ("in") input: ElementRef;
   @Input() height: string;
   public loggedInUser: User;
   public newMessage: string;
@@ -36,13 +37,16 @@ export class ChatContainerComponent implements OnInit {
       }
     )
 
+    var objDiv = document.getElementById("messagesContainer");
+    objDiv.scrollTop = objDiv.scrollHeight - objDiv.clientHeight;
+
   }
 
   sendMessage() {
     if (this.newMessage) {
       this.apiService.create('message', { user: this.loggedInUser, messageText: this.newMessage });
       this.messages.push(new Message(this.loggedInUser.username, this.newMessage, "out"));
-      this.newMessage = ''
+      this.input.nativeElement.value = "";
     }
   }
 

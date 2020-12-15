@@ -144,5 +144,6 @@ export class TableComponent implements OnInit {
     this.APIService.broadcastEvent('end-game', '');
     this.state = this.states.NONE;
     this.exit = false;
+    this.buzzers.length = 0;
   }
 }

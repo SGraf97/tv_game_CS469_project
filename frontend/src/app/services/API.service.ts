@@ -58,7 +58,7 @@ export class APIService {
   }
 
   public getImage(){
-    let phoneURL = 'http://192.168.1.4:5000/photo.jpg';
+    let phoneURL = 'http://192.168.1.3:5000/photo.jpg';
     let httpOptions : any;
     httpOptions = {
       headers: new HttpHeaders({

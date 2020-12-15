@@ -23,7 +23,7 @@
     </h1>
     <div id="choosing">
   <!--      εδω μπαινουν οι εικονες (το ξερω οτι τα εχω κανει για το μπουτσο ...)-->
-        <img class ="imageToChoose"   *ngFor="let i of imagesBase64" src="{{i}}">
+        <img class ="imageToChoose"   *ngFor="let i of imagesBase64" src="{{i}}" (click)="select(i)">
     </div>
 
 

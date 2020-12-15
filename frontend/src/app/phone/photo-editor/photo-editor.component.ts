@@ -19,6 +19,8 @@ export class PhotoEditorComponent implements OnInit {
   public loggedInUser: User;
   public captureURL: string;
 
+  imageFile: any;
+
   public buttons = {
     save: {
       icon: "fas fa-file-download mx-2 pt-1",
@@ -48,10 +50,11 @@ export class PhotoEditorComponent implements OnInit {
     //get logged-in user
     this.userService.loggedInUser.subscribe(user => this.loggedInUser = user);
     //capture screen request
-    this.apiService.broadcastEvent("capture", {user: this.loggedInUser.username})
+    this.apiService.broadcastEvent("capture", { user: this.loggedInUser.username })
     //get screenshot
-    this.socketService.syncMessages("capture"+this.loggedInUser.username).subscribe(msg => {
-        this.captureURL = msg.message.screenshot;
+    this.socketService.syncMessages("capture" + this.loggedInUser.username).subscribe(msg => {
+      this.captureURL = msg.message.screenshot;
+      this.convertToFile(this.captureURL);
     })
   }
 
@@ -60,11 +63,46 @@ export class PhotoEditorComponent implements OnInit {
       this.galleryHeight == "20%" ? "85%" : "20%";
   }
 
-  shareOnTwitter(){
+  saveImage() {
+    this.apiService.create("files/upload", this.captureURL).then(
+      res => console.log(res)
+    );
+  }
+
+  convertToFile(url: string) {
+    let base64 = url.split("base64,")[1];
+
+    var uuid = require("uuid");
+    var id = uuid.v4();
+    let imageName = this.loggedInUser.username + id;
+
+    console.log(imageName)
+
+    let imageBlob = this.dataURItoBlob(base64);
+
+    this.imageFile = new File([imageBlob], imageName, { type: 'image/png' });
+  }
+
+  dataURItoBlob(dataURI) {
+    const byteString = window.atob(dataURI);
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    const int8Array = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < byteString.length; i++) {
+      int8Array[i] = byteString.charCodeAt(i);
+    }
+    const blob = new Blob([int8Array], { type: 'image/png' });
+    return blob;
+  }
+
+  delete() {
+    window.location.href = "/phone/menu"
+  }
+  shareOnTwitter() {
     let username = this.loggedInUser.username;
     let twit = "";
     let media = this.captureURL;
-    this.apiService.create('twitter', {username, twit});
+    this.apiService.create('twitter', { username, twit });
+    window.location.href = "/phone/menu"
   }
 
 }

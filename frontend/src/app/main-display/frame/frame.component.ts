@@ -65,10 +65,10 @@ export class FrameComponent implements OnInit {
     });
 
     this._smartSpeaker.addCommand('close', ()=>{
-      console.log('close chat');
       const a = document.querySelector('app-main-display') as any;
 
       a.querySelector('app-chats').style.display = 'none';
+      a.querySelector('app-twitter').style.display = 'none';
       a.querySelector('app-users-carusel').style.display = 'none';
 
       const frame = a.querySelector('app-frame > iframe');
@@ -76,11 +76,25 @@ export class FrameComponent implements OnInit {
       frame.setAttribute('height' , '1080');
     });
 
-   this._smartSpeaker.addCommand('open', ()=>{
+   this._smartSpeaker.addCommand('open chat', ()=>{
       console.log('open chat');
       const a = document.querySelector('app-main-display') as any;
 
+      a.querySelector('app-twitter').style.display = 'none';
       a.querySelector('app-chats').style.display = 'block';
+      a.querySelector('app-users-carusel').style.display = 'block';
+
+      const frame = a.querySelector('app-frame > iframe');
+      frame.setAttribute('width', '1430');
+      frame.setAttribute('height', '800');
+    });
+
+    this._smartSpeaker.addCommand('open twitter', ()=>{
+      console.log('open twitter');
+      const a = document.querySelector('app-main-display') as any;
+
+      a.querySelector('app-chats').style.display = 'none';
+      a.querySelector('app-twitter').style.display = 'block';
       a.querySelector('app-users-carusel').style.display = 'block';
 
       const frame = a.querySelector('app-frame > iframe');
@@ -93,7 +107,7 @@ export class FrameComponent implements OnInit {
     this.socketService.syncMessages("capture").subscribe(
       msg => {
         username = msg.message.user;
-        this.captureService.getImage(this.screen.nativeElement, true)
+        this.captureService.getImage(document.getElementById("player"), true)
           .pipe(
             tap(img => {
               console.log(img);

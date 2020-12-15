@@ -33,6 +33,15 @@ export class MainMenuComponent implements OnInit {
       }
     )
 
+    this.socketService.syncMessages("update").subscribe(
+      msg => {
+        if(msg.message.username){
+          if(msg.message._id === this.loggedInUser._id)
+          document.getElementById("toggleNotificationModal").click();
+        }
+      }
+    )
+
     //if user is not logged in, do not allow access in main menu
     if (!this.loggedInUser)
       window.location.href = "phone/login"
@@ -84,8 +93,8 @@ export class MainMenuComponent implements OnInit {
         background: "white",
         color: "black",
         label: "Info",
-        target: "#notificationModal",
-        toggle: "modal",
+        target: "",
+        toggle: "",
         route: ""
       },
       twitter: {

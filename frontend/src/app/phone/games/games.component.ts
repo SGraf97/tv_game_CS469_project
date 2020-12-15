@@ -21,7 +21,8 @@ export class GamesComponent implements OnInit {
 
   loggedInUser: User;
   turn: User;
-  
+  photoToVote: any;
+
   constructor(private userService: UserService, private apiService: APIService, private socketService: SocketsService) { }
 
   ngOnInit(): void {
@@ -29,34 +30,47 @@ export class GamesComponent implements OnInit {
     this.userService.loggedInUser.subscribe(user => this.loggedInUser = user)
     this.socketService.syncMessages("turn").subscribe(
       msg => {
-        this.turn = msg.message;
+        this.state = this.states.WAIT;
+        this.turn = new User(msg.message.username, msg.message.color);
+        this.turn._id = msg.message._id;
       }
     )
+
+    this.socketService.syncMessages("votePhoto").subscribe(
+      msg => {
+        console.log(msg)
+        this.state = this.states.RATE;
+        this.photoToVote = msg.message.img;
+      }
+    )
+
   }
 
-  like(){
-    if(!this.turn)
+  like() {
+    if (!this.turn)
       return;
-    this.turn.xp = this.turn.xp+10;
+    this.turn.xp = this.turn.xp + 10;
     this.userService.update(this.turn)
     this.changeState()
+    this.apiService.broadcastEvent("voted", "");
   }
 
-  dislike(){
+  dislike() {
     this.changeState()
+    this.apiService.broadcastEvent("voted", "");
   }
 
-  changeState(){
-    switch(this.state){
+  changeState() {
+    switch (this.state) {
       case this.states.WAIT:
-          this.state = this.states.RATE;
-          break;
+        this.state = this.states.RATE;
+        break;
       case this.states.RATE:
-          this.state = this.states.DONE;
-          break;
+        this.state = this.states.DONE;
+        break;
       default:
-          this.state = this.states.WAIT;
-          break;
+        this.state = this.states.WAIT;
+        break;
     }
   }
 

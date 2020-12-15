@@ -6,9 +6,9 @@
 </div>
 
 <div class="d-flex flex-wrap px-5 justify-content-center" #screenshot>
-    <app-editor-button [inBtn]="buttons.save" class="d-flex mx-auto"></app-editor-button>
+    <app-editor-button [inBtn]="buttons.save" class="d-flex mx-auto" (click)="saveImage()"></app-editor-button>
     <app-editor-button [inBtn]="buttons.text" class="d-flex mx-auto"></app-editor-button>
-    <app-editor-button [inBtn]="buttons.delete" class="d-flex mx-auto"></app-editor-button>
+    <app-editor-button [inBtn]="buttons.delete" class="d-flex mx-auto" (click)="delete()"></app-editor-button>
     <app-editor-button [inBtn]="buttons.share" class="d-flex mx-auto" (click)="shareOnTwitter()"></app-editor-button>
 </div>
 
