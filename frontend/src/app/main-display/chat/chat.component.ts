@@ -36,7 +36,7 @@ export class ChatComponent implements OnInit  {
 
             if(m.user){
               this.userService.getById(m.user).then(res=>{
-                m.user = res.username;
+                m.user = res;
               });
             }
           }
@@ -66,7 +66,7 @@ export class ChatComponent implements OnInit  {
 
         console.log();
         this.userService.getById(m.user).then(res=>{
-          m.user = res.username;
+          m.user = res;
         });
       }
       console.log(this.messages);
@@ -82,6 +82,45 @@ export class ChatComponent implements OnInit  {
         }
       }
       this.onlineCounter = temp;
+    });
+
+    document.querySelector('#close-chat').addEventListener('click' , () => {
+      const twitter = document.querySelector('app-twitter') as HTMLElement;
+      //
+      if(twitter.style.display != 'none'){
+        twitter.style.display = 'none';
+      }
+      const a = document.querySelector('app-main-display') as any;
+      console.log(a.querySelector('app-frame'));
+
+      a.querySelector('app-chats').style.display = 'none';
+      a.querySelector('app-users-carusel').style.display = 'none';
+      // resize iframe
+      const frame = a.querySelector('app-frame > iframe');
+      frame.setAttribute('width' , '1920');
+      frame.setAttribute('height' , '1080');
+    });
+
+    this.socketService.syncMessages('open-chat').subscribe(msg=>{
+
+      const twitter = document.querySelector('app-twitter') as HTMLElement;
+      //
+      if(twitter.style.display != 'none'){
+        twitter.style.display = 'none';
+      }
+
+      const a = document.querySelector('app-main-display') as any;
+      console.log(a.querySelector('app-frame'));
+      a.querySelector('app-chats').style.display = 'block';
+      a.querySelector('app-users-carusel').style.display = 'block';
+      // resize iframe
+      const frame = a.querySelector('app-frame > iframe');
+      frame.setAttribute('width' , '1430');
+      frame.setAttribute('height' , '800');
+
+
+
+
     });
 
     // fill container data

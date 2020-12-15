@@ -1,7 +1,7 @@
 <div class = "big-container">
 
   <div class = "ChatTop">
-    <img class="closeMain" width="48" height="44" src="./assets/close-button.svg">
+    <img id="close-chat" width="48" height="44" src="./assets/close-button.svg">
 
     <h1>Live chat</h1>
     <div style="width: 10%"></div>
@@ -9,8 +9,8 @@
   </div>
   <div id="chatContainer">
     <div class="chat-cmp" *ngFor="let message of messages">
-      <h6 class="username">
-        {{message.user}}
+      <h6 class="username" style="color:{{message.user.color}}">
+        {{message.user.username}}
       </h6>
 
       <p>{{message.messageText}}</p>

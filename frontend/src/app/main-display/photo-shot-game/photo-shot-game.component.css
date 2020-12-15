@@ -5,10 +5,15 @@
     padding:2%;
     height: 1080px;
     max-height: 1080px;
-    background-color:rgb(128, 128, 128);
+    background-color:transparent;
     display: none;
 }
 
+.imageToChoose{
+  width:20%;
+  height: auto;
+   margin: 2%;
+}
 
 #gettingReady > h1{
     padding:2%;
@@ -19,12 +24,18 @@
 }
 
 #counter{
-    position: absolute;
-    left:50%;
-    top:50%;
-    text-align: center;
-}
+  position: absolute;
+  left:50%;
 
+}
+.canvas{
+  position: absolute;
+  left:20%;
+  top:20%;
+  width:60%;
+  height: auto;
+  text-align: center;
+}
 
 #countdown-number {
     color: white;
@@ -32,7 +43,7 @@
     /* display: inline-block; */
     line-height: 40px;
   }
-  
+
   svg {
       border:1px solid red;
     position: absolute;
@@ -43,7 +54,7 @@
     height: 20vh;
     transform: rotateY(-180deg) rotateZ(-90deg);
   }
-  
+
   svg circle {
     stroke-dasharray: 350px;
     stroke-dashoffset: 0px;
@@ -59,7 +70,7 @@
     top:0;
     left:0;
   }
-  
+
   @keyframes countdown {
     from {
       stroke-dashoffset: 0px;
@@ -132,7 +143,7 @@
   justify-content: space-evenly;
   align-items: flex-start;
   /* padding: 5%; */
-  
+
 }
 
 #usersResaults{
@@ -143,11 +154,11 @@
 #userPhoto{
   padding:5% ;
   width:50%;
- 
+
 }
 
 .user{
-  
+
   display: flex;
   width: 100%;
 }
@@ -159,7 +170,7 @@
 }
 
 .bar-maxed{
-  width:38vw; 
+  width:38vw;
 }
 
 .bar-50{

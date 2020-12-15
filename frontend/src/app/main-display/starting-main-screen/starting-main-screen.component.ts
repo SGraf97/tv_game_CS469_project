@@ -64,7 +64,7 @@ export class StartingMainScreenComponent implements OnInit {
        }
      });
 
-      this.nextEpisode = '20/12/20';
+      this.nextEpisode = 'Today';
 
 
       const overlay = document.getElementsByClassName('overlay')[0] as any;

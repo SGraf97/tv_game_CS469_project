@@ -62,7 +62,7 @@
 
 .info-pop-up-right
 {
-  
+
   position: relative;
   right:100px;
   font-size: large;
@@ -129,6 +129,7 @@ p{
   flex-wrap: nowrap;
   align-items: center;
   transition-duration: 1s;
+
 }
 
 

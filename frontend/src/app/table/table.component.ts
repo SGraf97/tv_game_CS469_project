@@ -67,7 +67,7 @@ export class TableComponent implements OnInit {
         this.exit = true;
         console.log(this.options)
       }
-    })
+    });
 
 
 
@@ -75,6 +75,7 @@ export class TableComponent implements OnInit {
     // getting users
     this.socketService.syncMessages("userAccepted").subscribe(
       msg => {
+        console.log(msg);
         this.buzzers.push(msg.message);
         this.exit = false;
       }
