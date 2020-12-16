@@ -37,6 +37,12 @@ export class GamesComponent implements OnInit {
       }
     )
 
+    this.socketService.syncMessages("end").subscribe(
+      msg => {
+        window.location.href = "/phone/menu"
+      }
+    )
+
     this.socketService.syncMessages("votePhoto").subscribe(
       msg => {
         console.log(msg)

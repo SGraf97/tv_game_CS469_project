@@ -50,7 +50,9 @@ export class PhotoShotGameComponent implements OnInit {
         this.users.push(newUser);
 
         if(this.users.length === 1)
+        setTimeout(() => {
           this.nextTurn();
+        }, 4000);
       }
     )
 
@@ -59,7 +61,7 @@ export class PhotoShotGameComponent implements OnInit {
       msg => {
         this.voted = this.voted + 1;
         //if everyone's voted, go to next round
-        if(this.voted === this.users.length)
+        if(this.voted === this.users.length-1)
           this.endOfRound();
       }
     )
@@ -70,6 +72,7 @@ export class PhotoShotGameComponent implements OnInit {
 
     document.getElementById('exit').addEventListener('click', () => {
       this.users.length = 0;
+      this.api.broadcastEvent("end", "");
       location.href = '/main';
     });
     
@@ -77,8 +80,9 @@ export class PhotoShotGameComponent implements OnInit {
 
   nextTurn(){
     //end game when everyon'es played
-    if(this.turn > this.users.length){
+    if(this.turn === this.users.length){
       this.users.length = 0;
+
       location.href = '/main';
     }
 

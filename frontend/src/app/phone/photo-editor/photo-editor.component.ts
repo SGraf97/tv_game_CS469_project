@@ -54,6 +54,7 @@ export class PhotoEditorComponent implements OnInit {
     //get screenshot
     this.socketService.syncMessages("capture" + this.loggedInUser.username).subscribe(msg => {
       this.captureURL = msg.message.screenshot;
+      console.log(this.captureURL);
       this.convertToFile(this.captureURL);
     })
   }

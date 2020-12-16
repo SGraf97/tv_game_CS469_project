@@ -8,13 +8,19 @@ import {UserService} from "../../services";
   styleUrls: ['./users-carusel.component.css']
 })
 export class UsersCaruselComponent implements OnInit {
-  users: any;
+  users = [];
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
       this.userService.getUsers().then(res=>{
-          this.users = res;
+          let u: any;
+          u = res;
+          for(let i of u){
+            if(i.isLoggedIn)
+            this.users.push(i);
+          }
+          
       });
 
 
