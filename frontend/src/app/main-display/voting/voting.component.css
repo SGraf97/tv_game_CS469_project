@@ -3,7 +3,8 @@
   display: flex;
 }
 .pd-2{
-  padding: 2%;
+  padding-top: 2%;
+
 }
 .ju-center{
   justify-content: center;
@@ -12,7 +13,7 @@
   display: flex;
   height: 10vh;
   justify-content: center;
-  max-width: 70vw;
+
 }
 
 .dot-container > div{
@@ -30,7 +31,7 @@
 
 .image-container{
   position: absolute;
-  left:50%;
+  left:39%;
   transition-duration: 1s;
 }
 
@@ -48,25 +49,40 @@
 }
 
 .right{
+  display: flex;
+  flex-direction: column;
   transition-duration: 1s;
   position: absolute;
   left:80%;
 }
 
 .liked{
-  transition-duration: 2s;
-  left:100vw;
+  /*transition-duration:1s ;*/
+  animation: likedAnim 1s 1;
+  animation-direction: normal;
+  left:2000px;
+  /*transition: all 1s ease-in-out;*/
+  /*-webkit-transition-duration: 2s;*/
+  /*left:500px;*/
   /*filter: blur(1000px);*/
   /*display: none;*/
 
 }
 
 .disliked{
-  transition-duration: 0.5s;
-  left:-100%;
+  animation: dislikedAnim 1s 1;
+  animation-direction: normal;
+  left:-2000px;
 }
 .image{
-  transition-duration: 2s;
+  position:absolute;
+  transition: all 1s ease-in;
+  /*transition-duration: 2s;*/
+}
+
+.image:hover{
+  transition: all 1s ease-in;
+
 }
 /* dots */
 
@@ -84,4 +100,21 @@
 
 .active{
   background-color: #FFB500;
+}
+
+
+
+@keyframes likedAnim {
+  0%   { left: 0px; }
+  50%   {left: 2000px;}
+  100%  {display: none;}
+
+}
+
+
+@keyframes dislikedAnim {
+  0%   { left: 0px; }
+  50%   {left: -2000px;}
+  100%  {display: none;}
+
 }

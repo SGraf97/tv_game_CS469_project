@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {types} from 'util';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @Component({
   selector: 'app-voting',
   templateUrl: './voting.component.html',
@@ -13,30 +14,30 @@ export class VotingComponent implements OnInit {
 
   images: any;
 
- 
+
 
   constructor() { }
 
   ngOnInit(): void {
 
-   
 
 
-    
+
+
     // tslint:disable-next-line:prefer-const
     let photoLength = 12;
 
-    
+
     for (let i = 0; i < photoLength; i++){
       const obj = {index : photoLength-i , active : false , imagePath: "assets/Rectangle%2069.png" };
-      if(i == 0)obj.active = true; 
+      if(i == 0)obj.active = true;
       this.dotArray[i] = obj;
     }
 
-    
 
-    
-    
+
+
+
     const likebtn = document.getElementById('like') as any;
     const dislikebtn  = document.getElementById('dislike') as any;
 
@@ -47,17 +48,17 @@ export class VotingComponent implements OnInit {
       const current = this.images.pop();
 
       current.classList.add('liked');
-      current.style.display = 'none';
+      // current.style.display = 'none';
       console.log(current.style.transitionDuration);
     });
     dislikebtn.addEventListener('click' , () => {
       const current = this.images.pop();
 
       current.classList.add('disliked');
-      current.style.display = 'none';
+      // current.style.display = 'none';
       // console.log(current.style.transitionDuration);
     });
-    
+
   }
 
 
