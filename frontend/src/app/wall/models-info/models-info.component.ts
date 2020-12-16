@@ -8,7 +8,7 @@ import {Model} from '../../model/models';
   styleUrls: ['./models-info.component.css']
 })
 export class ModelsInfoComponent implements OnInit {
-  // @Input() name:string;
+  @Input() name:string;
   //@Input() age:string;
   //@Input() height:string;
   age: string;
